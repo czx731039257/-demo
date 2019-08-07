@@ -52,4 +52,21 @@ public class ViewController {
         System.out.println("用户访问edituser.jsp页面");
         return "edituser";
     }
+
+    @RequestMapping(value="/roles")
+    public String roles(){
+        System.out.println("用户访问roles.jsp页面");
+        return "roles";
+    }
+    @RequestMapping(value="/editrole")
+    public String editrole(){
+        System.out.println("用户访问roles.jsp页面");
+        return "editrole";
+    }
+
+    @RequestMapping(value="/permission")
+    public String permission(){
+        System.out.println("用户访问permission.jsp页面");
+        return "permission";
+    }
 }

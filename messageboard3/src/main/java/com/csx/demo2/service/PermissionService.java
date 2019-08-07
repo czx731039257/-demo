@@ -1,6 +1,8 @@
 package com.csx.demo2.service;
 
+import com.csx.demo2.dao.PermissionDao;
 import com.csx.demo2.entity.Permission;
+import com.csx.demo2.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,9 @@ import java.util.List;
 
 @Service
 public class PermissionService {
+
+    @Autowired
+    private PermissionDao permissionDao;
 
     public void addSessionPermission(HttpSession session, List<Permission> permissions){
         Iterator<Permission> it=permissions.iterator();
@@ -93,5 +98,15 @@ public class PermissionService {
             session.removeAttribute("canAllocationRole");
             session.removeAttribute("canAllocationPermission");
 
+    }
+
+    public List<Permission> selectByRoleId(Integer roleid){
+        List<Permission> permissions = permissionDao.selectByRole(new Role(roleid, null));
+        return permissions;
+    }
+
+    public List<Permission> selectAll(){
+        List<Permission> permissions = permissionDao.selectAll();
+        return permissions;
     }
 }

@@ -33,7 +33,9 @@ public class MessageController {
         return "message";
     }
 
-
+    /*
+    * 查看个人留言
+    * */
     @RequestMapping("SelectPersonMessageController")
     public String SelectPersonMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -42,12 +44,14 @@ public class MessageController {
 
         Result result = messageService.selectPersonMessage(user);//调用业务层
 
-        session.setAttribute("messageSet",result.getMessages());
+        session.setAttribute("messageSet",result.getMessages());//把个人的留言添加到session域中
         session.setAttribute("pageBean",result.getPageBean());
         return "message";
     }
 
-
+    /*
+    * 查看所在组的留言
+    * */
     @RequestMapping("SelectGroupMessageController")
     public String SelectGroupMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -61,6 +65,9 @@ public class MessageController {
         return "message";
     }
 
+    /*
+    * 查询其他组的留言
+    * */
     @RequestMapping("SelectOtherGroupMessageController")
     public String SelectGroupOtherMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -73,6 +80,10 @@ public class MessageController {
         session.setAttribute("pageBean",result.getPageBean());
         return "message";
     }
+
+    /**
+     * 查询所有人的留言
+     */
     @RequestMapping("SelectAllMessageController")
     public String selectallcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -84,6 +95,13 @@ public class MessageController {
         session.setAttribute("pageBean",result.getPageBean());
         return "message";
     }
+
+    /**
+     * 新建留言
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("CreateMessageController")
     public String createcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -99,6 +117,13 @@ public class MessageController {
         session.setAttribute("messageSet",result.getMessages());
         return "message";
     }
+
+    /**
+     * 删除留言
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("DeleteMessageController")
     public String deletecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -113,6 +138,12 @@ public class MessageController {
         return "message";
     }
 
+    /**
+     * 进入留言编辑页面
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("IntoEditMessageController")
     public String IntoEditMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -125,6 +156,13 @@ public class MessageController {
         req.setAttribute("message",message);
         return "edit";
     }
+
+    /**
+     * 完成编辑留言的功能
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
 
     @RequestMapping("EditMessageSuccessController")
     public String editsuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {

@@ -11,7 +11,12 @@ import java.io.UnsupportedEncodingException;
 @Controller
 public class PageController {
 
-
+    /**
+     * 上一页
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("LastPageController")
     public String lastpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -22,6 +27,12 @@ public class PageController {
         return "message";
     }
 
+    /**
+     * 下一页
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("NextPageController")
     public String nextpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");

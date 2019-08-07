@@ -7,4 +7,11 @@
         select b.* from (select b.permission_id from (select a.role_id from user_role a left join user b on a.user_id=b.id where b.id=${id}) a left join role_permission b
         on a.role_id=b.role_id) a left join permission b on a.permission_id=b.id order by id asc;
     </select>
+    <select id="selectByRole" parameterType="com.csx.demo2.entity.Role" resultType="com.csx.demo2.entity.Permission">
+
+    </select>
+
+    <select id="selectAll" resultType="com.csx.demo2.entity.Permission">
+        select * from permission
+    </select>
 </mapper>

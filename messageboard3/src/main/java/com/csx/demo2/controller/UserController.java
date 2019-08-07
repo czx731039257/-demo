@@ -23,6 +23,13 @@ public class UserController {
     @Autowired
     private PermissionService permissionService;
 
+    /**
+     * 查询所有用户信息
+     * @param req
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     @RequestMapping("SelectAllUserInfoController")
     public String allusercontroller(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -33,6 +40,12 @@ public class UserController {
         return "users";
     }
 
+    /**
+     * 查询个人用户信息
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("PersonInfoController")
     public String usercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -45,6 +58,12 @@ public class UserController {
         return "person";
     }
 
+    /**
+     *
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("EditPersonInfoSuccessController")
     public String editusercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
             req.setCharacterEncoding("UTF-8");

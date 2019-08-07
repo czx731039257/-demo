@@ -30,17 +30,16 @@ public class LoginController {
         System.out.println("登入用户:"+username);//控制台输出用户名
         System.out.println("密码:"+password);//控制台输出密码
 
-        Result loginverify = loginService.loginverify(username, password);//验证
-        if(loginverify.isResult()){//验证成功
+        Result result = loginService.loginverify(username, password);//验证
+        if(result.isResult()){//验证成功
             permissionService.removeSessionPermission(session);
-            //List<Message> messages = messageService.selectAllMessage();
-            session.setAttribute("messageSet",loginverify.getMessages());//把消息对象添加到session域
-            session.setAttribute("user",loginverify.getUser());//把用户传到session域
-            session.setAttribute("pageBean",loginverify.getPageBean());//把页面对象加到session域
-            session.removeAttribute("error");//
-            session.setAttribute("permissions",loginverify.getPermissions());
-            permissionService.addSessionPermission(session,loginverify.getPermissions());
-            return "message";
+            session.setAttribute("messageSet",result.getMessages());//把消息对象添加到session域
+            session.setAttribute("user",result.getUser());//把用户传到session域
+            session.setAttribute("pageBean",result.getPageBean());//把页面对象加到session域
+            session.removeAttribute("error");//移出错误信息信息
+            session.setAttribute("permissions",result.getPermissions());//把权限集合添加到session域
+            permissionService.addSessionPermission(session,result.getPermissions());//
+            return "message";//返回前端
         }else{//验证失败
             session.setAttribute("error","用户或者密码错误！");
             return "login";
