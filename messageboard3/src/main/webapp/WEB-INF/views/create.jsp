@@ -13,6 +13,18 @@
     <link rel="stylesheet" type="text/css" href="css/form.css">
 </head>
 <body>
+<%
+    String withoutPermission = (String) session.getAttribute("withoutPermission");
+    if (withoutPermission != null && withoutPermission == "true") {
+%>
+<script>
+    alert("你没有这个权限");
+</script>
+<%
+        session.removeAttribute("withoutPermission");
+    }
+%>
+
 <div align="center" style="opacity: 0.7">
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>

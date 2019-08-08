@@ -24,7 +24,7 @@ public class PageController {
         PageBean pageBean = (PageBean)session.getAttribute("pageBean");
         pageBean.minusPageNumber();//当前页数减一
         session.setAttribute("pageBean",pageBean);
-        return "message";
+        return "redirect:"+"message";
     }
 
     /**
@@ -40,6 +40,6 @@ public class PageController {
         PageBean pageBean = (PageBean)session.getAttribute("pageBean");
         pageBean.addPageNumber();//当前页数加一
         session.setAttribute("pageBean",pageBean);
-        return "message";
+        return "redirect:"+"message";
     }
 }

@@ -7,6 +7,7 @@ import com.csx.demo2.entity.Group;
 import com.csx.demo2.entity.Message;
 import com.csx.demo2.entity.Permission;
 import com.csx.demo2.entity.User;
+import com.csx.demo2.service.UserRoleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -31,6 +32,9 @@ public class Messageboard2ApplicationTests {
 
     @Autowired
     private PermissionDao permissionDao;
+
+    @Autowired
+    private UserRoleService userRoleService;
 
     @Test
     public void testSelectUser() {
@@ -70,6 +74,14 @@ public class Messageboard2ApplicationTests {
 
     }
 
+    @Test
+    public void testuserrole() {
+        List<User> users = userRoleService.selectAllUserAndRole();
+        Iterator<User> it =users.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
 
+    }
 
 }

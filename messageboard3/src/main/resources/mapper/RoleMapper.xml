@@ -6,10 +6,10 @@
     <select id="select" parameterType="com.csx.demo2.entity.Role" resultType="com.csx.demo2.entity.Role">
         select * from role
         <where>
-            <if test="id！=null">
+            <if test="id !=null">
                 and id=#{id}
             </if>
-            <if test="name！=null">
+            <if test="name !=null">
                 and name=#{name}
             </if>
         </where>

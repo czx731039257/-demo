@@ -39,10 +39,10 @@ public class LoginController {
             session.removeAttribute("error");//移出错误信息信息
             session.setAttribute("permissions",result.getPermissions());//把权限集合添加到session域
             permissionService.addSessionPermission(session,result.getPermissions());//
-            return "message";//返回前端
+            return "redirect:"+"message";//返回前端
         }else{//验证失败
             session.setAttribute("error","用户或者密码错误！");
-            return "login";
+            return "redirect:"+"login";
         }
 
     }

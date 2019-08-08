@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface PermissionDao {
    List<Permission> select(User user);
-   List<Permission> selectByRole(Role role);
+   List<Permission> selectByRoleId(Integer roleid);
    List<Permission> selectAll();
 }

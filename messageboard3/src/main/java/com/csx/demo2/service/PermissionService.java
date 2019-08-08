@@ -101,7 +101,7 @@ public class PermissionService {
     }
 
     public List<Permission> selectByRoleId(Integer roleid){
-        List<Permission> permissions = permissionDao.selectByRole(new Role(roleid, null));
+        List<Permission> permissions = permissionDao.selectByRoleId(roleid);
         return permissions;
     }
 

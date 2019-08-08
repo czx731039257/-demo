@@ -69,4 +69,15 @@ public class ViewController {
         System.out.println("用户访问permission.jsp页面");
         return "permission";
     }
+
+    @RequestMapping(value="/allocation")
+    public String allocation(){
+        System.out.println("用户访问allocation.jsp页面");
+        return "allocation";
+    }
+    @RequestMapping(value="/test1")
+    public String test1(){
+        System.out.println("用户访问test1.jsp页面");
+        return "test1";
+    }
 }

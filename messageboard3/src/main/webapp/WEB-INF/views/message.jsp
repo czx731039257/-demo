@@ -15,6 +15,19 @@
 </head>
 <body>
 
+<%
+    String withoutPermission = (String) session.getAttribute("withoutPermission");
+    if (withoutPermission != null && withoutPermission == "true") {
+%>
+<script>
+    alert("你没有这个权限");
+</script>
+<%
+        session.removeAttribute("withoutPermission");
+    }
+%>
+
+
 <div align="center" style="opacity: 0.7">
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>
@@ -22,47 +35,53 @@
 
 <table border="0">
     <tr>
-        <td style="width:6% ">
-            <div align="left">
-                <c:if test="${not empty sessionScope.canSelectPersonInfo and not empty sessionScope.canSelectGroupInfo and canSelectOtherGroupInfo}">
-                    <form action="SelectAllUserInfoController" method="post">
-                        <input type="submit" value="查看所有用户信息">
-                    </form>
-                </c:if>
-            </div>
-        </td>
-        <td style="width: 10%">
-            <div align="left">
-                <c:if test="${not empty sessionScope.canSelectGroupInfo}">
-                    <form action="SelectGroupUserInfoController" method="post">
-                        <input type="submit" value="查看所在用户组的用户信息">
-                    </form>
-                </c:if>
-            </div>
-        </td>
-        <td style="width: 10%">
-            <div align="left">
-                <c:if test="${not empty sessionScope.canSelectOtherGroupInfo and sessionScope.canSelectOtherGroupInfo ==true}">
-                    <form action="SelectOtherGroupUserInfoController" method="post">
-                        <input type="submit" value="查看其他用户组的用户信息">
-                    </form>
-                </c:if>
-            </div>
-        </td>
-        <td style="width: 64%">
-
-        </td>
-        <td style="width: 5%">
+        <td style="width: 200px">
             <c:if test="${not empty sessionScope.canSelectPersonInfo}">
                 <form action="PersonInfoController" method="post">
-                    <input type="submit" value="个人用户信息">
+                    <input style="width: 200px" type="submit" value="查看个人用户信息">
                 </form>
             </c:if>
         </td>
-        <td style="width: 5%">
+        <td style="width: 200px">
+            <div align="left">
+                <c:if test="${not empty sessionScope.canSelectGroupInfo}">
+                    <form action="SelectGroupUserInfoController" method="post">
+                        <input style="width: 200px" type="submit" value="查看所在用户组的用户信息">
+                    </form>
+                </c:if>
+            </div>
+        </td>
+        <td style="width: 200px">
+            <div align="left">
+                <c:if test="${not empty sessionScope.canSelectOtherGroupInfo and sessionScope.canSelectOtherGroupInfo ==true}">
+                    <form action="SelectOtherGroupUserInfoController" method="post">
+                        <input style="width: 200px" type="submit" value="查看其他用户组的用户信息">
+                    </form>
+                </c:if>
+            </div>
+        </td>
+        <td style="width: 200px">
+            <div align="left">
+                <c:if test="${not empty sessionScope.canSelectPersonInfo and not empty sessionScope.canSelectGroupInfo and canSelectOtherGroupInfo}">
+                    <form action="SelectAllUserInfoController" method="post">
+                        <input style="width: 200px" type="submit" value="查看所有用户信息">
+                    </form>
+                </c:if>
+            </div>
+        </td>
+        <td style="width: 1000px">
+        </td>
+        <td style="width: 110px">
+            <c:if test="${not empty sessionScope.canAllocationRole}">
+                <form action="selectrole">
+                    <input style="width: 110px" type="submit" value="查看角色及权限">
+                </form>
+            </c:if>
+        </td>
+        <td style="width: 50px">
             <div align="center">
                 <form action="CancelUserController" method="post">
-                    <input type="submit" value="注销">
+                    <input width=style="width: 50px" type="submit" value="注销">
                 </form>
             </div>
         </td>
@@ -70,65 +89,65 @@
 </table>
 <table border="0">
     <tr>
-        <td style="width: 25%">
+        <%--<td style="width: 25%">--%>
 
-            <div align="left">
-                <form action="SelectMessageByUserNameController" method="post">
-                    <input type="text" name="name" placeholder="请输入要查询的用户名">
-                    <input type="submit" value="查询某个用户">
-                </form>
-            </div>
-        </td>
-        <td style="width: 5%">
+        <%--<div align="left">--%>
+        <%--<form action="SelectMessageByUserNameController" method="post">--%>
+        <%--<input type="text" name="name" placeholder="请输入要查询的用户名">--%>
+        <%--<input type="submit" value="查询某个用户">--%>
+        <%--</form>--%>
+        <%--</div>--%>
+        <%--</td>--%>
+        <td style="width: 200px">
             <div align="left">
                 <c:if test="${not empty sessionScope.canSelectPersonMessage}">
                     <form action="SelectPersonMessageController" method="post">
-                        <input type="submit" value="查询个人的留言">
+                        <input style="width: 200px" type="submit" value="查询个人的留言">
                     </form>
                 </c:if>
             </div>
         </td>
 
-        <td style="width: 10%">
+        <td style="width: 200px">
             <div align="left">
                 <c:if test="${not empty sessionScope.canSelectGroupMessage}">
                     <form action="SelectGroupMessageController" method="post">
-                        <input type="submit" value="查询所在用户组的人的留言">
+                        <input style="width: 200px" type="submit" value="查询所在用户组的人的留言">
                     </form>
                 </c:if>
             </div>
         </td>
-        <td style="width: 10%">
+        <td style="width: 200px">
             <div align="left">
                 <c:if test="${not empty sessionScope.canSelectOtherGroupMessage}">
                     <form action="SelectOtherGroupMessageController" method="post">
-                        <input type="submit" value="查询其他用户组的人的留言">
+                        <input style="width: 200px" type="submit" value="查询其他用户组的人的留言">
                     </form>
                 </c:if>
             </div>
         </td>
 
-        <td style="width: 5%">
+        <td style="width: 200px">
             <div align="left">
                 <c:if test="${not empty sessionScope.canSelectPersonMessage and not empty sessionScope.canSelectGroupMessage and not empty sessionScope.canSelectOtherGroupMessage}">
                     <form action="SelectAllMessageController" method="post">
-                        <input type="submit" value="查询所有人的留言">
+                        <input style="width: 200px" type="submit" value="查询所有人的留言">
                     </form>
                 </c:if>
             </div>
         </td>
+        <td style="width: 1000px">
 
-        <td style="width: 5%">
+        </td>
+
+        <td style="width: 70px">
             <div align="left">
                 <c:if test="${not empty sessionScope.canCreateMessage and sessionScope.canCreateMessage ==true}">
                     <form action="create" method="post">
-                        <input type="submit" value="新建留言">
+                        <input style="width: 70px" type="submit" value="新建留言">
                     </form>
                 </c:if>
             </div>
-        </td>
-        <td style="width:30% ">
-
         </td>
     </tr>
 </table>
@@ -150,7 +169,7 @@
     <c:if test="${sessionScope.pageBean.endIndex>=0}">
         <c:forEach items="${sessionScope.messageSet}" begin="${sessionScope.pageBean.startIndex}"
                    end="${sessionScope.pageBean.endIndex}" step="1" var="m">
-            <tr>
+            <tr style="height: 41px">
                 <td style="width: 5%"><c:out value="${m.id}"/></td>
                 <td style="width: 10%"><c:out value="${m.label}"/></td>
                 <td style="width: 35%"><c:out value="${m.detail}"/></td>
@@ -159,28 +178,27 @@
                 <td style="width: 5%"><c:out value="${m.user_id}"/></td>
                 <td style="width: 5%"><c:out value="${m.user.group_id}"/></td>
 
-                <td style="width: 5%">
-                    <div align="center" style=" opacity:0.7;">
+                <td>
+                    <div style=" opacity:0.7;">
                         <form action="DeleteMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
                             <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
-                            <input type="submit" value="删除">
+                                <input type="submit" value="删除">
                             </c:if>
                         </form>
                     </div>
                 </td>
 
                 <td style="width: 5%">
-                    <div align="center" style=" opacity:0.7;">
+                    <div style=" opacity:0.7">
                         <form action="IntoEditMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
                             <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
-                            <input type="submit" value="编辑">
+                                <input type="submit" value="编辑">
                             </c:if>
                         </form>
                     </div>
                 </td>
-
             </tr>
         </c:forEach>
     </c:if>

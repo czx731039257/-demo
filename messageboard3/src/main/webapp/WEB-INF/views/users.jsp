@@ -13,6 +13,19 @@
     <link rel="stylesheet" type="text/css" href="css/background.css">
 </head>
 <body>
+
+<%
+    String withoutPermission = (String) session.getAttribute("withoutPermission");
+    if (withoutPermission != null && withoutPermission == "true") {
+%>
+<script>
+    alert("你没有这个权限");
+</script>
+<%
+        session.removeAttribute("withoutPermission");
+    }
+%>
+
 <h1 align="center">用户列表</h1>
 <table border="1" cellpadding="0px" cellspacing="0px" style="text-align: center;width: 100%" align="center">
     <tr>
@@ -26,7 +39,7 @@
     </tr>
 
         <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
-            <tr>
+            <tr style="height: 41px">
                 <td style="width: 10%"><c:out value="${m.id}"/></td>
                 <td style="width: 20%"><c:out value="${m.name}"/></td>
                 <td style="width: 20%"><c:out value="${m.email}"/></td>

@@ -14,6 +14,18 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
+<%
+    String withoutPermission = (String) session.getAttribute("withoutPermission");
+    if (withoutPermission != null && withoutPermission == "true") {
+%>
+<script>
+    alert("你没有这个权限");
+</script>
+<%
+        session.removeAttribute("withoutPermission");
+    }
+%>
+
 <h1 style="text-align:center;position:absolute;top:200px;left: 650px;">登入页面</h1>
 
 <form action="LoginController" method="post">

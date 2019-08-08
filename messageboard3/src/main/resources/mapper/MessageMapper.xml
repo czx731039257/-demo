@@ -34,7 +34,7 @@
     </select>
 
     <select id="selectByUserName" parameterType="java.lang.String" resultType="com.csx.demo2.entity.Message" resultMap="map">
-        select b.*,a.group_id from user a left join message b on a.id=b.user_id where name=#{name}
+        select a.*,b.group_id from message a left join user b on a.user_id=b.id where name=#{name}
     </select>
     <update id="update" parameterType="com.csx.demo2.entity.Message">
         update message

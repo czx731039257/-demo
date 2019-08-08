@@ -1,0 +1,79 @@
+ http://gitlab.10101111.com:8888/trainning/train_group2.git
+
+
+后面的计划是 基于今天设计的数据库
+后面基于jdbc 做一个 留言板
+
+一共5个页面 
+
+1.登录页面,输入用户名//
+2.列表页面 可以查询当前所有留言, 一页10条进行分页,可以按照用户名查询留言列表,可以在列表页面删除留言和编辑留言
+3.留言新建页面 , 可以新建留言,也可以当做留言编辑页面使用//
+4.用户信息列表页面,除了可以查看用户信息外,还可以显示每个用户的留言个数//
+5.编辑用户信息页面//
+
+
+其他细节可以大家自己完善 核心功能要有保证
+代码放到 之前的git上,新建一个项目
+基于今天大家设计的数据库做
+同时大家将自己的数据库建表语句放到 项目的文档中
+
+
+
+
+
+
+
+
+=========================================
+RBAC
+1. 有一个超级管理员,用户名默认admin  ,可以做所有事情 
+2. 有 权限的概念, 例如  编辑用户信息,浏览用户,浏览消息,编辑自己的消息,编辑所在用户组其他人留言,编辑其他用户组的人的留言等
+3. 有角色的概念,可以 给用户 授予 角色, 也可以编辑这个角色拥有的权限 , 当用户是某个角色的时候可以拥有这个角色的权限
+4. 有用户组的概念,一个用户组可以有多个用户,用户 可以对 自己的留言,用户组内的留言,用户组外的留言进行不同的操作,例如 对于用户组外的留言能看,对于用户组内的消息能编辑等,这个是靠前两个 概念管理的
+5.其他属于RBAC的概念可以自由在自己能控制住的范围内自由发挥
+6.邮件中需要有自己设计的 数据库表的  ER图 截图
+
+
+1	编辑自己的用户信息 //
+2	编辑所在用户组的人的用户信息//
+3	编辑其他用户组的人的用户信息//
+4	浏览自己的用户信息//
+5	浏览所在用户组的人的用户信息//
+6	浏览其他用户组的人的用户信息//
+
+7	新建留言//
+8	删除自己的留言
+9	删除所在用户组的人的留言
+10	删除其他用户组的人的留言
+11	编辑自己的留言
+12	编辑所在用户组的人的留言
+13	编辑其他用户组的人的留言
+14	浏览自己的留言
+15	浏览所在组的人的留言
+16	浏览其他组的人的留言
+17	给用户分配角色
+18	给角色分配权限
+
+普通用户：1 4 5 7 8 11 14 15
+
+
+session.removeAttribute("canEditPersonInfo");
+            session.removeAttribute("canEditGroupInfo");
+            session.removeAttribute("canEditOtherGroupInfo");
+            session.removeAttribute("canSelectPersonInfo");
+            session.removeAttribute("canSelectGroupInfo");
+            session.removeAttribute("canSelectOtherGroupInfo");
+            session.removeAttribute("canCreateMessage");
+            session.removeAttribute("canDeletePersonMessage");
+            session.removeAttribute("canDeleteGroupMessage");
+            session.removeAttribute("canDeleteOtherGroupMessage");
+            session.removeAttribute("canEditPersonMessage");
+            session.removeAttribute("canEditGroupMessage");
+            session.removeAttribute("canEditOtherGroupMessage");
+            session.removeAttribute("canSelectPersonMessage");
+            session.removeAttribute("canSelectGroupMessage");
+            session.removeAttribute("canSelectOtherGroupMessage");
+            session.removeAttribute("canAllocationRole");
+            session.removeAttribute("canAllocationPermission");
+

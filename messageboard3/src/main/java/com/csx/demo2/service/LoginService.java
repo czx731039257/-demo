@@ -34,6 +34,7 @@ public class LoginService  {
             User user = check.get(0);
             List<Message> messages = messageDao.selectByUserName(username);
             int totalRecord=messages.size();
+            System.out.println("total:"+totalRecord);
             PageBean pageBean=new PageBean(1,totalRecord);
             pageBean.setMessagesType(1);//个人留言
             List<Permission> permissions = permissionDao.select(user);

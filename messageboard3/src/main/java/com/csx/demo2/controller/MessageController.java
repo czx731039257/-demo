@@ -30,7 +30,7 @@ public class MessageController {
 
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /*
@@ -46,7 +46,7 @@ public class MessageController {
 
         session.setAttribute("messageSet",result.getMessages());//把个人的留言添加到session域中
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /*
@@ -62,7 +62,7 @@ public class MessageController {
 
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /*
@@ -73,12 +73,11 @@ public class MessageController {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-
         Result result = messageService.selectOtherGroupMessage(user);//调用业务层
 
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /**
@@ -93,7 +92,7 @@ public class MessageController {
 
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /**
@@ -115,7 +114,7 @@ public class MessageController {
 
         session.setAttribute("pageBean",result.getPageBean());
         session.setAttribute("messageSet",result.getMessages());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /**
@@ -135,7 +134,7 @@ public class MessageController {
 
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
-        return "message";
+        return "redirect:"+"message";
     }
 
     /**
@@ -154,7 +153,7 @@ public class MessageController {
 
         Message message = result.getMessages().get(0);
         req.setAttribute("message",message);
-        return "edit";
+        return "redirect:"+"edit";
     }
 
     /**
@@ -175,6 +174,6 @@ public class MessageController {
         Result result = messageService.commitEditMessage(messageid, label, detail);//调用业务层
 
         session.setAttribute("messageSet",result.getMessages());
-        return "message";
+        return "redirect:"+"message";
     }
 }

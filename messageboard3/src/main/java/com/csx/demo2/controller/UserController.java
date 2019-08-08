@@ -2,8 +2,10 @@ package com.csx.demo2.controller;
 
 import com.csx.demo2.entity.User;
 import com.csx.demo2.service.PermissionService;
+import com.csx.demo2.service.UserRoleService;
 import com.csx.demo2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,6 +25,9 @@ public class UserController {
     @Autowired
     private PermissionService permissionService;
 
+    @Autowired
+    private UserRoleService userRoleService;
+
     /**
      * 查询所有用户信息
      * @param req
@@ -37,7 +42,7 @@ public class UserController {
         List<User> users = userService.selectAllUserInfo();//调用业务层
 
         session.setAttribute("users",users);
-        return "users";
+        return "redirect:"+"users";
     }
 
     /**
@@ -55,7 +60,7 @@ public class UserController {
         user = userService.selectPersonInfo(user);//调用业务层
 
         session.setAttribute("user",user);
-        return "person";
+        return "redirect:"+"person";
     }
 
     /**
@@ -77,7 +82,7 @@ public class UserController {
             user = userService.editPersonInfo(user, name, password, email, phone);//调用业务层
 
             session.setAttribute("user",user);
-            return "person";
+            return "redirect:"+"person";
     }
 
     @RequestMapping("EditUserInfoController")
@@ -87,7 +92,7 @@ public class UserController {
         String userid=req.getParameter("userid");
         User edituser = userService.editUserInfo(userid);
         session.setAttribute("edituser",edituser);
-        return "edituser";
+        return "redirect:"+"edituser";
     }
 
 
@@ -104,7 +109,7 @@ public class UserController {
         String group_id = req.getParameter("group_id");
         users = userService.editUserInfoSuccess(users, id, name, password, email, phone, group_id);
         session.setAttribute("users",users);
-        return "users";
+        return "redirect:"+"users";
     }
 
 
@@ -117,7 +122,7 @@ public class UserController {
         session.removeAttribute("messageSet");
         permissionService.removeSessionPermission(session);
         session.invalidate();
-        return "login";
+        return "redirect:"+"login";
     }
 
     @RequestMapping("SelectGroupUserInfoController")
@@ -126,7 +131,7 @@ public class UserController {
         User user = (User)session.getAttribute("user");
         List<User> users = userService.selectGroupUserInfo(user);//调用业务层
         session.setAttribute("users",users);
-        return "users";
+        return "redirect:"+"users";
     }
 
     @RequestMapping("SelectOtherGroupUserInfoController")
@@ -135,7 +140,16 @@ public class UserController {
         User user = (User)session.getAttribute("user");
         List<User> users = userService.selectOtherGroupUserInfo(user);//调用业务层
         session.setAttribute("users",users);
-        return "users";
+        return "redirect:"+"users";
     }
 
+
+
+    @RequestMapping("allocationcontroller")
+    public String allocationcontroller(HttpServletRequest req) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        List<User> usersandrole = userRoleService.selectAllUserAndRole();
+        session.setAttribute("usersandrole",usersandrole);
+        return "redirect:"+"allocation";
+    }
 }
