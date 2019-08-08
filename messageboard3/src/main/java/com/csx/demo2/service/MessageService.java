@@ -134,7 +134,7 @@ public class MessageService {
     * @return 封装了留言集合和分页信息的Result对象
     * */
     public Result intoEditMessage(String messageid){
-        List<Message> messages = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, 0));
+        List<Message> messages = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null));
         return new Result(true,null,null,messages);
     }
 
@@ -145,17 +145,33 @@ public class MessageService {
     * @param detail 编辑后的留言内容
     * @return 封装了留言集合和分页信息的Result对象
     * */
-    public Result commitEditMessage(String messageid,String label,String detail){
+    public Result commitEditMessage(String messageid,String label,String detail,PageBean pageBean,User user){
         Date date=new Date();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String date_edit=dateFormat.format(date);
-        List<Message> select = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, 0));
+        List<Message> select = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null));
         Message message = select.get(0);
         message.setLabel(label);
         message.setDetail(detail);
         message.setDate_edit(date_edit);
         messageDao.update(message);
-        List<Message> messages = messageDao.select(new Message(0,null,null,null,null,0));
-        return new Result(true,null,null,messages);
+        List<Message> messages = messageDao.select(new Message(null,null,null,null,null,null));
+
+        if(pageBean.getMessagesType()==1) {
+            messages = messageDao.select(new Message(null, null, null, null, null, user.getId()));
+            pageBean.addTotalRecord();
+        }else if(pageBean.getMessagesType()==2){
+            messages = messageDao.selectGroup(user);
+            pageBean.addTotalRecord();
+        }else if(pageBean.getMessagesType()==3){
+            messages=messageDao.selectOtherGroup(user);
+        }else if(pageBean.getMessagesType()==4){
+            messages = messageDao.select(new Message(null,null,null,null,null));
+            pageBean.addTotalRecord();
+        }else{
+
+        }
+
+        return new Result(true,null,pageBean,messages);
     }
 }

@@ -18,6 +18,10 @@ public class UserRoleService {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * 查看所有的用户以及把他们具有的角色封装到用户对象中
+     * @return
+     */
     public List<User> selectAllUserAndRole(){
         List<User> users = userDao.select(new User(null, null, null, null, null, null));
         Iterator<User> it =users.iterator();

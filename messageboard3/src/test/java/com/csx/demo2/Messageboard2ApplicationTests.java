@@ -83,5 +83,12 @@ public class Messageboard2ApplicationTests {
         }
 
     }
+    @Test
+    public void xx() {
+        List<Message> select = messageDao.select(new Message(Integer.valueOf(1), null, null, null, null, null));
+        Message message = select.get(0);
+        System.out.println(message);
+
+    }
 
 }

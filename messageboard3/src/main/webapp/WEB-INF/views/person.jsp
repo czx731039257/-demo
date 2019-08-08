@@ -44,7 +44,7 @@
     <div class="temp">所在用户组ID:${sessionScope.user.group_id}<br></div>
     <div class="temp">留言数:${sessionScope.user.count_message}
 
-        <c:if test="${not empty sessionScope.canEditPersonInfo}">
+        <c:if test="${not empty sessionScope.permission1}">
             <form action="editperson" method="post">
                 <input type="submit" style="margin: 10px" value="修改用户信息">
             </form>

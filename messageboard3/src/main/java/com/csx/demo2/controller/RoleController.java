@@ -28,6 +28,10 @@ public class RoleController {
     @Autowired
     private UserRoleService userRoleService;
 
+
+    /**
+     * 查看所有的角色
+     */
     @RequestMapping("/selectrole")
     public String selectrole(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -40,6 +44,12 @@ public class RoleController {
     }
 
 
+    /**
+     * 保存给用户分配角色
+     * @param req
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @RequestMapping("/editrolesuccesscontroller")
     public String editrolesuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -49,19 +59,20 @@ public class RoleController {
         List<User> usersandrole = (List<User>)session.getAttribute("usersandrole");
         Iterator<User> it=usersandrole.iterator();
         List<Role> roles=null;
-        while(it.hasNext()){
+        while(it.hasNext()){//定位需要更改的角色
             User user=it.next();
             if(user.getId()==Integer.valueOf(userid)){
                 roles = user.getRoles();
             }
         }
         userRoleService.changeUserRole(Integer.valueOf(userid),hasroles,roles);
-        System.out.println("用户id:"+userid);
-        for(String str:hasroles){
-            System.out.println(str);
-        }
-        usersandrole = userRoleService.selectAllUserAndRole();
+
+        usersandrole = userRoleService.selectAllUserAndRole();//更新
+        List<Permission> newuserpermissions = permissionService.selectByUser((User) session.getAttribute("user"));
         session.setAttribute("usersandrole",usersandrole);
+        session.setAttribute("permissions",newuserpermissions);
+        permissionService.removeSessionPermission(session);
+        permissionService.addSessionPermission(session,newuserpermissions);
         return "redirect:"+"allocation";
     }
 }

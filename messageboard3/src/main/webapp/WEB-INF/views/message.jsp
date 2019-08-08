@@ -17,7 +17,7 @@
 
 <%
     String withoutPermission = (String) session.getAttribute("withoutPermission");
-    if (withoutPermission != null && withoutPermission == "true") {
+    if (withoutPermission != null && withoutPermission.equals("true")) {
 %>
 <script>
     alert("你没有这个权限");
@@ -36,7 +36,7 @@
 <table border="0">
     <tr>
         <td style="width: 200px">
-            <c:if test="${not empty sessionScope.canSelectPersonInfo}">
+            <c:if test="${not empty sessionScope.permission4}">
                 <form action="PersonInfoController" method="post">
                     <input style="width: 200px" type="submit" value="查看个人用户信息">
                 </form>
@@ -44,7 +44,7 @@
         </td>
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectGroupInfo}">
+                <c:if test="${not empty sessionScope.permission5}">
                     <form action="SelectGroupUserInfoController" method="post">
                         <input style="width: 200px" type="submit" value="查看所在用户组的用户信息">
                     </form>
@@ -53,7 +53,7 @@
         </td>
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectOtherGroupInfo and sessionScope.canSelectOtherGroupInfo ==true}">
+                <c:if test="${not empty sessionScope.permission6}">
                     <form action="SelectOtherGroupUserInfoController" method="post">
                         <input style="width: 200px" type="submit" value="查看其他用户组的用户信息">
                     </form>
@@ -62,7 +62,7 @@
         </td>
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectPersonInfo and not empty sessionScope.canSelectGroupInfo and canSelectOtherGroupInfo}">
+                <c:if test="${not empty sessionScope.permission4 and not empty sessionScope.permission5 and not empty sessionScope.permission6}">
                     <form action="SelectAllUserInfoController" method="post">
                         <input style="width: 200px" type="submit" value="查看所有用户信息">
                     </form>
@@ -72,7 +72,7 @@
         <td style="width: 1000px">
         </td>
         <td style="width: 110px">
-            <c:if test="${not empty sessionScope.canAllocationRole}">
+            <c:if test="${not empty sessionScope.permission17}">
                 <form action="selectrole">
                     <input style="width: 110px" type="submit" value="查看角色及权限">
                 </form>
@@ -81,7 +81,7 @@
         <td style="width: 50px">
             <div align="center">
                 <form action="CancelUserController" method="post">
-                    <input width=style="width: 50px" type="submit" value="注销">
+                    <input style="width: 50px" type="submit" value="注销">
                 </form>
             </div>
         </td>
@@ -100,7 +100,7 @@
         <%--</td>--%>
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectPersonMessage}">
+                <c:if test="${not empty sessionScope.permission14}">
                     <form action="SelectPersonMessageController" method="post">
                         <input style="width: 200px" type="submit" value="查询个人的留言">
                     </form>
@@ -110,7 +110,7 @@
 
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectGroupMessage}">
+                <c:if test="${not empty sessionScope.permission15}">
                     <form action="SelectGroupMessageController" method="post">
                         <input style="width: 200px" type="submit" value="查询所在用户组的人的留言">
                     </form>
@@ -119,7 +119,7 @@
         </td>
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectOtherGroupMessage}">
+                <c:if test="${not empty sessionScope.permission16}">
                     <form action="SelectOtherGroupMessageController" method="post">
                         <input style="width: 200px" type="submit" value="查询其他用户组的人的留言">
                     </form>
@@ -129,7 +129,7 @@
 
         <td style="width: 200px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canSelectPersonMessage and not empty sessionScope.canSelectGroupMessage and not empty sessionScope.canSelectOtherGroupMessage}">
+                <c:if test="${not empty sessionScope.permission14 and not empty sessionScope.permission15 and not empty sessionScope.permission16}">
                     <form action="SelectAllMessageController" method="post">
                         <input style="width: 200px" type="submit" value="查询所有人的留言">
                     </form>
@@ -142,7 +142,7 @@
 
         <td style="width: 70px">
             <div align="left">
-                <c:if test="${not empty sessionScope.canCreateMessage and sessionScope.canCreateMessage ==true}">
+                <c:if test="${not empty sessionScope.permission7}">
                     <form action="create" method="post">
                         <input style="width: 70px" type="submit" value="新建留言">
                     </form>
@@ -182,7 +182,7 @@
                     <div style=" opacity:0.7;">
                         <form action="DeleteMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
-                            <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
+                            <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.permission8) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.permission9) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.permission10)}">
                                 <input type="submit" value="删除">
                             </c:if>
                         </form>
@@ -193,7 +193,7 @@
                     <div style=" opacity:0.7">
                         <form action="IntoEditMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
-                            <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
+                            <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.permission11) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.permission12) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.permission13)}">
                                 <input type="submit" value="编辑">
                             </c:if>
                         </form>

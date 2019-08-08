@@ -35,7 +35,7 @@ public class UserController {
      * @throws ServletException
      * @throws IOException
      */
-    @RequestMapping("SelectAllUserInfoController")
+    @RequestMapping("SelectAllUserInfoController")//
     public String allusercontroller(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
@@ -51,7 +51,7 @@ public class UserController {
      * @return
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping("PersonInfoController")
+    @RequestMapping("PersonInfoController")//
     public String usercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -69,7 +69,7 @@ public class UserController {
      * @return
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping("EditPersonInfoSuccessController")
+    @RequestMapping("EditPersonInfoSuccessController")//
     public String editusercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
             req.setCharacterEncoding("UTF-8");
             HttpSession session = req.getSession();
@@ -125,7 +125,7 @@ public class UserController {
         return "redirect:"+"login";
     }
 
-    @RequestMapping("SelectGroupUserInfoController")
+    @RequestMapping("SelectGroupUserInfoController")//
     public String selectGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
@@ -134,7 +134,7 @@ public class UserController {
         return "redirect:"+"users";
     }
 
-    @RequestMapping("SelectOtherGroupUserInfoController")
+    @RequestMapping("SelectOtherGroupUserInfoController")//
     public String selectOtherGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
@@ -144,11 +144,17 @@ public class UserController {
     }
 
 
-
-    @RequestMapping("allocationcontroller")
+    /**
+     * 给用户分配角色
+     * @param req
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping("allocationcontroller")//
     public String allocationcontroller(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        List<User> usersandrole = userRoleService.selectAllUserAndRole();
+        List<User> usersandrole = userRoleService.selectAllUserAndRole();//获取带有角色集合的用户对象 的集合
         session.setAttribute("usersandrole",usersandrole);
         return "redirect:"+"allocation";
     }

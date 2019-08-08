@@ -50,7 +50,7 @@
                     <div align="center" style=" opacity:0.7;">
                         <form action="EditUserInfoController" method="post">
                             <input type="hidden" name="userid" value="${m.id}">
-                            <c:if test="${(sessionScope.user.id == m.id and not empty sessionScope.canEditPersonInfo) or(sessionScope.user.id != m.id and sessionScope.user.group_id == m.group_id and not empty sessionScope.canEditGroupInfo) or (sessionScope.user.id != m.id and sessionScope.user.group_id != m.group_id and not empty sessionScope.canEditOtherGroupInfo)}">
+                            <c:if test="${(sessionScope.user.id == m.id and not empty sessionScope.permission1) or(sessionScope.user.id != m.id and sessionScope.user.group_id == m.group_id and not empty sessionScope.permission2) or (sessionScope.user.id != m.id and sessionScope.user.group_id != m.group_id and not empty sessionScope.permission3)}">
                             <input type="submit" value="编辑">
                             </c:if>
                         </form>

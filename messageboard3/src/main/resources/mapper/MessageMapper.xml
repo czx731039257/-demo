@@ -7,22 +7,22 @@
         select a.*,b.group_id from message a left join user b on a.user_id=b.id
         <where>
             <if test="id!=null">
-                id=#{id}
+               and a.id=${id}
             </if>
             <if test="label!=null">
-                label=#{label}
+               and label=#{label}
             </if>
             <if test="detail!=null">
-                detail=#{detail}
+               and detail=#{detail}
             </if>
             <if test="date_create!=null">
-                date_create=#{date_create}
+               and date_create=#{date_create}
             </if>
             <if test="date_edit!=null">
-                date_edit=#{date_edit}
+               and date_edit=#{date_edit}
             </if>
             <if test="user_id!=null">
-                user_id=#{user_id}
+              and  user_id=#{user_id}
             </if>
         </where>
     </select>

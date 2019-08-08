@@ -3,6 +3,8 @@ package com.csx.demo2.service;
 import com.csx.demo2.dao.PermissionDao;
 import com.csx.demo2.entity.Permission;
 import com.csx.demo2.entity.Role;
+import com.csx.demo2.entity.User;
+import org.omg.CORBA.PERSIST_STORE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,97 +18,53 @@ public class PermissionService {
     @Autowired
     private PermissionDao permissionDao;
 
+    /**
+     * 为了前端代码整洁 把当前用户的权限集合拆分成 多个对象
+     * @param session
+     * @param permissions
+     */
     public void addSessionPermission(HttpSession session, List<Permission> permissions){
         Iterator<Permission> it=permissions.iterator();
         while(it.hasNext()){
             Permission permission=it.next();
-            if(permission.getId()==1){
-                session.setAttribute("canEditPersonInfo",true);
-                continue;
-            }if(permission.getId()==2){
-                session.setAttribute("canEditGroupInfo",true);
-                continue;
-            }if(permission.getId()==3){
-                session.setAttribute("canEditOtherGroupInfo",true);
-                continue;
-            }if(permission.getId()==4){
-                session.setAttribute("canSelectPersonInfo",true);
-                continue;
-            }if(permission.getId()==5){
-                session.setAttribute("canSelectGroupInfo",true);
-                continue;
-            }if(permission.getId()==6){
-                session.setAttribute("canSelectOtherGroupInfo",true);
-                continue;
-            }if(permission.getId()==7){
-                session.setAttribute("canCreateMessage",true);
-                continue;
-            }if(permission.getId()==8){
-                session.setAttribute("canDeletePersonMessage",true);
-                continue;
-            }if(permission.getId()==9){
-                session.setAttribute("canDeleteGroupMessage",true);
-                continue;
-            }if(permission.getId()==10){
-                session.setAttribute("canDeleteOtherGroupMessage",true);
-                continue;
-            }if(permission.getId()==11){
-                session.setAttribute("canEditPersonMessage",true);
-                continue;
-            }if(permission.getId()==12){
-                session.setAttribute("canEditGroupMessage",true);
-                continue;
-            }if(permission.getId()==13){
-                session.setAttribute("canEditOtherGroupMessage",true);
-                continue;
-            }if(permission.getId()==14){
-                session.setAttribute("canSelectPersonMessage",true);
-                continue;
-            }if(permission.getId()==15){
-                session.setAttribute("canSelectGroupMessage",true);
-                continue;
-            }if(permission.getId()==16){
-                session.setAttribute("canSelectOtherGroupMessage",true);
-                continue;
-            }if(permission.getId()==17){
-                session.setAttribute("canAllocationRole",true);
-                continue;
-            }if(permission.getId()==18){
-                session.setAttribute("canAllocationPermission",true);
-                continue;
-            }
+            session.setAttribute("permission"+permission.getId(),permission);
         }
 
     }
-    public void removeSessionPermission(HttpSession session){
-            session.removeAttribute("canEditPersonInfo");
-            session.removeAttribute("canEditGroupInfo");
-            session.removeAttribute("canEditOtherGroupInfo");
-            session.removeAttribute("canSelectPersonInfo");
-            session.removeAttribute("canSelectGroupInfo");
-            session.removeAttribute("canSelectOtherGroupInfo");
-            session.removeAttribute("canCreateMessage");
-            session.removeAttribute("canDeletePersonMessage");
-            session.removeAttribute("canDeleteGroupMessage");
-            session.removeAttribute("canDeleteOtherGroupMessage");
-            session.removeAttribute("canEditPersonMessage");
-            session.removeAttribute("canEditGroupMessage");
-            session.removeAttribute("canEditOtherGroupMessage");
-            session.removeAttribute("canSelectPersonMessage");
-            session.removeAttribute("canSelectGroupMessage");
-            session.removeAttribute("canSelectOtherGroupMessage");
-            session.removeAttribute("canAllocationRole");
-            session.removeAttribute("canAllocationPermission");
 
+    /**
+     * 清空session域的中的所有权限对象
+     * @param session
+     */
+    public void removeSessionPermission(HttpSession session){
+        for(int i=1;i<18;i++) {
+            session.removeAttribute("permission" + i);
+        }
     }
 
+    /*
+    * 查询该角色的所有权限
+    * */
     public List<Permission> selectByRoleId(Integer roleid){
         List<Permission> permissions = permissionDao.selectByRoleId(roleid);
         return permissions;
     }
 
+    /*
+    * 查询所有的权限
+    * */
     public List<Permission> selectAll(){
         List<Permission> permissions = permissionDao.selectAll();
+        return permissions;
+    }
+
+    /**
+     * 查询 某个用户的所有权限
+     * @param user
+     * @return
+     */
+    public List<Permission> selectByUser(User user){
+        List<Permission> permissions = permissionDao.select(user);
         return permissions;
     }
 }

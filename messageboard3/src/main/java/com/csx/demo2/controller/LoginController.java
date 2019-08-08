@@ -33,11 +33,11 @@ public class LoginController {
         Result result = loginService.loginverify(username, password);//验证
         if(result.isResult()){//验证成功
             permissionService.removeSessionPermission(session);
-            session.setAttribute("messageSet",result.getMessages());//把消息对象添加到session域
-            session.setAttribute("user",result.getUser());//把用户传到session域
-            session.setAttribute("pageBean",result.getPageBean());//把页面对象加到session域
+            session.setAttribute("messageSet",result.getMessages());//把 留言对象的集合 添加到session域
+            session.setAttribute("user",result.getUser());//把 用户对象 传到session域
+            session.setAttribute("pageBean",result.getPageBean());//把 分页 对象加到session域
             session.removeAttribute("error");//移出错误信息信息
-            session.setAttribute("permissions",result.getPermissions());//把权限集合添加到session域
+            session.setAttribute("permissions",result.getPermissions());//把 权限集合 添加到session域
             permissionService.addSessionPermission(session,result.getPermissions());//
             return "redirect:"+"message";//返回前端
         }else{//验证失败

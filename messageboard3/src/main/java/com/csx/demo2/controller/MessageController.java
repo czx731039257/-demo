@@ -20,7 +20,7 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @RequestMapping("SelectMessageByUserNameController")
+    @RequestMapping("SelectMessageByUserNameController")//
     public String selectbynamecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
@@ -36,7 +36,7 @@ public class MessageController {
     /*
     * 查看个人留言
     * */
-    @RequestMapping("SelectPersonMessageController")
+    @RequestMapping("SelectPersonMessageController")//
     public String SelectPersonMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -52,7 +52,7 @@ public class MessageController {
     /*
     * 查看所在组的留言
     * */
-    @RequestMapping("SelectGroupMessageController")
+    @RequestMapping("SelectGroupMessageController")//
     public String SelectGroupMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -68,7 +68,7 @@ public class MessageController {
     /*
     * 查询其他组的留言
     * */
-    @RequestMapping("SelectOtherGroupMessageController")
+    @RequestMapping("SelectOtherGroupMessageController")//
     public String SelectGroupOtherMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -83,7 +83,7 @@ public class MessageController {
     /**
      * 查询所有人的留言
      */
-    @RequestMapping("SelectAllMessageController")
+    @RequestMapping("SelectAllMessageController")//
     public String selectallcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -101,7 +101,7 @@ public class MessageController {
      * @return
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping("CreateMessageController")
+    @RequestMapping("CreateMessageController")//
     public String createcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
@@ -123,7 +123,7 @@ public class MessageController {
      * @return
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping("DeleteMessageController")
+    @RequestMapping("DeleteMessageController")//
     public String deletecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");//获取要删除的留言id
@@ -152,7 +152,7 @@ public class MessageController {
         Result result = messageService.intoEditMessage(messageid);//调用业务层
 
         Message message = result.getMessages().get(0);
-        req.setAttribute("message",message);
+        req.getSession().setAttribute("message",message);
         return "redirect:"+"edit";
     }
 
@@ -167,12 +167,13 @@ public class MessageController {
     public String editsuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
         String messageid = req.getParameter("messageid");
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
-
-        Result result = messageService.commitEditMessage(messageid, label, detail);//调用业务层
-
+        Result result = messageService.commitEditMessage(messageid, label, detail,pageBean,user);//调用业务层
+        session.setAttribute("pageBean",result.getPageBean());
         session.setAttribute("messageSet",result.getMessages());
         return "redirect:"+"message";
     }
