@@ -39,7 +39,7 @@ public class MessageService {
     * @return 封装了留言集合和分页信息的Result对象
     * */
     public Result selectMessageByUserName(String username){
-        List<Message> messages = messageDao.selectByUserName(username);
+        List<Message> messages = messageDao.selectByUserName(new User(null,username,null,null,null,null));
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(5);
         Result result=new Result(true,null,pageBean,messages);

@@ -1,6 +1,5 @@
 package com.csx.demo2.entity;
 
-import org.apache.ibatis.type.Alias;
 
 public class Message {
     private Integer id;

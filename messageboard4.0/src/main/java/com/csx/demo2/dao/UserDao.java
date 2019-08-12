@@ -1,8 +1,8 @@
 package com.csx.demo2.dao;
 
 import com.csx.demo2.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 
