@@ -18,13 +18,8 @@ public class MyFilter implements javax.servlet.Filter {
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("拦截请求**************************************");
         HttpServletRequest request=(HttpServletRequest)servletRequest;
         HttpSession session = request.getSession();//获取session域
-        String requestURI = request.getRequestURI();
-        int i = requestURI.indexOf("/", 1);
-        String substring = requestURI.substring(i+1);
-        System.out.println(substring);
         if(session.getAttribute("user")==null){//还未登入
             System.out.println("过滤器判定你还没登入，跳到登入页面********************");
             ((HttpServletResponse)servletResponse).sendRedirect("login");//跳转回登入页

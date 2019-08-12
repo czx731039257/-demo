@@ -26,7 +26,10 @@ public class config extends WebMvcConfigurerAdapter {
                 .addPathPatterns("/SelectOtherGroupUserInfoController")
                 .addPathPatterns("/SelectAllUserInfoController")
                 .addPathPatterns("/allocationcontroller")
-                .addPathPatterns("/EditPersonInfoSuccessController");
-
+                .addPathPatterns("/EditPersonInfoSuccessController")
+                .addPathPatterns("/selectrole")
+                .addPathPatterns("/editrolesuccesscontroller")
+                .addPathPatterns("/editpermissioncontroller")
+                .addPathPatterns("/editpermissionsuccess");
     }
 }
