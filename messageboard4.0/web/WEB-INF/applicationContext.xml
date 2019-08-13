@@ -4,27 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-
+    <!--6 容器自动扫描IOC组件  -->
+    <context:component-scan base-package="com.csx.demo2"></context:component-scan>
     <context:property-placeholder location="/WEB-INF/db.properties" />
-    <!--2 配置C3P0数据源 -->
-<!--    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
-<!--        &lt;!&ndash;驱动类名 &ndash;&gt;-->
-<!--        <property name="driverClass" value="${jdbc.driver}" />-->
-<!--        &lt;!&ndash; url &ndash;&gt;-->
-<!--        <property name="jdbcUrl" value="${jdbc.url}" />-->
-<!--        &lt;!&ndash; 用户名 &ndash;&gt;-->
-<!--        <property name="user" value="${jdbc.username}" />-->
-<!--        &lt;!&ndash; 密码 &ndash;&gt;-->
-<!--        <property name="password" value="${jdbc.password}" />-->
-<!--        &lt;!&ndash; 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数  &ndash;&gt;-->
-<!--        <property name="acquireIncrement" value="5"></property>-->
-<!--        &lt;!&ndash; 初始连接池大小 &ndash;&gt;-->
-<!--        <property name="initialPoolSize" value="10"></property>-->
-<!--        &lt;!&ndash; 连接池中连接最小个数 &ndash;&gt;-->
-<!--        <property name="minPoolSize" value="5"></property>-->
-<!--        &lt;!&ndash; 连接池中连接最大个数 &ndash;&gt;-->
-<!--        <property name="maxPoolSize" value="20"></property>-->
-<!--    </bean>-->
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -62,8 +44,7 @@
     <!--支持注解驱动的事务管理，指定事务管理器 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!--6 容器自动扫描IOC组件  -->
-    <context:component-scan base-package="com.csx.demo2"></context:component-scan>
+
 
 
 </beans>

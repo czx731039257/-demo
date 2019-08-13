@@ -69,6 +69,16 @@ public class MyHandler implements HandlerInterceptor {
             return true;
         else if(requestURI.equals("editpermissionsuccess")&&traverse(17,permissions))
             return true;
+        else if(requestURI.equals("create")&&traverse(7,permissions))
+            return true;
+        else if(requestURI.equals("allocation")&&traverse(17,permissions))
+            return true;
+        else if(requestURI.equals("permission")&&traverse(17,permissions))
+            return true;
+        else if(requestURI.equals("roles")&&traverse(17,permissions))
+            return true;
+        else if(requestURI.equals("editrole")&&traverse(17,permissions))
+            return true;
         else
             return false;
     }

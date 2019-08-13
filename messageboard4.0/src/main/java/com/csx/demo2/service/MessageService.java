@@ -28,7 +28,7 @@ public class MessageService {
     * 查询所有用户
     */
     public Result selectAllMessage(){
-        List<Message> messages = messageDao.select(new Message(null, null, null, null, null, null));
+        List<Message> messages = messageDao.select(new Message( null, null, null, null, null));
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(4);
         return new Result(true,null,pageBean,messages);
@@ -86,7 +86,7 @@ public class MessageService {
         messageDao.insert(message);//创建新的留言
         List<Message> messages=null;
         if(pageBean.getMessagesType()==1) {
-            messages = messageDao.select(new Message(null, null, null, null, null, user.getId()));
+            messages = messageDao.select(new Message( null, null, null, null, user.getId()));
             pageBean.addTotalRecord();
         }else if(pageBean.getMessagesType()==2){
             messages = messageDao.selectGroup(user);
@@ -112,7 +112,7 @@ public class MessageService {
         messageDao.deleteById(Integer.valueOf(messageid));//执行删除操作
         List<Message> messages = null;
         if(pageBean.getMessagesType()==1) {
-            messages = messageDao.select(new Message(null, null, null, null, null, user.getId()));
+            messages = messageDao.select(new Message( null, null, null, null, user.getId()));
             pageBean.minusTotalRecord();
         }else if(pageBean.getMessagesType()==2){
             messages = messageDao.selectGroup(user);
@@ -155,10 +155,10 @@ public class MessageService {
         message.setDetail(detail);
         message.setDate_edit(date_edit);
         messageDao.update(message);
-        List<Message> messages = messageDao.select(new Message(null,null,null,null,null,null));
+        List<Message> messages = messageDao.select(new Message(null,null,null,null,null));
 
         if(pageBean.getMessagesType()==1) {
-            messages = messageDao.select(new Message(null, null, null, null, null, user.getId()));
+            messages = messageDao.select(new Message( null, null, null, null, user.getId()));
             pageBean.addTotalRecord();
         }else if(pageBean.getMessagesType()==2){
             messages = messageDao.selectGroup(user);

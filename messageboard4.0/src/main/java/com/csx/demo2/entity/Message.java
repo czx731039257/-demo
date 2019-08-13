@@ -12,6 +12,15 @@ public class Message {
 
     public Message() {
     }
+    public Message(String label, String detail, String date_create, String date_edit, Integer user_id,Integer group_id) {
+        this.label = label;
+        this.detail = detail;
+        this.date_create = date_create;
+        this.date_edit = date_edit;
+        this.user_id = user_id;
+        this.user.setId(user_id);
+        this.user.setGroup_id(group_id);
+    }
 
     public Message(String label, String detail, String date_create, String date_edit, Integer user_id) {
         this.label = label;

@@ -143,10 +143,11 @@ public class MessageController {
      * @return
      * @throws UnsupportedEncodingException
      */
-    @RequestMapping("IntoEditMessageController")
+    @RequestMapping("IntoEditMessageController")//
     public String IntoEditMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");
+        //System.out.println("准备修改的message的id:"+messageid);
         req.setAttribute("messageid",messageid);
 
         Result result = messageService.intoEditMessage(messageid);//调用业务层
@@ -163,7 +164,7 @@ public class MessageController {
      * @throws UnsupportedEncodingException
      */
 
-    @RequestMapping("EditMessageSuccessController")
+    @RequestMapping("EditMessageSuccessController")//
     public String editsuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();

@@ -84,7 +84,7 @@ public class UserController {
             return "redirect:"+"person";
     }
 
-    @RequestMapping("EditUserInfoController")
+    @RequestMapping("EditUserInfoController")//
     public String editUserController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();

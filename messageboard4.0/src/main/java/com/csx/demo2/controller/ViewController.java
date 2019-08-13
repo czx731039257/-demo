@@ -53,24 +53,24 @@ public class ViewController {
         return "edituser";
     }
 
-    @RequestMapping(value="/roles")
+    @RequestMapping(value="/roles")//
     public String roles(){
         System.out.println("用户访问roles.jsp页面");
         return "roles";
     }
-    @RequestMapping(value="/editrole")
+    @RequestMapping(value="/editrole")//
     public String editrole(){
         System.out.println("用户访问roles.jsp页面");
         return "editrole";
     }
 
-    @RequestMapping(value="/permission")
+    @RequestMapping(value="/permission")//
     public String permission(){
         System.out.println("用户访问permission.jsp页面");
         return "permission";
     }
 
-    @RequestMapping(value="/allocation")
+    @RequestMapping(value="/allocation")//
     public String allocation(){
         System.out.println("用户访问allocation.jsp页面");
         return "allocation";

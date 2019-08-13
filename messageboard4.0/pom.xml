@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.csx</groupId>
-    <artifactId>demo4.0</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>messageboard</artifactId>
+    <version>4.0</version>
     <packaging>war</packaging>
 
     <build>

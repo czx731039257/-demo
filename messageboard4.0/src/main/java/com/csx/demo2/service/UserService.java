@@ -31,7 +31,7 @@ public class UserService {
         while(it.hasNext()){
             User next = it.next();
             System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
         return users;
@@ -44,7 +44,7 @@ public class UserService {
         while(it.hasNext()){
             User next = it.next();
             System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
         return users;
@@ -56,7 +56,7 @@ public class UserService {
         while(it.hasNext()){
             User next = it.next();
             System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
         return users;
@@ -68,7 +68,7 @@ public class UserService {
     * */
     public User selectPersonInfo(User user){
         user = userDao.select(new User(user.getId(), null, null, null, null, null)).get(0);
-        List<Message> messages = messageDao.select(new Message(null,null,null,null,null,user.getId()));
+        List<Message> messages = messageDao.select(new Message(null,null,null,null,user.getId()));
         user.setCount_message(messages.size());
         return user;
     }
