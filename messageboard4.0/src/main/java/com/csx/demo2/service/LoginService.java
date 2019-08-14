@@ -32,14 +32,10 @@ public class LoginService  {
         List<User> check = userDao.select(new User(null,username,password,null,null,null));//根据用户名和密码查看该用户
 
         if(check.size()==1){//登入成功
-            System.out.println("登入成功！");
+            //System.out.println("登入成功！");
             User user = check.get(0);//获取当前用户的基本信息
-            System.out.printf(user.toString());
+            //System.out.printf(user.toString());
             List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
-            Iterator<Message> it=messages.iterator();
-            while(it.hasNext()){
-                System.out.println(it.next().getUser());
-            }
 
             int totalRecord=messages.size();//总留言数
             PageBean pageBean=new PageBean(1,totalRecord);//根据留言集合封装 分页对象
@@ -47,7 +43,7 @@ public class LoginService  {
             List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
             return new Result(user,true,pageBean,messages,permissions);
         }else{//登入失败
-            System.out.println("登入失败！");
+            //System.out.println("登入失败！");
             return new Result(false,null,null,null);
         }
     }

@@ -52,7 +52,7 @@ public class PageBean {
 
     public int getStartIndex() {
         startIndex=(pageNumber-1)*pageSize;
-        System.out.println("start:"+startIndex);
+       // System.out.println("start:"+startIndex);
         return startIndex;
     }
 
@@ -62,10 +62,10 @@ public class PageBean {
 
     public int getEndIndex(){
         if(pageNumber<totalPage){
-            System.out.println("end:"+(pageNumber*pageSize-1));
+            //System.out.println("end:"+(pageNumber*pageSize-1));
             return pageNumber*pageSize-1;
         }else{
-            System.out.println("end:"+(totalRecord-1));
+            //System.out.println("end:"+(totalRecord-1));
             return totalRecord-1;
         }
     }

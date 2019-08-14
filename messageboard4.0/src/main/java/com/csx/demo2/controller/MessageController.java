@@ -21,7 +21,7 @@ public class MessageController {
     private MessageService messageService;
 
     @RequestMapping("SelectMessageByUserNameController")//
-    public String selectbynamecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String Selectbynamecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         HttpSession session = req.getSession();
@@ -44,6 +44,7 @@ public class MessageController {
 
         Result result = messageService.selectPersonMessage(user);//调用业务层
 
+        session.setAttribute("logmsg",result.getMessages().toString());
         session.setAttribute("messageSet",result.getMessages());//把个人的留言添加到session域中
         session.setAttribute("pageBean",result.getPageBean());
         return "redirect:"+"message";
@@ -60,6 +61,7 @@ public class MessageController {
 
         Result result = messageService.selectGroupMessage(user);//调用业务层
 
+        session.setAttribute("logmsg",result.getMessages().toString());
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
         return "redirect:"+"message";
@@ -69,12 +71,14 @@ public class MessageController {
     * 查询其他组的留言
     * */
     @RequestMapping("SelectOtherGroupMessageController")//
-    public String SelectGroupOtherMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String SelectOtherGroupMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
+
         Result result = messageService.selectOtherGroupMessage(user);//调用业务层
 
+        session.setAttribute("logmsg",result.getMessages().toString());
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
         return "redirect:"+"message";
@@ -84,7 +88,7 @@ public class MessageController {
      * 查询所有人的留言
      */
     @RequestMapping("SelectAllMessageController")//
-    public String selectallcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String SelectAllMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
 
@@ -102,7 +106,7 @@ public class MessageController {
      * @throws UnsupportedEncodingException
      */
     @RequestMapping("CreateMessageController")//
-    public String createcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String CreateMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
@@ -112,6 +116,7 @@ public class MessageController {
 
         Result result = messageService.createMessage(pageBean, user, label, detail);//调用业务层
 
+        session.setAttribute("logmsg","新建留言"+result.getLogmsg()+"成功");
         session.setAttribute("pageBean",result.getPageBean());
         session.setAttribute("messageSet",result.getMessages());
         return "redirect:"+"message";
@@ -124,14 +129,16 @@ public class MessageController {
      * @throws UnsupportedEncodingException
      */
     @RequestMapping("DeleteMessageController")//
-    public String deletecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String DeleteMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");//获取要删除的留言id
         HttpSession session = req.getSession();
         PageBean pageBean = (PageBean)session.getAttribute("pageBean");
         User user = (User)session.getAttribute("user");
+
         Result result = messageService.deleteMessage(user,pageBean,messageid);//调用业务层
 
+        session.setAttribute("logmsg",result.getLogmsg());
         session.setAttribute("messageSet",result.getMessages());
         session.setAttribute("pageBean",result.getPageBean());
         return "redirect:"+"message";
@@ -165,7 +172,7 @@ public class MessageController {
      */
 
     @RequestMapping("EditMessageSuccessController")//
-    public String editsuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String EditMessageSuccessController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
@@ -173,7 +180,10 @@ public class MessageController {
         String messageid = req.getParameter("messageid");
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
+
         Result result = messageService.commitEditMessage(messageid, label, detail,pageBean,user);//调用业务层
+
+        session.setAttribute("logmsg",result.getLogmsg());
         session.setAttribute("pageBean",result.getPageBean());
         session.setAttribute("messageSet",result.getMessages());
         return "redirect:"+"message";

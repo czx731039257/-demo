@@ -99,7 +99,7 @@ public class MessageService {
         }else{
 
         }
-        return new Result(true,user,pageBean,messages);
+        return new Result(true,user,pageBean,messages,message.toString());
     }
 
     /*
@@ -109,6 +109,7 @@ public class MessageService {
     * @return 封装了留言集合和分页信息的Result对象
     * */
     public Result deleteMessage(User user ,PageBean pageBean,String messageid){
+        Message message = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null)).get(0);
         messageDao.deleteById(Integer.valueOf(messageid));//执行删除操作
         List<Message> messages = null;
         if(pageBean.getMessagesType()==1) {
@@ -125,7 +126,8 @@ public class MessageService {
         }else{
 
         }
-        return new Result(true,null, pageBean, messages);
+        System.out.println(message);
+        return new Result(true,null, pageBean, messages,"删除留言"+message.toString()+"成功");
     }
 
     /*
@@ -146,6 +148,7 @@ public class MessageService {
     * @return 封装了留言集合和分页信息的Result对象
     * */
     public Result commitEditMessage(String messageid,String label,String detail,PageBean pageBean,User user){
+        Message oldmessage = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null)).get(0);
         Date date=new Date();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String date_edit=dateFormat.format(date);
@@ -155,6 +158,7 @@ public class MessageService {
         message.setDetail(detail);
         message.setDate_edit(date_edit);
         messageDao.update(message);
+        Message newmessage = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null)).get(0);
         List<Message> messages = messageDao.select(new Message(null,null,null,null,null));
 
         if(pageBean.getMessagesType()==1) {
@@ -172,6 +176,6 @@ public class MessageService {
 
         }
 
-        return new Result(true,null,pageBean,messages);
+        return new Result(true,null,pageBean,messages,"把留言"+oldmessage+"\n修改成"+newmessage);
     }
 }

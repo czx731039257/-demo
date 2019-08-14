@@ -30,7 +30,7 @@ public class UserService {
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
-            System.out.println(next.getId());
+            //System.out.println(next.getId());
             List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
@@ -43,7 +43,7 @@ public class UserService {
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
-            System.out.println(next.getId());
+            //System.out.println(next.getId());
             List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
@@ -55,7 +55,7 @@ public class UserService {
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
-            System.out.println(next.getId());
+            //System.out.println(next.getId());
             List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
             next.setCount_message(messages.size());
         }
@@ -88,7 +88,7 @@ public class UserService {
         user.setEmail(email);
         user.setPassword(password);
         user.setPhone(phone);
-        System.out.println(user);
+        //System.out.println(user);
         userDao.update(user);
         return user;
     }

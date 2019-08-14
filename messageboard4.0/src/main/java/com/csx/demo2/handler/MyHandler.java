@@ -15,7 +15,7 @@ public class MyHandler implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String referer = request.getHeader("REFERER");
         if(referer==null){
-            System.out.println("请不要跳过按键自己访问页面");
+            //System.out.println("请不要跳过按键自己访问页面");
             request.getSession().setAttribute("accesserror","true");
             request.getRequestDispatcher("message").forward(request,response);
             return false;
@@ -25,8 +25,8 @@ public class MyHandler implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
         i = requestURI.lastIndexOf('/');
         requestURI = requestURI.substring(i + 1);
-        System.out.println("来源页面：" + referer);
-        System.out.println("拦截了：" + requestURI);
+        //System.out.println("来源页面：" + referer);
+        //System.out.println("拦截了：" + requestURI);
         if(isHasThisPermission(request,requestURI))
             return true;
         else {

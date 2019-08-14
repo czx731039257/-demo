@@ -35,7 +35,7 @@ public class UserController {
      * @throws IOException
      */
     @RequestMapping("SelectAllUserInfoController")//
-    public String allusercontroller(HttpServletRequest req) throws ServletException, IOException {
+    public String SelectAllUserInfoController(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
         List<User> users = userService.selectAllUserInfo();//调用业务层
@@ -51,13 +51,14 @@ public class UserController {
      * @throws UnsupportedEncodingException
      */
     @RequestMapping("PersonInfoController")//
-    public String usercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String PersonInfoController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
 
         user = userService.selectPersonInfo(user);//调用业务层
 
+        session.setAttribute("logmsg","成功");
         session.setAttribute("user",user);
         return "redirect:"+"person";
     }
@@ -69,7 +70,7 @@ public class UserController {
      * @throws UnsupportedEncodingException
      */
     @RequestMapping("EditPersonInfoSuccessController")//
-    public String editusercontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String EditPersonInfoSuccessController(HttpServletRequest req) throws UnsupportedEncodingException {
             req.setCharacterEncoding("UTF-8");
             HttpSession session = req.getSession();
             String name = req.getParameter("name");
@@ -80,12 +81,13 @@ public class UserController {
             User user = (User)session.getAttribute("user");
             user = userService.editPersonInfo(user, name, password, email, phone);//调用业务层
 
+            session.setAttribute("logmsg","成功");
             session.setAttribute("user",user);
             return "redirect:"+"person";
     }
 
     @RequestMapping("EditUserInfoController")//
-    public String editUserController(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String EditUserInfoController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         String userid=req.getParameter("userid");
@@ -96,7 +98,7 @@ public class UserController {
 
 
     @RequestMapping("EditUserInfoSuccessController")
-    public String EditPersonInfoSuccessController(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String EditUserInfoSuccessController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         List<User> users = (List<User>) session.getAttribute("users");
@@ -107,37 +109,41 @@ public class UserController {
         String phone = req.getParameter("phone");
         String group_id = req.getParameter("group_id");
         users = userService.editUserInfoSuccess(users, id, name, password, email, phone, group_id);
+        session.setAttribute("logmsg","成功");
         session.setAttribute("users",users);
         return "redirect:"+"users";
     }
 
 
     @RequestMapping("CancelUserController")
-    public String cancelcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
+    public String CancelUserController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         session.removeAttribute("user");//从session域中删除user
         session.removeAttribute("pageBean");
         session.removeAttribute("messageSet");
+        session.setAttribute("logmsg","成功");
         permissionService.removeSessionPermission(session);
         session.invalidate();
         return "redirect:"+"login";
     }
 
     @RequestMapping("SelectGroupUserInfoController")//
-    public String selectGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
+    public String SelectGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         List<User> users = userService.selectGroupUserInfo(user);//调用业务层
+        session.setAttribute("logmsg","成功");
         session.setAttribute("users",users);
         return "redirect:"+"users";
     }
 
     @RequestMapping("SelectOtherGroupUserInfoController")//
-    public String selectOtherGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
+    public String SelectOtherGroupUserInfoController(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         List<User> users = userService.selectOtherGroupUserInfo(user);//调用业务层
+        session.setAttribute("logmsg","成功");
         session.setAttribute("users",users);
         return "redirect:"+"users";
     }
@@ -154,6 +160,7 @@ public class UserController {
     public String allocationcontroller(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         List<User> usersandrole = userRoleService.selectAllUserAndRole();//获取带有角色集合的用户对象 的集合
+        session.setAttribute("logmsg","成功");
         session.setAttribute("usersandrole",usersandrole);
         return "redirect:"+"allocation";
     }
