@@ -83,6 +83,13 @@
         </td>
         <td style="width: 1000px">
         </td>
+        <th style="width:110px">
+            <c:if test="${not empty sessionScope.permission18}">
+                <form action="selectlog">
+                    <input style="width: 110px" type="submit" value="查看日志">
+                </form>
+            </c:if>
+        </th>
         <td style="width: 110px">
             <c:if test="${not empty sessionScope.permission17}">
                 <form action="selectrole">

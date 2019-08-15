@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+    <mvc:resources location="/picture/" mapping="/demo/picture/**"/>
+    <mvc:resources location="/css/" mapping="/demo/css/**"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/selectrole"/>
+            <mvc:mapping path="/SelectPersonMessageController"/>
+            <mvc:mapping path="/SelectGroupMessageController"/>
+            <mvc:mapping path="/SelectOtherGroupMessageController"/>
+            <mvc:mapping path="/SelectAllMessageController"/>
+            <mvc:mapping path="/CreateMessageController"/>
+            <mvc:mapping path="/PersonInfoController"/>
+            <mvc:mapping path="/SelectGroupUserInfoController"/>
+            <mvc:mapping path="/SelectOtherGroupUserInfoController"/>
+            <mvc:mapping path="/SelectAllUserInfoController"/>
+            <mvc:mapping path="/allocationcontroller"/>
+            <mvc:mapping path="/EditPersonInfoSuccessController"/>
+            <mvc:mapping path="/editrolesuccesscontroller"/>
+            <mvc:mapping path="/editpermissioncontroller"/>
+            <mvc:mapping path="/editpermissionsuccess"/>
+            <mvc:mapping path="/create"/>
+            <mvc:mapping path="/allocation"/>
+            <mvc:mapping path="/permission"/>
+            <mvc:mapping path="/roles"/>
+            <mvc:mapping path="/editrole"/>
+            <bean class="com.csx.demo2.handler.MyHandler"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <aop:aspectj-autoproxy/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+        <property name="prefix" value="/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--需要扫描注解的包-->
+    <context:component-scan base-package="com.csx.demo2.controller"/>
+    <context:component-scan base-package="com.csx.demo2.aspect"/>
+    <!--<mvc:annotation-driven/>-->
+
+
+</beans>

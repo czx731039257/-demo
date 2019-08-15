@@ -26,7 +26,7 @@
         <!-- 别名 -->
         <property name="typeAliasesPackage" value="com.zhangguo.bookstore.entities"></property>
         <!-- sql映射文件路径 -->
-        <property name="mapperLocations" value="classpath:com/csx/demo2/mapper/*Mapper.xml"></property>
+        <property name="mapperLocations" value="classpath:com/csx/demo2/mapper/UserRoleMapper.xml"></property>
     </bean>
 
     <!--4 自动扫描对象关系映射 -->
