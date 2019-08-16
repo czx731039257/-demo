@@ -80,4 +80,14 @@ public class ViewController {
         System.out.println("用户访问test1.jsp页面");
         return "test1";
     }
+    @RequestMapping(value="/test")
+    public String test(){
+        System.out.println("用户访问test.jsp页面");
+        return "test";
+    }
+    @RequestMapping(value="/test2")
+    public String test2(){
+        System.out.println("用户访问test2.jsp页面");
+        return "test2";
+    }
 }

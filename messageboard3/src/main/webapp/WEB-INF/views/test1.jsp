@@ -6,18 +6,8 @@
 
 </head>
 <body>
-    <%
-        String withoutPermission = (String)session.getAttribute("withoutPermission");
-        if(withoutPermission!=null&&withoutPermission == "true"){
-    %>
-    <script>
-        alert("你没有这个权限");
-    </script>
-    <%
-            session.removeAttribute("withoutPermission");
-        }
-    %>
-    <form action="testcontroller1">
-        <input type="submit" value="跳到testcontroller在跳回此页面">
-    </form>
+    登入成功
+    <a href="logout">注销</a>
+
+<a href="permission1">权限1</a>
 </body>
