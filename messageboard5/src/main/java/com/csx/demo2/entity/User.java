@@ -15,8 +15,21 @@ public class User {
     private List<Role> roles;
     private List<Message> messages;
     private Integer count_message;
+    private Integer headportrait_id;
+    private HeadPortrait currentHeadPortrait;
+    private List<HeadPortrait> headPortraits;
 
     public User() {
+    }
+
+    public User(Integer id, String name, String password, String email, String phone, Integer group_id, Integer headportrait_id) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.group_id = group_id;
+        this.headportrait_id = headportrait_id;
     }
 
     public User(Integer id, String name, String password, String email, String phone, Integer group_id) {
@@ -116,6 +129,30 @@ public class User {
         this.count_message = count_message;
     }
 
+    public HeadPortrait getCurrentHeadPortrait() {
+        return currentHeadPortrait;
+    }
+
+    public void setCurrentHeadPortrait(HeadPortrait currentHeadPortrait) {
+        this.currentHeadPortrait = currentHeadPortrait;
+    }
+
+    public List<HeadPortrait> getHeadPortraits() {
+        return headPortraits;
+    }
+
+    public void setHeadPortraits(List<HeadPortrait> headPortraits) {
+        this.headPortraits = headPortraits;
+    }
+
+    public Integer getHeadportrait_id() {
+        return headportrait_id;
+    }
+
+    public void setHeadportrait_id(Integer headportrait_id) {
+        this.headportrait_id = headportrait_id;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -127,6 +164,10 @@ public class User {
                 ", group_id=" + group_id +
                 ", roles=" + roles +
                 ", messages=" + messages +
+                ", count_message=" + count_message +
+                ", headPortrait_id=" + headportrait_id +
+                ", currentHeadPortrait=" + currentHeadPortrait +
+                ", headPortraits=" + headPortraits +
                 '}';
     }
 }

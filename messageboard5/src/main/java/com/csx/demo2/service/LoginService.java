@@ -1,5 +1,6 @@
 package com.csx.demo2.service;
 
+import com.csx.demo2.dao.HeadPortraitDao;
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.dao.PermissionDao;
 import com.csx.demo2.dao.UserDao;
@@ -23,6 +24,9 @@ public class LoginService {
 
     @Autowired
     private PermissionDao permissionDao;
+
+    @Autowired
+    private HeadPortraitDao headPortraitDao;
 
     /*
      * 登入验证业务逻辑
@@ -57,6 +61,11 @@ public class LoginService {
                 pageBean.setMessagesType(1);//个人留言
                 List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
                 //return new Result(user, true, pageBean, messages, permissions);
+                List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
+                user.setHeadPortraits(headPortraits);
+                List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
+                HeadPortrait headPortrait = select.get(0);
+                user.setCurrentHeadPortrait(headPortrait);
                 return new VerifyResult(user,2,pageBean,messages,permissions,"成功");
             }else{
                 return new VerifyResult(user,1,null,null,null,"失败");

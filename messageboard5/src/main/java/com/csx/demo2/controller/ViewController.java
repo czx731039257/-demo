@@ -95,6 +95,12 @@ public class ViewController {
     @RequestMapping(value="/filelist")
     public String filelist(){
         //System.out.println("用户访问test1.jsp页面");
-        return "filelist";
+        return "headlist";
+    }
+
+    @RequestMapping(value="/headlist")
+    public String headlist(){
+        //System.out.println("用户访问test1.jsp页面");
+        return "headlist";
     }
 }

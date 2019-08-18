@@ -55,10 +55,13 @@
 <%--</div>--%>
 <%--</div>--%>
 <div align="center">
-    <table border="1" style="width:80%;height: 80%">
+    <table border="1" style="width:40%;height: 40%">
         <tr>
-            <td style="width: 50%;height: 100%">
-                头像
+            <td style="width: 200px;height: 100%">
+                <div align="center">
+                    <div align="center">头像</div>
+                    <img src="${sessionScope.user.currentHeadPortrait.image_url}" width="200px" height="200px">
+                </div>
             </td>
             <td style="width: 50%;height: 100%">
                 <table border="1" style="width: 100%;height: 100%">
@@ -105,6 +108,23 @@
     </table>
 </div>
 
-
+<div align="center">
+    <table border="0">
+        <tr>
+            <td>
+                <c:if test="${not empty sessionScope.permission1}">
+                    <form action="editperson" method="post">
+                        <input type="submit" style="margin: 10px" value="修改用户信息">
+                    </form>
+                </c:if>
+            </td>
+            <td>
+                <form action="message" method="post">
+                    <input type="submit" style="margin: 10px" value="返回">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

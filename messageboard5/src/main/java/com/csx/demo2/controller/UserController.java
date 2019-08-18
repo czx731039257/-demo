@@ -1,19 +1,25 @@
 package com.csx.demo2.controller;
 
+import com.csx.demo2.entity.HeadPortrait;
+import com.csx.demo2.entity.Result;
 import com.csx.demo2.entity.User;
+import com.csx.demo2.service.HeadPortraitService;
 import com.csx.demo2.service.PermissionService;
 import com.csx.demo2.service.UserRoleService;
 import com.csx.demo2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -26,6 +32,9 @@ public class UserController {
 
     @Autowired
     private UserRoleService userRoleService;
+
+    @Autowired
+    private HeadPortraitService headPortraitService;
 
     /**
      * 查询所有用户信息
@@ -163,5 +172,45 @@ public class UserController {
         session.setAttribute("logmsg","成功");
         session.setAttribute("usersandrole",usersandrole);
         return "redirect:"+"allocation";
+    }
+
+
+    /**
+     * 上传头像
+     * @param req
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping("/uploadhead")
+    public String uploadhead(HttpServletRequest req, MultipartFile file) throws IOException {
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        String url = req.getSession().getServletContext().getRealPath("/userhead");
+        url+="/";
+        String originalFilename = file.getOriginalFilename();
+        String filename= UUID.randomUUID()+originalFilename;
+        file.transferTo(new File(url+filename));
+        Result result=headPortraitService.insert(user,new HeadPortrait(null,user.getId(),"userhead/"+filename));
+        System.out.println(user);
+        session.setAttribute("user",result.getUser());
+        return "redirect:"+"editperson";
+    }
+
+
+
+    @RequestMapping("/choosehead")
+    public String choosehead(HttpServletRequest req, MultipartFile file) throws IOException {
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        return "redirect:"+"editperson";
+    }
+
+
+    @RequestMapping("/changehead")
+    public String changehead(HttpServletRequest req, MultipartFile file) throws IOException {
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        return "redirect:"+"editperson";
     }
 }

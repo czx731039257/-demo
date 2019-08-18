@@ -7,28 +7,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2bcbaab-e17a-4eca-b6a1-c6c8e4560f2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../messageboard3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/controller/ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/controller/testController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/java/com/csx/demo2/controller/testController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/resources/static/css/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/resources/static/css/background.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/resources/static/背景图片.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/resources/static/picture/asd.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../messageboard3/src/main/webapp/WEB-INF/views/test1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard3/src/main/webapp/WEB-INF/views/test1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../messageboard4.0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../messageboard4.0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/testController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/testController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/LogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/LogDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/LogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/LogMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/views/log.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/log.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/HeadPortraitDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/HeadPortraitDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/HeadPortrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/HeadPortrait.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/HeadPortraitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/HeadPortraitMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/HeadPortraitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/HeadPortraitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/messageboard.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/aspect/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/aspect/LogAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/ViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/testController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/controller/testController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/dao/HeadPortraitDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/dao/HeadPortraitDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/entity/HeadPortrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/entity/HeadPortrait.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/mapper/HeadPortraitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/mapper/HeadPortraitMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/HeadPortraitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/HeadPortraitService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/csx/demo2/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/aspect/LogAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/aspect/LogAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/ViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/testController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/controller/testController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/dao/HeadPortraitDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/dao/HeadPortraitDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/entity/HeadPortrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/entity/HeadPortrait.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/mapper/HeadPortraitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/mapper/HeadPortraitMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/HeadPortraitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/HeadPortraitService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/classes/com/csx/demo2/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/WEB-INF/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/views/editperson.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/views/editperson.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/views/filelist.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/messageboard-4.0/views/person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/messageboard-4.0/views/person.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/editperson.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/editperson.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/filelist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/headlist.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/views/person.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/person.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysql4.0.sql" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,134 +81,6 @@
     <expand />
     <select />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-              <folding>
-                <element signature="n#mvc:interceptors#0;n#beans#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/views/person.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/views/message.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#td#6;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="92" column="49" lean-forward="true" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/UserMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-              <folding>
-                <element signature="n#select#0;n#mapper#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/views/testupload.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/ViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
-              <caret line="97" column="26" lean-forward="true" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/testController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/HeadPortrait.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-              <folding>
-                <element signature="e#324#325#0" expanded="true" />
-                <element signature="e#349#350#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
-                <element signature="e#449#450#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#526#527#0" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#596#597#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#666#667#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/views/filelist.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -188,63 +92,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/MessageMapper.xml" />
-        <option value="$PROJECT_DIR$/web/views/login.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/views/allocation.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/interceptor/MessageInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/interceptor/LoginInterceptor.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Method.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/MethodDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/MethodMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/handler/MyHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/PageBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/filter/MyFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Result.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/MessageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/PageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LoginAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/MessageAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/PermissionAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/RoleAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/UserAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Log.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/PermissionService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/PermissionController.java" />
-        <option value="$PROJECT_DIR$/web/views/message.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/VerifyResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LoginService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LogAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/LogMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/LogDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LogService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LogController.java" />
-        <option value="$PROJECT_DIR$/web/views/log.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/HeadPortrait.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/HeadPortrait.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/HeadPortraitDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/service/HeadPortraitService.java" />
-        <option value="$PROJECT_DIR$/web/views/testupload.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/ViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/HeadPortrait.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/testController.java" />
-        <option value="$PROJECT_DIR$/web/views/filelist.jsp" />
-        <option value="$PROJECT_DIR$/web/views/person.jsp" />
-      </list>
-    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -262,129 +109,25 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="messageboard" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="messageboard" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="messageboard" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
-  </component>
   <component name="ProjectId" id="1PK8W3zwVnyG9PVXe6dCNosgO5m" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo2" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo4.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="messageboard5" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565947564293" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../messageboard3" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22068965" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\github\-demo\messageboard4.0\web" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Desktop\github\-demo\messageboard4.0\web\picture" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\github\-demo\messageboard4.0\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -410,7 +153,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.43" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.41" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <deployment>
         <artifact name="messageboard:war exploded">
@@ -512,6 +255,7 @@
       <workItem from="1565859560445" duration="42000" />
       <workItem from="1565920844617" duration="1217000" />
       <workItem from="1565933766439" duration="12247000" />
+      <workItem from="1566130038837" duration="13136000" />
     </task>
     <servers />
   </component>
@@ -535,83 +279,6 @@
       <configuration name="Test.test" configurationId="JUnit" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69265000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Image Layers" order="0" />
-      <window_info id="Capture Tool" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Web" order="4" sideWeight="0.5022625" side_tool="true" weight="0.24130106" />
-      <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49773756" visible="true" weight="0.29198185" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.3295082" />
-      <window_info anchor="bottom" id="Java Enterprise" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Message" order="9" />
-      <window_info anchor="bottom" id="Find" order="10" />
-      <window_info anchor="bottom" id="Run" order="11" weight="0.1590164" />
-      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="15" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Database" order="2" weight="0.32980332" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32980332" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.24962178" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Image Layers" order="0" />
-      <window_info id="Capture Tool" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Web" order="4" sideWeight="0.5022625" side_tool="true" weight="0.24130106" />
-      <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.49773756" visible="true" weight="0.24659607" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.3295082" />
-      <window_info anchor="bottom" id="Java Enterprise" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Message" order="9" />
-      <window_info anchor="bottom" id="Find" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="11" visible="true" weight="0.11147541" />
-      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="15" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Database" order="2" weight="0.32980332" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32980332" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.24962178" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -621,12 +288,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -650,492 +312,5 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/handler/MyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1089">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/filter/MyFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Test.java" />
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/tables.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="166" column="16" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/PageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/PageBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
-          <folding>
-            <element signature="e#1858#1859#0" expanded="true" />
-            <element signature="e#1887#1888#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="185" selection-start-line="185" selection-end-line="185" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LoginAspect.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/PermissionAspect.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/RoleAspect.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/UserAspect.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/allocation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="79" column="65" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/RoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/PermissionMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/RolePermissionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/MessageDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/UserRoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/PermissionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="e#1896#1897#0" expanded="true" />
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2005#2006#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/VerifyResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1119#1120#0" expanded="true" />
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-            <element signature="e#1296#1297#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1548#1549#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="41" column="48" lean-forward="true" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/log.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/LogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/LogService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/aspect/LogAspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="38" column="94" selection-start-line="38" selection-start-column="94" selection-end-line="38" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/roles.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/PermissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/LogMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/HeadPortraitDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/dao/LogDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/HeadPortraitMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/background.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="53" lean-forward="true" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/service/HeadPortraitService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/entity/HeadPortrait.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/ViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="97" column="26" lean-forward="true" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/testController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/filelist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/testupload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <element signature="n#mvc:interceptors#0;n#beans#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/message.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#td#6;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/views/person.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="92" column="49" lean-forward="true" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csx/demo2/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>demo4.0:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>12</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>demo4.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.22068965" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: c3p0:c3p0:0.9.1.2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

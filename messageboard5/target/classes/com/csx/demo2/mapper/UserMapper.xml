@@ -47,6 +47,9 @@
             <if test="group_id!=null">
                 group_id=#{group_id},
             </if>
+            <if test="headportrait_id!=null">
+                headportrait_id=#{headportrait_id},
+            </if>
         </set>
         where id=#{id}
     </update>

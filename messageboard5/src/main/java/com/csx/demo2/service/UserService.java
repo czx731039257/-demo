@@ -1,8 +1,10 @@
 package com.csx.demo2.service;
 
+import com.csx.demo2.dao.HeadPortraitDao;
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.dao.UserDao;
 import com.csx.demo2.entity.Group;
+import com.csx.demo2.entity.HeadPortrait;
 import com.csx.demo2.entity.Message;
 import com.csx.demo2.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class UserService {
 
     @Autowired
     private MessageDao messageDao;
+
+    @Autowired
+    private HeadPortraitDao headPortraitDao;
 
     /*
     * 查询所有用户的基本信息和留言数
@@ -70,6 +75,12 @@ public class UserService {
         user = userDao.select(new User(user.getId(), null, null, null, null, null)).get(0);
         List<Message> messages = messageDao.select(new Message(null,null,null,null,user.getId()));
         user.setCount_message(messages.size());
+        List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
+        user.setHeadPortraits(headPortraits);
+        List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
+        HeadPortrait headPortrait = select.get(0);
+        user.setCurrentHeadPortrait(headPortrait);
+
         return user;
     }
 
@@ -95,6 +106,11 @@ public class UserService {
 
     public User editUserInfo(String userid){
         User user = userDao.select(new User(Integer.valueOf(userid), null, null, null, null, null)).get(0);
+        List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
+        user.setHeadPortraits(headPortraits);
+        List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
+        HeadPortrait headPortrait = select.get(0);
+        user.setCurrentHeadPortrait(headPortrait);
         return user;
     }
 

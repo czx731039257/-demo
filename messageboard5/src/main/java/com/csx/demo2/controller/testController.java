@@ -5,17 +5,12 @@ import com.csx.demo2.service.HeadPortraitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class testController {
@@ -23,17 +18,17 @@ public class testController {
     @Autowired
     private HeadPortraitService headPortraitService;
 
-    @RequestMapping("/fileupload")
-    public String fileupload(HttpServletRequest req, MultipartFile file) throws IOException {
-        String url = req.getSession().getServletContext().getRealPath("/userhead");
-        url+="/";
-        String originalFilename = file.getOriginalFilename();
-        String filename=UUID.randomUUID()+originalFilename;
-        System.out.println(url);
-        file.transferTo(new File(url+filename));
-        headPortraitService.insert(new HeadPortrait(null,1,"userhead/"+filename));
-        return "redirect:"+"testupload";
-    }
+//    @RequestMapping("/fileupload")
+//    public String fileupload(HttpServletRequest req, MultipartFile file) throws IOException {
+//        String url = req.getSession().getServletContext().getRealPath("/userhead");
+//        url+="/";
+//        String originalFilename = file.getOriginalFilename();
+//        String filename=UUID.randomUUID()+originalFilename;
+//        System.out.println(url);
+//        file.transferTo(new File(url+filename));
+//        headPortraitService.insert(new HeadPortrait(null,1,"userhead/"+filename));
+//        return "redirect:"+"testupload";
+//    }
 
     @RequestMapping("/selectfilelist")
     public String selectfilelist(HttpServletRequest req) throws IOException {
@@ -44,7 +39,7 @@ public class testController {
         }
         HttpSession session = req.getSession();
         session.setAttribute("headPortraits",headPortraits);
-        return "redirect:"+"filelist";
+        return "redirect:"+ "headlist";
     }
 
 }

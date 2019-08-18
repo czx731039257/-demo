@@ -46,6 +46,8 @@ public class LoginController {
             session.removeAttribute("error");//移出错误信息信息
             session.setAttribute("permissions",result.getPermissions());//把 权限集合 添加到session域
             permissionService.addSessionPermission(session,result.getPermissions());//
+            System.out.println(result.getUser());
+
             return "redirect:"+"message";//返回前端
         }else if(result.getFlag()==1){//验证失败
             session.setAttribute("loginflag",result.getFlag());

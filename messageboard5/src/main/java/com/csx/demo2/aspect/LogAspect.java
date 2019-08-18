@@ -36,7 +36,8 @@ public class LogAspect {
     @Around("(execution(* com.csx.demo2.controller.MessageController.*(..))||execution(* com.csx.demo2.controller.UserController.*(..))||execution(* com.csx.demo2.controller.RoleController.*(..))||execution(* com.csx.demo2.controller.PermissionController.*(..)))" +
             "&&!execution(* com.csx.demo2.controller.MessageController.IntoEditMessageController(..))" +
             "&&!execution(* com.csx.demo2.controller.UserController.EditUserInfoController(..))" +
-            "&&!execution(* com.csx.demo2.controller.UserController.CancelUserController(..))")
+            "&&!execution(* com.csx.demo2.controller.UserController.CancelUserController(..))"+
+            "&&!execution(* com.csx.demo2.controller.UserController.uploadhead(..))")
     public Object Log_Message(ProceedingJoinPoint joinPoint) throws Throwable {
         Date date=new Date();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

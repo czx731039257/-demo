@@ -3,12 +3,12 @@ package com.csx.demo2.entity;
 public class HeadPortrait {
     private Integer id;
     private Integer user_id;
-    private String image;
+    private String image_url;
 
-    public HeadPortrait(Integer id, Integer user_id, String image) {
+    public HeadPortrait(Integer id, Integer user_id, String image_url) {
         this.id = id;
         this.user_id = user_id;
-        this.image = image;
+        this.image_url = image_url;
     }
 
     public Integer getId() {
@@ -27,12 +27,12 @@ public class HeadPortrait {
         this.user_id = user_id;
     }
 
-    public String getImage() {
-        return image;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class HeadPortrait {
         return "HeadPortrait{" +
                 "id=" + id +
                 ", user_id=" + user_id +
-                ", image='" + image + '\'' +
+                ", image_url='" + image_url + '\'' +
                 '}';
     }
 }
