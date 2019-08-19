@@ -5,15 +5,13 @@ import java.util.List;
 public class VerifyResult {
 
     private User user;
-    private int flag;//用来判断登入情况  0表示没有该用户 1表示有该用户但是密码错误  2表示登入成功
     private PageBean pageBean;
     private List<Message> messages;
     private List<Permission> permissions;
     private String logmsg;
 
-    public VerifyResult(User user, int flag, PageBean pageBean, List<Message> messages, List<Permission> permissions, String logmsg) {
+    public VerifyResult(User user, PageBean pageBean, List<Message> messages, List<Permission> permissions, String logmsg) {
         this.user = user;
-        this.flag = flag;
         this.pageBean = pageBean;
         this.messages = messages;
         this.permissions = permissions;
@@ -28,13 +26,6 @@ public class VerifyResult {
         this.user = user;
     }
 
-    public int getFlag() {
-        return flag;
-    }
-
-    public void setFlag(int flag) {
-        this.flag = flag;
-    }
 
     public PageBean getPageBean() {
         return pageBean;

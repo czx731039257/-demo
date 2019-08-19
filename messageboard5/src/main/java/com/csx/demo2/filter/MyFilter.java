@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebFilter(urlPatterns = {"/message","/create","/edit","/editperson","/person","/users","/edituser","/permission","/roles","/users"}, filterName = "authFilter")
+//@WebFilter(urlPatterns = {"/message","/create","/edit","/editperson","/person","/users","/edituser","/permission","/roles","/users"}, filterName = "authFilter")
 public class MyFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
        // System.out.println("过滤器初始化*******************");

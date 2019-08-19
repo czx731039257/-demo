@@ -55,7 +55,7 @@
 <%--</div>--%>
 <%--</div>--%>
 <div align="center">
-    <table border="1" style="width:40%;height: 40%">
+    <table border="1" style="width:40%;height: 40%"  cellpadding="0px" cellspacing="0px">
         <tr>
             <td style="width: 200px;height: 100%">
                 <div align="center">
@@ -64,7 +64,7 @@
                 </div>
             </td>
             <td style="width: 50%;height: 100%">
-                <table border="1" style="width: 100%;height: 100%">
+                <table border="1" style="width: 100%;height: 100%"  cellpadding="0px" cellspacing="0px">
                     <tr>
                         <td>
                             <div class="temp">用户ID:${sessionScope.user.id}</div>

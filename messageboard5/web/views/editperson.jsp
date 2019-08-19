@@ -29,52 +29,73 @@
         session.removeAttribute("withoutPermission");
     }
 %>
+<%
+    String uploaderror = (String) session.getAttribute("uploaderror");
+    if (uploaderror != null) {
+        out.print("<script>\n" +
+                "    alert(\"" + uploaderror + "\");\n" +
+                "</script>");
+        session.removeAttribute("uploaderror");
+    }
+%>
+
 
 <div align="center" style="opacity: 0.7">
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>
 <div align="center">
-    用户id：${sessionScope.user.id}<br>
-    <img src="${sessionScope.user.currentHeadPortrait.image_url}" width="150px" height="150px">
-    <table border="0">
+    <table border="1" cellpadding="0px" cellspacing="0px">
         <tr>
             <td>
-                <form action="uploadhead" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file" width="50px">
-                    <input type="submit" value="上传头像">
-                </form>
+                <div align="center">
+                    用户id：${sessionScope.user.id}<br>
+                    <img src="${sessionScope.user.currentHeadPortrait.image_url}" width="150px" height="150px">
+                    <table border="0">
+                        <tr>
+                            <td>
+                                <form action="uploadhead" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="file" width="50px">
+                                    <input type="submit" value="上传头像">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="headlist">
+                                    <input type="submit" value="选择头像">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </td>
+        </tr>
+        <tr>
             <td>
-                <form action="headlist">
-                    <input type="submit" value="选择头像">
+                <form action="EditPersonInfoSuccessController" method="post">
+                    <input type="hidden" name="id" value="${sessionScope.user.id}">
+                    姓名:<input style="width: 80%" type="text" name="name" value="${sessionScope.user.name}"><br>
+                    密码:<input style="width: 80%" type="text" name="password" value="${sessionScope.user.password}"><br>
+                    邮箱:<input style="width: 80%" type="text" name="email" value="${sessionScope.user.email}"><br>
+                    手机号:<input style="width: 77%" type="text" name="phone" value="${sessionScope.user.phone}"><br>
+                    所在用户组号:${sessionScope.user.group_id}<br>
+
+
+                    <table border="0" align="center">
+                        <tr>
+                            <td><input type="submit" value="保存用戶基本信息"></td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </form>
             </td>
         </tr>
     </table>
-
 </div>
+
 <div align="center">
-    <form action="EditPersonInfoSuccessController" method="post">
-        <input type="hidden" name="id" value="${sessionScope.user.id}">
-        姓名:<input type="text" name="name" value="${sessionScope.user.name}"><br>
-        密码:<input type="text" name="password" value="${sessionScope.user.password}"><br>
-        邮箱:<input type="text" name="email" value="${sessionScope.user.email}"><br>
-        手机号:<input type="text" name="phone" value="${sessionScope.user.phone}"><br>
-        所在用户组号:${sessionScope.user.group_id}<br>
 
-
-        <table border="0" align="center">
-            <tr>
-                <td><input type="submit" value="保存用戶基本信息"></td>
-                <td></td>
-            </tr>
-        </table>
-    </form>
     <form action="person" method="post">
         <input type="submit" value="返回">
     </form>
-
-
 </div>
 </body>
 </html>

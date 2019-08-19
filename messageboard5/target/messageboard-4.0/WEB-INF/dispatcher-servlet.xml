@@ -9,36 +9,37 @@
 
     <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
-    <mvc:resources location="/picture/" mapping="/demo/picture/**"/>
-    <mvc:resources location="/css/" mapping="/demo/css/**"/>
+    <mvc:resources location="/picture/" mapping="/messageboard/picture/**"/>
+    <mvc:resources location="/css/" mapping="/messageboard/css/**"/>
 
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/selectrole"/>
-            <mvc:mapping path="/SelectPersonMessageController"/>
-            <mvc:mapping path="/SelectGroupMessageController"/>
-            <mvc:mapping path="/SelectOtherGroupMessageController"/>
-            <mvc:mapping path="/SelectAllMessageController"/>
-            <mvc:mapping path="/CreateMessageController"/>
-            <mvc:mapping path="/PersonInfoController"/>
-            <mvc:mapping path="/SelectGroupUserInfoController"/>
-            <mvc:mapping path="/SelectOtherGroupUserInfoController"/>
-            <mvc:mapping path="/SelectAllUserInfoController"/>
-            <mvc:mapping path="/allocationcontroller"/>
-            <mvc:mapping path="/EditPersonInfoSuccessController"/>
-            <mvc:mapping path="/editrolesuccesscontroller"/>
-            <mvc:mapping path="/editpermissioncontroller"/>
-            <mvc:mapping path="/editpermissionsuccess"/>
-            <mvc:mapping path="/create"/>
-            <mvc:mapping path="/allocation"/>
-            <mvc:mapping path="/permission"/>
-            <mvc:mapping path="/roles"/>
-            <mvc:mapping path="/editrole"/>
-            <bean class="com.csx.demo2.handler.MyHandler"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/selectrole"/>-->
+            <!--<mvc:mapping path="/SelectPersonMessageController"/>-->
+            <!--<mvc:mapping path="/SelectGroupMessageController"/>-->
+            <!--<mvc:mapping path="/SelectOtherGroupMessageController"/>-->
+            <!--<mvc:mapping path="/SelectAllMessageController"/>-->
+            <!--<mvc:mapping path="/CreateMessageController"/>-->
+            <!--<mvc:mapping path="/PersonInfoController"/>-->
+            <!--<mvc:mapping path="/SelectGroupUserInfoController"/>-->
+            <!--<mvc:mapping path="/SelectOtherGroupUserInfoController"/>-->
+            <!--<mvc:mapping path="/SelectAllUserInfoController"/>-->
+            <!--<mvc:mapping path="/allocationcontroller"/>-->
+            <!--<mvc:mapping path="/EditPersonInfoSuccessController"/>-->
+            <!--<mvc:mapping path="/editrolesuccesscontroller"/>-->
+            <!--<mvc:mapping path="/editpermissioncontroller"/>-->
+            <!--<mvc:mapping path="/editpermissionsuccess"/>-->
+            <!--<mvc:mapping path="/create"/>-->
+            <!--<mvc:mapping path="/allocation"/>-->
+            <!--<mvc:mapping path="/permission"/>-->
+            <!--<mvc:mapping path="/roles"/>-->
+            <!--<mvc:mapping path="/editrole"/>-->
+            <!--<bean class="com.csx.demo2.handler.MyHandler"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+
     <aop:aspectj-autoproxy/>
-
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
         <property name="prefix" value="/views/"/>
@@ -49,6 +50,19 @@
     <context:component-scan base-package="com.csx.demo2.controller"/>
     <context:component-scan base-package="com.csx.demo2.aspect"/>
     <!--<mvc:annotation-driven/>-->
+
+
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
 
 
 </beans>

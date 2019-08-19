@@ -5,8 +5,12 @@ import com.csx.demo2.entity.PageBean;
 import com.csx.demo2.entity.Result;
 import com.csx.demo2.entity.User;
 import com.csx.demo2.service.MessageService;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +40,8 @@ public class MessageController {
     /*
     * 查看个人留言
     * */
+    @RequiresRoles({"permission14"})
+    @RequiresPermissions({"as"})
     @RequestMapping("SelectPersonMessageController")//
     public String SelectPersonMessageController(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -50,6 +56,11 @@ public class MessageController {
         return "redirect:"+"message";
     }
 
+    @ExceptionHandler({AuthorizationException.class})
+    public String exce(HttpServletRequest req){
+        System.out.println("你没有这个角色");
+        return "redirect:"+"test1";
+    }
     /*
     * 查看所在组的留言
     * */

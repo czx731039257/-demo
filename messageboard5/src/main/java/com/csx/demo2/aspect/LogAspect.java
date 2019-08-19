@@ -37,7 +37,8 @@ public class LogAspect {
             "&&!execution(* com.csx.demo2.controller.MessageController.IntoEditMessageController(..))" +
             "&&!execution(* com.csx.demo2.controller.UserController.EditUserInfoController(..))" +
             "&&!execution(* com.csx.demo2.controller.UserController.CancelUserController(..))"+
-            "&&!execution(* com.csx.demo2.controller.UserController.uploadhead(..))")
+            "&&!execution(* com.csx.demo2.controller.UserController.uploadhead(..))"+
+            "&&!execution(* com.csx.demo2.controller.UserController.changehead(..))")
     public Object Log_Message(ProceedingJoinPoint joinPoint) throws Throwable {
         Date date=new Date();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -79,32 +80,33 @@ public class LogAspect {
     }
 
 
-    @Around("execution(* com.csx.demo2.controller.LoginController.LoginController(..))")
-    public Object login(ProceedingJoinPoint joinPoint) throws Throwable {
-        Date date=new Date();
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Object[] args = joinPoint.getArgs();
-        String method_url = joinPoint.getSignature().getName();
-        HttpSession session = ((HttpServletRequest) args[0]).getSession();
-        User user=null;
+//    @Around("execution(* com.csx.demo2.controller.LoginController.LoginController(..))")
+//    public Object login(ProceedingJoinPoint joinPoint) throws Throwable {
+//        Date date=new Date();
+//        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Object[] args = joinPoint.getArgs();
+//        String method_url = joinPoint.getSignature().getName();
+//        HttpSession session = ((HttpServletRequest) args[0]).getSession();
+//        User user=null;
+//
+//        Long pre=System.currentTimeMillis();
+//        Object proceed = joinPoint.proceed();
+//        Long post=System.currentTimeMillis();
+//
+//        String date1=dateFormat.format(date);
+//        String logmsg = (String)session.getAttribute("logmsg");
+//        Integer loginflag = (Integer)session.getAttribute("loginflag");
+//        if(loginflag==2){
+//            user = (User)session.getAttribute("user");
+//            System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作："+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+" 返回结果："+logmsg);
+//            logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
+//        }else if(loginflag==1){
+//            user = (User)session.getAttribute("failuser");
+//            System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作："+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+" 返回结果："+logmsg);
+//            logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
+//        }
+//           return proceed;
+//    }
 
-        Long pre=System.currentTimeMillis();
-        Object proceed = joinPoint.proceed();
-        Long post=System.currentTimeMillis();
-
-        String date1=dateFormat.format(date);
-        String logmsg = (String)session.getAttribute("logmsg");
-        Integer loginflag = (Integer)session.getAttribute("loginflag");
-        if(loginflag==2){
-            user = (User)session.getAttribute("user");
-            System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作："+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+" 返回结果："+logmsg);
-            logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
-        }else if(loginflag==1){
-            user = (User)session.getAttribute("failuser");
-            System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作："+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+" 返回结果："+logmsg);
-            logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
-        }
-           return proceed;
-    }
 
 }

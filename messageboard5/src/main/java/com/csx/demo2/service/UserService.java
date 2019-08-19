@@ -103,6 +103,13 @@ public class UserService {
         userDao.update(user);
         return user;
     }
+    public User editPersonHead(User user,Integer headportrait_id){
+        user.setHeadportrait_id(headportrait_id);
+        HeadPortrait headPortrait = headPortraitDao.select(new HeadPortrait(headportrait_id, null, null)).get(0);
+        user.setCurrentHeadPortrait(headPortrait);
+        userDao.update(user);
+        return user;
+    }
 
     public User editUserInfo(String userid){
         User user = userDao.select(new User(Integer.valueOf(userid), null, null, null, null, null)).get(0);

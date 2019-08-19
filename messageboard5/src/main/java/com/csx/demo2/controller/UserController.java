@@ -189,6 +189,19 @@ public class UserController {
         String url = req.getSession().getServletContext().getRealPath("/userhead");
         url+="/";
         String originalFilename = file.getOriginalFilename();
+        if(originalFilename==null||"".equals(originalFilename)){
+            session.setAttribute("uploaderror","请不要上传空文件！");
+            return "redirect:"+"editperson";
+        }else{
+            int i = originalFilename.lastIndexOf('.');
+            String substring = originalFilename.substring(i + 1);
+            System.out.println(substring);
+            if(!substring.equals("jpg")){
+                session.setAttribute("uploaderror","请上传JPG格式的图片！");
+                return "redirect:"+"editperson";
+            }
+        }
+
         String filename= UUID.randomUUID()+originalFilename;
         file.transferTo(new File(url+filename));
         Result result=headPortraitService.insert(user,new HeadPortrait(null,user.getId(),"userhead/"+filename));
@@ -198,19 +211,20 @@ public class UserController {
     }
 
 
-
-    @RequestMapping("/choosehead")
-    public String choosehead(HttpServletRequest req, MultipartFile file) throws IOException {
-        HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
-        return "redirect:"+"editperson";
-    }
-
-
+    /**
+     * 选择头像
+     * @param req
+     * @param file
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/changehead")
     public String changehead(HttpServletRequest req, MultipartFile file) throws IOException {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
+        String head = req.getParameter("head");
+        user = userService.editPersonHead(user, Integer.valueOf(head));
+        session.setAttribute("user",user);
         return "redirect:"+"editperson";
     }
 }

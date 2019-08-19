@@ -32,6 +32,6 @@ public class HeadPortraitService {
         userDao.update(user);
         List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());
         user.setHeadPortraits(headPortraits);
-        return new Result(true,user,null,null,null);
+        return new Result(user,null,null,null,"成功");
     }
 }

@@ -34,45 +34,20 @@ public class LoginService {
      * @param password 验证的密码
      * @return 返回验证结果
      * */
-    public VerifyResult loginverify(String username, String password) {
-//        List<User> check = userDao.select(new User(null,username,password,null,null,null));//根据用户名和密码查看该用户
-//
-//        if(check.size()==1){//登入成功
-//            User user = check.get(0);//获取当前用户的基本信息
-//            List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
-//            int totalRecord=messages.size();//总留言数
-//            PageBean pageBean=new PageBean(1,totalRecord);//根据留言集合封装 分页对象
-//            pageBean.setMessagesType(1);//个人留言
-//            List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
-//            return new Result(user,true,pageBean,messages,permissions);
-//        }else{//登入失败
-//            //System.out.println("登入失败！");
-//            return new Result(false,null,null,null);
-//        }
-
-        List<User> check = userDao.select(new User(null,username,null,null,null,null));//根据用户名和密码查看该用户
-
-        if(check.size()==1){//有该用户
-            User user = check.get(0);//获取当前用户的基本信息
-            if(user.getPassword().equals(password)) {
-                List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
-                int totalRecord = messages.size();//总留言数
-                PageBean pageBean = new PageBean(1, totalRecord);//根据留言集合封装 分页对象
-                pageBean.setMessagesType(1);//个人留言
-                List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
-                //return new Result(user, true, pageBean, messages, permissions);
-                List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
-                user.setHeadPortraits(headPortraits);
-                List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
-                HeadPortrait headPortrait = select.get(0);
-                user.setCurrentHeadPortrait(headPortrait);
-                return new VerifyResult(user,2,pageBean,messages,permissions,"成功");
-            }else{
-                return new VerifyResult(user,1,null,null,null,"失败");
-            }
-        }else{//没有该用户
-            return new VerifyResult(null,0,null,null,null,"失败");
-        }
-
+    public Result getUserInfo(String username) {
+        List<User> check = userDao.select(new User(null, username, null, null, null, null));//根据用户名和密码查看该用户
+        User user = check.get(0);//获取当前用户的基本信息
+        List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
+        int totalRecord = messages.size();//总留言数
+        PageBean pageBean = new PageBean(1, totalRecord);//根据留言集合封装 分页对象
+        pageBean.setMessagesType(1);//个人留言
+        List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
+        //return new Result(user, true, pageBean, messages, permissions);
+        List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
+        user.setHeadPortraits(headPortraits);
+        List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
+        HeadPortrait headPortrait = select.get(0);
+        user.setCurrentHeadPortrait(headPortrait);
+        return new Result(user, pageBean, messages, permissions,"成功");
     }
 }

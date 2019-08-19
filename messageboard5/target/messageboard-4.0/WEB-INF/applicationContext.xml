@@ -51,4 +51,61 @@
         <property name="maxUploadSize" value="5242440"></property>
     </bean>
 
+    <!--shiro配置-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <property name="loginUrl" value="/login" />
+        <property name="successUrl" value="/message" />
+        <property name="unauthorizedUrl" value="/login" />
+        <property name="filterChainDefinitions">
+
+            <!--anon表示可以匿名访问  logout表示用户注销 authoc表示需要登入认证-->
+            <value>
+                /login = anon
+                /LoginController = anon
+                /CancelUserController = logout
+                /** = authc
+            </value>
+        </property>
+    </bean>
+
+    <!--安全管理器的配置-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- 单realm应用。如果有多个realm，使用‘realms’属性代替 -->
+        <!--配置缓存管理器-->
+        <property name="cacheManager" ref="cacheManager" />
+        <!--配置自定义认证器-->
+        <property name="authenticator" ref="authenticator"></property>
+    </bean>
+
+    <!--缓存管理器-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" />
+
+    <!--自定义认证器-->
+    <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+        <!--配置realms-->
+        <property name="realms" ref="Realm"/>
+        <!--配置认证策略-->
+        <!--<property name="authenticationStrategy" ref="allSuccessfulStrategy"/>-->
+    </bean>
+    <!--认证策略-->
+    <!--<bean id="allSuccessfulStrategy" class="org.apache.shiro.authc.pam.AllSuccessfulStrategy"/>-->
+
+
+    <bean id="Realm" class="com.csx.demo2.realm.MyRealm">
+        <!--配置加密器-->
+        <!--<property name="credentialsMatcher" ref="credentialsMatcher" />-->
+    </bean>
+
+    <!--加密器-->
+    <!--<bean id="credentialsMatcher"-->
+    <!--class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">-->
+    <!--&lt;!&ndash;配置加密方式&ndash;&gt;-->
+    <!--<property name="hashAlgorithmName" value="MD5" />-->
+    <!--<property name="storedCredentialsHexEncoded" value="true" />-->
+    <!--&lt;!&ndash;配置加密次数&ndash;&gt;-->
+    <!--<property name="hashIterations" value="1024" />-->
+    <!--</bean>-->
+
+
 </beans>

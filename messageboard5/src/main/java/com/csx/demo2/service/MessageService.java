@@ -31,7 +31,7 @@ public class MessageService {
         List<Message> messages = messageDao.select(new Message( null, null, null, null, null));
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(4);
-        return new Result(true,null,pageBean,messages);
+        return new Result(null,pageBean,messages,null,"成功");
     }
     /*
     * 根据用户查询留言
@@ -42,8 +42,7 @@ public class MessageService {
         List<Message> messages = messageDao.selectByUserName(new User(null,username,null,null,null,null));
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(5);
-        Result result=new Result(true,null,pageBean,messages);
-        return result;
+        return new Result(null,pageBean,messages,null,"成功");
     }
 
 
@@ -51,21 +50,21 @@ public class MessageService {
         List<Message> messages = messageDao.select(new Message(null, null, null, null, user.getId()));
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(1);
-        return new Result(true,null,pageBean,messages);
+        return new Result(null,pageBean,messages,null,"成功");
     }
 
     public Result selectGroupMessage(User user){
         List<Message> messages = messageDao.selectGroup(user);
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(2);
-        return new Result(true,null,pageBean,messages);
+        return new Result(null,pageBean,messages,null,"成功");
     }
 
     public Result selectOtherGroupMessage(User user){
         List<Message> messages = messageDao.selectOtherGroup(user);
         PageBean pageBean=new PageBean(1,messages.size());
         pageBean.setMessagesType(3);
-        return new Result(true,null,pageBean,messages);
+        return new Result(null,pageBean,messages,null,"成功");
     }
     /*
     * 新建留言
@@ -99,7 +98,7 @@ public class MessageService {
         }else{
 
         }
-        return new Result(true,user,pageBean,messages,message.toString());
+        return new Result(user,pageBean,messages,null,"成功");
     }
 
     /*
@@ -127,7 +126,7 @@ public class MessageService {
 
         }
         //System.out.println(message);
-        return new Result(true,null, pageBean, messages,"删除留言"+message.toString()+"成功");
+        return new Result(null, pageBean, messages,null,"成功");
     }
 
     /*
@@ -137,7 +136,7 @@ public class MessageService {
     * */
     public Result intoEditMessage(String messageid){
         List<Message> messages = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, null));
-        return new Result(true,null,null,messages);
+        return new Result(null,null,messages,null,"成功");
     }
 
     /*
@@ -176,6 +175,6 @@ public class MessageService {
 
         }
 
-        return new Result(true,null,pageBean,messages,"把留言"+oldmessage+"\n修改成"+newmessage);
+        return new Result(null,pageBean,messages,null,"成功");
     }
 }

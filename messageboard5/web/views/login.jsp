@@ -31,8 +31,8 @@
 <form action="LoginController" method="post" style="text-align:center;position: absolute;top: 270px;left: 580px">
     用户：<input class="opacity" type="text" name="username"><br>
     密码：<input class="opacity" type="password" name="password"><br>
-    <div style="color: lightcoral;opacity: 0.5"><c:if test="${not empty sessionScope.error}">
-        <c:out value="${sessionScope.error}"/>
+    <div style="color: lightcoral;opacity: 0.5"><c:if test="${not empty sessionScope.loginerror}">
+        <c:out value="${sessionScope.loginerror}"/>
     </c:if><br>
     </div>
     <input class="btn" type="submit" value="登入"><br>
