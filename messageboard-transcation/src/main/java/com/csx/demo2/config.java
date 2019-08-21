@@ -27,8 +27,8 @@ public class config extends WebMvcConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
-                registry.addResourceHandler("/messageboard/css/**").addResourceLocations("/WEB-INF/css/");
-                registry.addResourceHandler("/messageboard/picture/**").addResourceLocations("/WEB-INF/picture/");
+                registry.addResourceHandler("/messageboard/css/**").addResourceLocations("classpath:css/");
+                registry.addResourceHandler("/messageboard/picture/**").addResourceLocations("classpath:picture/");
             }
         };
     }
@@ -58,6 +58,9 @@ public class config extends WebMvcConfigurerAdapter {
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/loginVerify", "anon");
+        filterChainDefinitionMap.put("/easyui", "anon");
+        filterChainDefinitionMap.put("/saveUser", "anon");
+        filterChainDefinitionMap.put("/test1", "anon");
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);

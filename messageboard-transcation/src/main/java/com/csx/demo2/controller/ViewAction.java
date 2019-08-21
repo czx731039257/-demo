@@ -94,4 +94,9 @@ public class ViewAction {
     public String bill(HttpServletRequest req){
         return "bill";
     }
+
+    @RequestMapping(value="/easyui")
+    public String easyui(HttpServletRequest req){
+        return "easyui";
+    }
 }
