@@ -9,4 +9,5 @@ import java.util.List;
 public interface BillItemDao {
     List<BillItem> selectBill(Integer userid);
     void insert(BillItem billItem);
+    void deleteAllBillItem(Integer userid);
 }

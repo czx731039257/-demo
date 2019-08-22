@@ -4,6 +4,7 @@ import com.csx.demo2.dao.BillItemDao;
 import com.csx.demo2.entity.BillItem;
 import com.csx.demo2.entity.PageBean;
 import com.csx.demo2.entity.Result;
+import com.csx.demo2.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,9 @@ public class BillService {
         result.setPageBean(pageBean);
         result.setBill(bill);
         return result;
+    }
+
+    public void emptyBill(Integer userid){
+        billItemDao.deleteAllBillItem(userid);
     }
 }

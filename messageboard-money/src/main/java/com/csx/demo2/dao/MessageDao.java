@@ -1,6 +1,7 @@
 package com.csx.demo2.dao;
 
 import com.csx.demo2.entity.Message;
+import com.csx.demo2.entity.Page;
 import com.csx.demo2.entity.User;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,5 @@ public interface MessageDao {
     void update(Message message);
     void insert(Message message);
     void deleteById(int id);
+    List<Message> findpage(Page page);
 }

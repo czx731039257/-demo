@@ -165,11 +165,15 @@ public class UserService {
     @Transactional()
     public Integer reward(HttpSession session, Integer addUserId, User user, Integer money){
         userDao.miusMoney(new User(user.getId(),null,null,null,null,null,null,money));
+        if((int)(Math.random()*100)<49) {
+            throw new RuntimeException();
+        }
         userDao.addMoney(new User(addUserId,null,null,null,null,null,null,money));
         Date date=new Date();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formatDate = simpleDateFormat.format(date);
         billItemDao.insert(new BillItem(null,"消费",money,user.getId(),formatDate));
+        billItemDao.insert(new BillItem(null,"收到打赏",money,addUserId,formatDate));
         User adduser = userDao.select(new User(addUserId, null, null, null, null, null)).get(0);
         User minususer = userDao.select(new User(user.getId(), null, null, null, null, null)).get(0);
 
@@ -182,9 +186,7 @@ public class UserService {
                 next.setUser(adduser);
             }
         }
-        if((int)(Math.random()*100)<49) {
-            throw new RuntimeException();
-        }
+
         return minususer.getMoney();
     }
 

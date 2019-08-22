@@ -94,4 +94,9 @@ public class ViewAction {
     public String bill(HttpServletRequest req){
         return "bill";
     }
+
+    @RequestMapping(value="/testui")
+    public String testui(HttpServletRequest req){
+        return "testui";
+    }
 }

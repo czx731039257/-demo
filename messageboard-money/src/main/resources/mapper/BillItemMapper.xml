@@ -9,4 +9,7 @@
     <insert id="insert" parameterType="com.csx.demo2.entity.BillItem">
         insert into billitem(type,money,user_id,date) values(#{type},#{money},#{user_id},#{date})
     </insert>
+    <delete id="deleteAllBillItem" parameterType="java.lang.Integer">
+        delete from billitem where user_id=#{userid}
+    </delete>
 </mapper>

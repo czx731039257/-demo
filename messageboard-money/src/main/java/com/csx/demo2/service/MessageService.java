@@ -2,17 +2,16 @@ package com.csx.demo2.service;
 
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.dao.UserDao;
-import com.csx.demo2.entity.Message;
-import com.csx.demo2.entity.PageBean;
-import com.csx.demo2.entity.Result;
-import com.csx.demo2.entity.User;
+import com.csx.demo2.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MessageService {
@@ -181,4 +180,20 @@ public class MessageService {
     public User selectUserByMessageId(Integer messageId){
         return userDao.selectByMessageId(messageId);
     }
+
+    public Page findpage(Integer page,Integer nrow,Integer messageid,Integer userid){
+        Page pagebean=new Page();
+        pagebean.setPageNumber(page);
+        pagebean.setPageSize(nrow);
+        pagebean.setStartIndex((page-1)*nrow);
+        pagebean.setMessage(new Message(messageid,null,null,null,null,userid));
+
+        List<Message> findpage = messageDao.findpage(pagebean);
+        Integer total = messageDao.select(new Message(messageid,null,null,null,null,userid)).size();
+        pagebean.setTotal(total);
+        pagebean.setRows(findpage);
+
+        return pagebean;
+    }
+
 }

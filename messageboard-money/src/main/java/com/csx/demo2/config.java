@@ -58,8 +58,18 @@ public class config extends WebMvcConfigurerAdapter {
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/loginVerify", "anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/picture/**", "anon");
+
+        filterChainDefinitionMap.put("/**", "anon");
+        filterChainDefinitionMap.put("/testui", "anon");
+        filterChainDefinitionMap.put("/easyui/**", "anon");
+        filterChainDefinitionMap.put("/testqueryAllMessage", "anon");
+        filterChainDefinitionMap.put("/testnewMessage", "anon");
+        filterChainDefinitionMap.put("/testeditMessage", "anon");
+
         filterChainDefinitionMap.put("/logout", "logout");
-        filterChainDefinitionMap.put("/**", "authc");
+        //filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

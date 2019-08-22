@@ -1,6 +1,7 @@
 package com.csx.demo2.controller;
 
 import com.csx.demo2.entity.BillItem;
+import com.csx.demo2.entity.PageBean;
 import com.csx.demo2.entity.Result;
 import com.csx.demo2.entity.User;
 import com.csx.demo2.service.BillService;
@@ -25,6 +26,16 @@ public class BillAction {
         Result result = billService.selectBill(user.getId());
         session.setAttribute("bill",result.getBill());
         session.setAttribute("pageBeanForBill",result.getPageBean());
+        return "redirect:"+"bill";
+    }
+
+    @RequestMapping("/emptyBill")
+    public String emptyBill(HttpServletRequest req, HttpServletResponse resp){
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+        billService.emptyBill(user.getId());
+        PageBean pageBean=new PageBean(1,0);
+        session.setAttribute("pageBeanForBill",pageBean);
         return "redirect:"+"bill";
     }
 }

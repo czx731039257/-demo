@@ -18,26 +18,9 @@
 </head>
 <body>
 <h1 align="center">账单记录</h1>
-<table>
-    <%--<tr>--%>
-        <%--<td>--%>
-            <%--<form action="queryLogByUserName">--%>
-                <%--<input type="text" name="username"  placeholder="请输入用户名">--%>
-                <%--<input type="submit" value="搜索">--%>
-            <%--</form>--%>
-        <%--</td>--%>
-        <%--<td>--%>
-            <%--<form action="queryAllLog">--%>
-                <%--<input type="submit" value="查看所有日志">--%>
-            <%--</form>--%>
-        <%--</td>--%>
-        <%--<td>--%>
-            <%--<form action="emptyAllLog">--%>
-                <%--<input type="submit" value="清空所有日志">--%>
-            <%--</form>--%>
-        <%--</td>--%>
-    <%--</tr>--%>
-</table>
+<form action="emptyBill">
+    <input type="submit" value="清空账单">
+</form>
 <table border="1" cellpadding="0px" cellspacing="0px" style="text-align: center;width: 100%" align="center">
     <tr>
         <th>类型</th>
