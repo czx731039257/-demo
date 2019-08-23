@@ -15,12 +15,12 @@ public class User {
     private Integer headportrait_id;
     private HeadPortrait currentHeadPortrait;
     private List<HeadPortrait> headPortraits;
-    private Integer money;
+    private Double money;
 
     public User() {
     }
 
-    public User(Integer id, String name, String password, String email, String phone, Integer group_id, Integer headportrait_id, Integer money) {
+    public User(Integer id, String name, String password, String email, String phone, Integer group_id, Integer headportrait_id, Double money) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -162,11 +162,11 @@ public class User {
         this.headportrait_id = headportrait_id;
     }
 
-    public Integer getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 

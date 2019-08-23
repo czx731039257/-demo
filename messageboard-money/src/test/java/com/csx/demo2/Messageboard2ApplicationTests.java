@@ -3,10 +3,7 @@ package com.csx.demo2;
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.dao.PermissionDao;
 import com.csx.demo2.dao.UserDao;
-import com.csx.demo2.entity.Group;
-import com.csx.demo2.entity.Message;
-import com.csx.demo2.entity.Permission;
-import com.csx.demo2.entity.User;
+import com.csx.demo2.entity.*;
 import com.csx.demo2.service.UserRoleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -88,6 +85,13 @@ public class Messageboard2ApplicationTests {
         List<Message> select = messageDao.select(new Message(Integer.valueOf(1), null, null, null, null, null));
         Message message = select.get(0);
         System.out.println(message);
+
+    }
+
+    @Test
+    public void xxx() {
+        TestEntity testEntity=new TestEntity.Builder().b("qwe").c("cc").d("www").build();
+        System.out.println(testEntity);
 
     }
 

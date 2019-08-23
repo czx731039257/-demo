@@ -1,5 +1,6 @@
 package com.csx.demo2.dao;
 
+import com.csx.demo2.entity.Page;
 import com.csx.demo2.entity.User;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,5 @@ public interface UserDao {
      User selectByMessageId(Integer id);
      void addMoney(User user);
      void miusMoney(User user);
+     List<User> findpage(Page page);
 }

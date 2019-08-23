@@ -9,13 +9,19 @@
 <html>
 <head>
     <title>用戶信息</title>
+    <script type="text/javascript" src="easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"/>
+
     <script>
         function editUser() {
             var row = $('#dg').datagrid('getSelected');
             if (row) {
                 $('#dlg').dialog('open').dialog('setTitle', '编辑用户信息');
                 $('#fm').form('load', row);
-                url = 'testeditUser?userid=' + row.id;
+                url = 'easyui_editUser?userid=' + row.id;
             }
         }
 
@@ -29,11 +35,11 @@
                     return $(this).form('validate');
                 },
                 success: function (result) {
-                    var result = eval('(' + result + ')');//解析json对象
-                    if (result.errorMsg) {
+                    //var result = eval('(' + result + ')');//解析json对象
+                    if (result!="success") {
                         $.messager.show({
                             title: 'Error',
-                            msg: result.errorMsg
+                            msg: result
                         });
                     } else {
                         $('#dlg').dialog('close');        // close the dialog
@@ -53,7 +59,7 @@
 </head>
 <body>
 <table id="dg" title="用戶信息" class="easyui-datagrid"
-       url="testqueryAllUser"
+       url="easyui_queryUsers"
        toolbar="#toolbar"
        rownumbers="true" fitColumns="true" singleSelect="true" pagination="true">
     <thead>
@@ -67,7 +73,7 @@
     </thead>
 </table>
 <div id="toolbar">
-    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUserInfo()">编辑用户信息</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑用户信息</a>
     <div id="tb" style="padding:3px">
         <span>用户ID:</span>
         <input id="userid" type="text" style="line-height:26px;border:1px solid #ccc">
@@ -85,15 +91,15 @@
     <form id="fm" method="post">
         <div class="fitem">
             <label>姓名:</label>
-            <input name="label" class="easyui-validatebox" required="true"/>
+            <input name="name" class="easyui-validatebox" required="true"/>
         </div>
         <div class="fitem">
             <label>邮箱:</label>
-            <input name="detail" class="easyui-validatebox" required="true"/>
+            <input name="email" class="easyui-validatebox" required="true"/>
         </div>
         <div class="fitem">
             <label>手机号:</label>
-            <input name="detail" class="easyui-validatebox" required="true"/>
+            <input name="phone" class="easyui-validatebox" required="true"/>
         </div>
     </form>
 </div>

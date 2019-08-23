@@ -28,7 +28,7 @@
                     var str = prompt("请输入充值的金额（数值类型）:", "1");
                     if(str==null){//用户没有点击了取消
                         break;
-                    } else if(!isNaN(str)&&str!=0&&str!="") {
+                    } else if(!isNaN(str)&&str!=0&&str!=""&&str>=0) {
                     $.ajax({
                         type: "POST",
                         url: "recharge",

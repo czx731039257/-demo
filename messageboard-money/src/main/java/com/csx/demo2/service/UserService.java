@@ -151,7 +151,7 @@ public class UserService {
      * @param
      * @param money
      */
-    public Result recharge(User user, Integer money){
+    public Result recharge(User user, Double money){
         user.setMoney(money);
         userDao.addMoney(user);
         List<User> select = userDao.select(new User(user.getId(), null, null, null, null, null, null));
@@ -163,7 +163,7 @@ public class UserService {
     }
 
     @Transactional()
-    public Integer reward(HttpSession session, Integer addUserId, User user, Integer money){
+    public Double reward(HttpSession session, Integer addUserId, User user, Double money) throws RuntimeException {
         userDao.miusMoney(new User(user.getId(),null,null,null,null,null,null,money));
         if((int)(Math.random()*100)<49) {
             throw new RuntimeException();
@@ -190,5 +190,17 @@ public class UserService {
         return minususer.getMoney();
     }
 
+    public Page findpage(Integer page,Integer nrow,Integer userid,Integer groupid){
+        Page pagebean=new Page();
+        pagebean.setPageNumber(page);
+        pagebean.setPageSize(nrow);
+        pagebean.setStartIndex((page-1)*nrow);
+        pagebean.setUser(new User(userid,null,null,null,null,groupid));
 
+        List<User> findpage = userDao.findpage(pagebean);
+        Integer total = userDao.select(new User(userid,null,null,null,null,groupid)).size();
+        pagebean.setTotal(total);
+        pagebean.setRows(findpage);
+        return pagebean;
+    }
 }

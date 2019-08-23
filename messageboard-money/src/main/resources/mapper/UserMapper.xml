@@ -66,4 +66,19 @@
     <update id="miusMoney" parameterType="com.csx.demo2.entity.User">
       update user set money=money-#{money} where id=#{id}
     </update>
+    <select id="findpage" parameterType="com.csx.demo2.entity.Page" resultType="com.csx.demo2.entity.User">
+        SELECT * FROM user
+        <where>
+            <if test="user != null">
+                <if test="user.id != null">
+                    and id=#{user.id}
+                </if>
+                <if test="user.group_id != null">
+                    and group_id=#{user.group_id}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
 </mapper>

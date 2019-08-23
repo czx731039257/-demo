@@ -3,11 +3,11 @@ package com.csx.demo2.entity;
 public class BillItem {
     private Integer id;
     private String type;
-    private Integer money;
+    private Double money;
     private Integer user_id;
     private String date;
 
-    public BillItem(Integer id, String type, Integer money, Integer user_id, String date) {
+    public BillItem(Integer id, String type, Double money, Integer user_id, String date) {
         this.id = id;
         this.type = type;
         this.money = money;
@@ -31,11 +31,11 @@ public class BillItem {
         this.type = type;
     }
 
-    public Integer getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 

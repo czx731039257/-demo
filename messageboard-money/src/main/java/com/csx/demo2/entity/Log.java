@@ -7,7 +7,10 @@ public class Log {
     private Integer time;
     private String result;
     private String date;
+    private User user;
 
+    public Log() {
+    }
 
     public Log(String user_name, Integer user_id, String operation, Integer time, String result, String date) {
         this.user_name = user_name;
@@ -64,6 +67,14 @@ public class Log {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

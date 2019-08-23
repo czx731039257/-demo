@@ -24,7 +24,7 @@
 
                     if(str==null){//用户没有点击了取消
                         break;
-                    } else if(!isNaN(str)&&str!=0&&str!="") {
+                    } else if(!isNaN(str)&&str!=0&&str!=""&&str>=0) {
                         if(parseInt(str)<=parseInt($("#balance").attr("value"))) {
                             $.ajax({
                                 type: "GET",

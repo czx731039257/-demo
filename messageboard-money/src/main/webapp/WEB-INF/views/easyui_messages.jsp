@@ -19,7 +19,7 @@
         function newMessage() {
             $('#dlg').dialog('open').dialog('setTitle', '新建留言');
             $('#fm').form('clear');
-            url = 'testnewMessage';
+            url = 'easyui_createMessage';
         }
 
         function editMessage() {
@@ -27,7 +27,7 @@
             if (row) {
                 $('#dlg').dialog('open').dialog('setTitle', '编辑留言');
                 $('#fm').form('load', row);
-                url = 'testeditMessage?messageid=' + row.id + '&user_id=' + row.user_id;
+                url = 'easyui_editMessage?messageid=' + row.id + '&user_id=' + row.user_id;
             }
         }
 
@@ -41,11 +41,11 @@
                     return $(this).form('validate');
                 },
                 success: function (result) {
-                    var result = eval('(' + result + ')');//解析json对象
-                    if (result.errorMsg) {
+                    //var result = eval('(' + result + ')');//解析json对象
+                    if (result!="success") {
                         $.messager.show({
                             title: 'Error',
-                            msg: result.errorMsg
+                            msg: result
                         });
                     } else {
                         $('#dlg').dialog('close');        // close the dialog
@@ -60,16 +60,16 @@
             if (row) {
                 $.messager.confirm('Confirm', '确认删除这条留言吗', function (r) {
                     if (r) {
-                        $.post('testdeleteMessage', {messageid: row.id}, function (result) {
-                            if (result.success) {
+                        $.post('easyui_removeMessage', {messageid: row.id},function (result) {
+                            if (result=="success") {
                                 $('#dg').datagrid('reload');    // reload the user data
                             } else {
                                 $.messager.show({    // show error message
                                     title: 'Error',
-                                    msg: result.errorMsg
+                                    msg: result
                                 });
                             }
-                        }, 'json');
+                        }, 'text');
                     }
                 });
             }
@@ -103,7 +103,8 @@
 
 <div class="easyui-layout" fit="true">
     <div region="north" border="false" class="p-search" style="height: 16%">
-        <a href="#" class="easyui-linkbutton" onclick="addTab('用戶信息','http://jeasyui.com/')">用户信息</a>
+        <a href="#" class="easyui-linkbutton" onclick="addTab('用戶信息','easyui_users')">用户信息</a>
+        <a href="#" class="easyui-linkbutton" onclick="addTab('日志记录','testuiuser')">日志记录</a>
     </div>
     <div region="center" border="false" style="height: 100%">
         <div class="easyui-layout" fit="true">
@@ -112,7 +113,7 @@
                     <div title="留言榜" style="height: 100%">
                         <!--留言榜-->
                             <table id="dg" title="留言榜" class="easyui-datagrid" style="width:100%;height:100%"
-                                   url="testqueryAllMessage"
+                                   url="easyui_queryMessages"
                                    toolbar="#toolbar"
                                    rownumbers="true" fitColumns="true" singleSelect="true" pagination="true">
                                 <thead>

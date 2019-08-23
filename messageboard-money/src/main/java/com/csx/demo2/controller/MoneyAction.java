@@ -34,7 +34,7 @@ public class MoneyAction {
         money=money.substring(i+1);
         System.out.println(money);
         User user = (User)session.getAttribute("user");
-        Result result = userService.recharge(user, Integer.valueOf(money));
+        Result result = userService.recharge(user, Double.valueOf(money));
         session.setAttribute("user",result.getUser());
 
         response.setContentType("application/json;charset=utf-8");//指定返回的格式为JSON格式
@@ -57,9 +57,9 @@ public class MoneyAction {
         response.setContentType("application/json;charset=utf-8");//指定返回的格式为JSON格式
         JSONObject ob =new  JSONObject();//创建json对象
         int flag=0;
-        Integer balance=null;
+        Double balance=null;
         try {
-            balance = userService.reward(session, Integer.valueOf(addUserId), user, Integer.valueOf(money));
+            balance = userService.reward(session, Integer.valueOf(addUserId), user, Double.valueOf(money));
         } catch (RuntimeException e) {
             //e.printStackTrace();
             flag=1;

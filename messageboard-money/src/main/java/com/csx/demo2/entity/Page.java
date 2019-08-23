@@ -3,12 +3,25 @@ package com.csx.demo2.entity;
 import java.util.List;
 
 public class Page {
-    private Integer total;
-    private Integer pageNumber;//页数
+    private Integer total;//集合中元素总个数
+    private Integer pageNumber;//当前页码
     private Integer pageSize;//每页的行数
     private Integer startIndex;
     private Message message;
-    private List<Message> rows;//分页里的留言集合
+    private User user;
+    private Log log;
+    private BillItem billItem;
+
+
+    private Object rows;//分页里的留言集合
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
     public Integer getPageNumber() {
         return pageNumber;
@@ -26,14 +39,6 @@ public class Page {
         this.pageSize = pageSize;
     }
 
-    public List<Message> getRows() {
-        return rows;
-    }
-
-    public void setRows(List<Message> rows) {
-        this.rows = rows;
-    }
-
     public Integer getStartIndex() {
         return startIndex;
     }
@@ -42,19 +47,43 @@ public class Page {
         this.startIndex = startIndex;
     }
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
     public Message getMessage() {
         return message;
     }
 
     public void setMessage(Message message) {
         this.message = message;
+    }
+
+    public Object getRows() {
+        return rows;
+    }
+
+    public void setRows(Object rows) {
+        this.rows = rows;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Log getLog() {
+        return log;
+    }
+
+    public void setLog(Log log) {
+        this.log = log;
+    }
+
+    public BillItem getBillItem() {
+        return billItem;
+    }
+
+    public void setBillItem(BillItem billItem) {
+        this.billItem = billItem;
     }
 }

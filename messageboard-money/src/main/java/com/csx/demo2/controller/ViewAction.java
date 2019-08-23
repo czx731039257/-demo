@@ -95,8 +95,23 @@ public class ViewAction {
         return "bill";
     }
 
-    @RequestMapping(value="/testui")
-    public String testui(HttpServletRequest req){
-        return "testui";
+    @RequestMapping(value="/easyui_messages")
+    public String easyui_messages(HttpServletRequest req){
+        return "easyui_messages";
+    }
+
+    @RequestMapping(value="/easyui_users")
+    public String easyui_users(HttpServletRequest req){
+        return "easyui_users";
+    }
+
+    @RequestMapping(value="/easyui_logs")
+    public String easyui_logs(HttpServletRequest req){
+        return "easyui_logs";
+    }
+
+    @RequestMapping(value="/easyui_bills")
+    public String easyui_bill(HttpServletRequest req){
+        return "easyui_bill";
     }
 }
