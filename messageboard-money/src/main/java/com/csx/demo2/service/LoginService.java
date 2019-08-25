@@ -32,7 +32,7 @@ public class LoginService {
      * @return 返回验证结果
      * */
     public Result getUserInfo(String username) {
-        List<User> check = userDao.select(new User(null, username, null, null, null, null));//根据用户名和密码查看该用户
+        List<User> check = userDao.select(new User.Builder().name(username).build());//根据用户名和密码查看该用户
         User user = check.get(0);//获取当前用户的基本信息
         List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
         int totalRecord = messages.size();//总留言数
@@ -49,6 +49,6 @@ public class LoginService {
             HeadPortrait headPortrait = select.get(0);
             user.setCurrentHeadPortrait(headPortrait);
         }
-        return new Result(user, pageBean, messages, permissions,"成功");
+        return new Result(user, pageBean, messages, permissions,"成功",null);
     }
 }

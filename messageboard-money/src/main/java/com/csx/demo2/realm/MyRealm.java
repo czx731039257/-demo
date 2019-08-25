@@ -33,7 +33,7 @@ public class MyRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
         String primaryPrincipal = (String)principalCollection.getPrimaryPrincipal();
         //从数据库中查询并添加权限
-        List<Permission> permissions = permissionDao.select(new User(null, primaryPrincipal, null, null, null, null));
+        List<Permission> permissions = permissionDao.select(new User.Builder().name(primaryPrincipal).build());
 
         Iterator<Permission> it1=permissions.iterator();
         while(it1.hasNext()){
@@ -56,7 +56,9 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
-        List<User> users = userDao.select(new User(null,username, null, null, null, null));
+        User build = new User.Builder().name(username).build();
+        System.out.println(build.getName());
+        List<User> users = userDao.select(new User.Builder().name(username).build());
         SimpleAuthenticationInfo info=null;
         if(users.size()==0){
             throw new AuthenticationException();

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csx.demo2.dao.UserRoleDao">
+    <select id="select" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Role">
+       select b.* from user_role a left join role b on a.role_id=b.id where a.user_id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="com.csx.demo2.entity.UserRole">
+        insert into user_role values(#{user_id},#{role_id})
+    </insert>
+    <delete id="delete" parameterType="com.csx.demo2.entity.UserRole">
+        delete from user_role where user_id=#{user_id} and role_id=#{role_id}
+    </delete>
+</mapper>

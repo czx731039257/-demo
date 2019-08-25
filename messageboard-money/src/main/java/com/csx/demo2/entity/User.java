@@ -1,7 +1,14 @@
 package com.csx.demo2.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     private Integer id;
     private String name;
@@ -17,174 +24,108 @@ public class User {
     private List<HeadPortrait> headPortraits;
     private Double money;
 
-    public User() {
+    private User(Builder builder) {
+        id = builder.id;
+        name = builder.name;
+        password = builder.password;
+        email = builder.email;
+        phone = builder.phone;
+        group_id = builder.group_id;
+        roles = builder.roles;
+        messages = builder.messages;
+        count_message = builder.count_message;
+        headportrait_id = builder.headportrait_id;
+        currentHeadPortrait = builder.currentHeadPortrait;
+        headPortraits = builder.headPortraits;
+        money = builder.money;
     }
 
-    public User(Integer id, String name, String password, String email, String phone, Integer group_id, Integer headportrait_id, Double money) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.group_id = group_id;
-        this.headportrait_id = headportrait_id;
-        this.money = money;
-    }
 
-    public User(Integer id, String name, String password, String email, String phone, Integer group_id, Integer headportrait_id) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.group_id = group_id;
-        this.headportrait_id = headportrait_id;
-    }
+    public static  class Builder {
+        private Integer id;
+        private String name;
+        private String password;
+        private String email;
+        private String phone;
+        private Integer group_id;
+        private List<Role> roles;
+        private List<Message> messages;
+        private Integer count_message;
+        private Integer headportrait_id;
+        private HeadPortrait currentHeadPortrait;
+        private List<HeadPortrait> headPortraits;
+        private Double money;
 
-    public User(Integer id, String name, String password, String email, String phone, Integer group_id) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.group_id = group_id;
-    }
+        public Builder() {
+        }
 
-    public User(String name,Integer group_id){
-        this.name=name;
-        this.group_id=group_id;
-    }
+        public Builder id(Integer val) {
+            id = val;
+            return this;
+        }
 
-    public User(Integer id, String name, String password, String email, String phone, Integer group_id, List<Role> roles, List<Message> messages) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.roles = roles;
-        this.messages = messages;
-        this.group_id = group_id;
-    }
+        public Builder name(String val) {
+            name = val;
+            return this;
+        }
 
-    public Integer getId() {
-        return id;
-    }
+        public Builder password(String val) {
+            password = val;
+            return this;
+        }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+        public Builder email(String val) {
+            email = val;
+            return this;
+        }
 
-    public String getName() {
-        return name;
-    }
+        public Builder phone(String val) {
+            phone = val;
+            return this;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public Builder group_id(Integer val) {
+            group_id = val;
+            return this;
+        }
 
-    public String getPassword() {
-        return password;
-    }
+        public Builder roles(List<Role> val) {
+            roles = val;
+            return this;
+        }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+        public Builder messages(List<Message> val) {
+            messages = val;
+            return this;
+        }
 
-    public String getEmail() {
-        return email;
-    }
+        public Builder count_message(Integer val) {
+            count_message = val;
+            return this;
+        }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+        public Builder headportrait_id(Integer val) {
+            headportrait_id = val;
+            return this;
+        }
 
-    public String getPhone() {
-        return phone;
-    }
+        public Builder currentHeadPortrait(HeadPortrait val) {
+            currentHeadPortrait = val;
+            return this;
+        }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+        public Builder headPortraits(List<HeadPortrait> val) {
+            headPortraits = val;
+            return this;
+        }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
+        public Builder money(Double val) {
+            money = val;
+            return this;
+        }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    public Integer getGroup_id() {
-        return group_id;
-    }
-
-    public void setGroup_id(Integer group_id) {
-        this.group_id = group_id;
-    }
-
-    public Integer getCount_message() {
-        return count_message;
-    }
-
-    public void setCount_message(Integer count_message) {
-        this.count_message = count_message;
-    }
-
-    public HeadPortrait getCurrentHeadPortrait() {
-        return currentHeadPortrait;
-    }
-
-    public void setCurrentHeadPortrait(HeadPortrait currentHeadPortrait) {
-        this.currentHeadPortrait = currentHeadPortrait;
-    }
-
-    public List<HeadPortrait> getHeadPortraits() {
-        return headPortraits;
-    }
-
-    public void setHeadPortraits(List<HeadPortrait> headPortraits) {
-        this.headPortraits = headPortraits;
-    }
-
-    public Integer getHeadportrait_id() {
-        return headportrait_id;
-    }
-
-    public void setHeadportrait_id(Integer headportrait_id) {
-        this.headportrait_id = headportrait_id;
-    }
-
-    public Double getMoney() {
-        return money;
-    }
-
-    public void setMoney(Double money) {
-        this.money = money;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", group_id=" + group_id +
-                ", roles=" + roles +
-                ", messages=" + messages +
-                ", count_message=" + count_message +
-                ", headPortrait_id=" + headportrait_id +
-                ", currentHeadPortrait=" + currentHeadPortrait +
-                ", headPortraits=" + headPortraits +
-                '}';
+        public User build() {
+            return new User(this);
+        }
     }
 }

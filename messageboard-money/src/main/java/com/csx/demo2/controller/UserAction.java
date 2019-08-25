@@ -148,7 +148,7 @@ public class UserAction {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         String userid=req.getParameter("userid");
-        User usertemp= userService.selectPersonInfo(new User(Integer.valueOf(userid), null, null, null, null, null));
+        User usertemp= userService.selectPersonInfo(new User.Builder().id(Integer.valueOf(userid)).build());
 
         Subject subject = SecurityUtils.getSubject();
         if(user.getId()==usertemp.getId()){
@@ -188,7 +188,7 @@ public class UserAction {
 
         User user = (User)session.getAttribute("user");
         String userid=req.getParameter("userid");
-        User usertemp= userService.selectPersonInfo(new User(Integer.valueOf(userid), null, null, null, null, null));
+        User usertemp= userService.selectPersonInfo(new User.Builder().id(Integer.valueOf(userid)).build());
         Subject subject = SecurityUtils.getSubject();
         if(user.getId()==usertemp.getId()){
             if(!subject.isPermitted("编辑自己的用户信息")){

@@ -1,5 +1,12 @@
 package com.csx.demo2.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Log {
     private String user_name;
     private Integer user_id;
@@ -9,82 +16,66 @@ public class Log {
     private String date;
     private User user;
 
-    public Log() {
+    private Log(Builder builder) {
+        setUser_name(builder.user_name);
+        setUser_id(builder.user_id);
+        setOperation(builder.operation);
+        setTime(builder.time);
+        setResult(builder.result);
+        setDate(builder.date);
+        setUser(builder.user);
     }
 
-    public Log(String user_name, Integer user_id, String operation, Integer time, String result, String date) {
-        this.user_name = user_name;
-        this.user_id = user_id;
-        this.operation = operation;
-        this.time = time;
-        this.result = result;
-        this.date = date;
-    }
 
-    public String getUser_name() {
-        return user_name;
-    }
+    public static final class Builder {
+        private String user_name;
+        private Integer user_id;
+        private String operation;
+        private Integer time;
+        private String result;
+        private String date;
+        private User user;
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
+        public Builder() {
+        }
 
-    public Integer getUser_id() {
-        return user_id;
-    }
+        public Builder user_name(String val) {
+            user_name = val;
+            return this;
+        }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
+        public Builder user_id(Integer val) {
+            user_id = val;
+            return this;
+        }
 
-    public String getOperation() {
-        return operation;
-    }
+        public Builder operation(String val) {
+            operation = val;
+            return this;
+        }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
+        public Builder time(Integer val) {
+            time = val;
+            return this;
+        }
 
-    public Integer getTime() {
-        return time;
-    }
+        public Builder result(String val) {
+            result = val;
+            return this;
+        }
 
-    public void setTime(Integer time) {
-        this.time = time;
-    }
+        public Builder date(String val) {
+            date = val;
+            return this;
+        }
 
-    public String getResult() {
-        return result;
-    }
+        public Builder user(User val) {
+            user = val;
+            return this;
+        }
 
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Log{" +
-                "user_name='" + user_name + '\'' +
-                ", user_id=" + user_id +
-                ", operation='" + operation + '\'' +
-                ", time=" + time +
-                ", result='" + result + '\'' +
-                '}';
+        public Log build() {
+            return new Log(this);
+        }
     }
 }

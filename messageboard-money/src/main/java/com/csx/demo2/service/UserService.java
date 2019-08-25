@@ -36,12 +36,12 @@ public class UserService {
     * @return 返回用户信息集合
     * */
     public List<User> selectAllUserInfo(){
-        List<User> users = userDao.select(new User());
+        List<User> users = userDao.select(new User.Builder().build());
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
             //System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message.Builder().user_id(next.getId()).build());
             next.setCount_message(messages.size());
         }
         return users;
@@ -49,24 +49,24 @@ public class UserService {
 
     public List<User> selectGroupUserInfo(User user){
         Integer group_id = userDao.select(user).get(0).getGroup_id();
-        List<User> users = userDao.select(new User(null,null,null,null,null,group_id));
+        List<User> users = userDao.select(new User.Builder().group_id(group_id).build());
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
             //System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message.Builder().user_id(next.getId()).build());
             next.setCount_message(messages.size());
         }
         return users;
     }
 
     public List<User> selectOtherGroupUserInfo(User user){
-        List<User> users = userDao.selectOtherGroup(new User(null,null,null,null,null,user.getGroup_id()));
+        List<User> users = userDao.selectOtherGroup(new User.Builder().group_id(user.getGroup_id()).build());
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next = it.next();
             //System.out.println(next.getId());
-            List<Message> messages = messageDao.select(new Message(null,null,null,null,next.getId()));
+            List<Message> messages = messageDao.select(new Message.Builder().user_id(next.getId()).build());
             next.setCount_message(messages.size());
         }
         return users;
@@ -77,8 +77,8 @@ public class UserService {
     * @return 返回个人用户对象
     * */
     public User selectPersonInfo(User user){
-        user = userDao.select(new User(user.getId(), null, null, null, null, null)).get(0);
-        List<Message> messages = messageDao.select(new Message(null,null,null,null,user.getId()));
+        user = userDao.select(new User.Builder().id(user.getId()).build()).get(0);
+        List<Message> messages = messageDao.select(new Message.Builder().user_id(user.getId()).build());
         user.setCount_message(messages.size());
         List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
         user.setHeadPortraits(headPortraits);
@@ -120,7 +120,7 @@ public class UserService {
     }
 
     public User editUserInfo(String userid){
-        User user = userDao.select(new User(Integer.valueOf(userid), null, null, null, null, null)).get(0);
+        User user = userDao.select(new User.Builder().id(Integer.valueOf(userid)).build()).get(0);
         List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
         user.setHeadPortraits(headPortraits);
         List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
@@ -130,7 +130,7 @@ public class UserService {
     }
 
     public List<User> editUserInfoSuccess(List<User> users, String id, String name, String password, String email, String phone, String group_id){
-        userDao.update(new User(Integer.valueOf(id), name, password, email, phone, Integer.valueOf(group_id)));
+        userDao.update(new User.Builder().id(Integer.valueOf(id)).name(name).password(password).email(email).phone(phone).group_id(Integer.valueOf(group_id)).build());
         Iterator<User> it=users.iterator();
         while(it.hasNext()){
             User next=it.next();
@@ -154,28 +154,28 @@ public class UserService {
     public Result recharge(User user, Double money){
         user.setMoney(money);
         userDao.addMoney(user);
-        List<User> select = userDao.select(new User(user.getId(), null, null, null, null, null, null));
+        user = userDao.select(new User.Builder().id(user.getId()).build()).get(0);
         Date date=new Date();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formatDate = simpleDateFormat.format(date);
         billItemDao.insert(new BillItem(null,"充值",money,user.getId(),formatDate));
-        return new Result(select.get(0),null,null,null,null);
+        return new Result.Builder().user(user).build();
     }
 
     @Transactional()
     public Double reward(HttpSession session, Integer addUserId, User user, Double money) throws RuntimeException {
-        userDao.miusMoney(new User(user.getId(),null,null,null,null,null,null,money));
+        userDao.miusMoney(new User.Builder().id(user.getId()).money(money).build());
         if((int)(Math.random()*100)<49) {
             throw new RuntimeException();
         }
-        userDao.addMoney(new User(addUserId,null,null,null,null,null,null,money));
+        userDao.addMoney(new User.Builder().id(addUserId).money(money).build());
         Date date=new Date();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formatDate = simpleDateFormat.format(date);
         billItemDao.insert(new BillItem(null,"消费",money,user.getId(),formatDate));
         billItemDao.insert(new BillItem(null,"收到打赏",money,addUserId,formatDate));
-        User adduser = userDao.select(new User(addUserId, null, null, null, null, null)).get(0);
-        User minususer = userDao.select(new User(user.getId(), null, null, null, null, null)).get(0);
+        User adduser = userDao.select(new User.Builder().id(addUserId).build()).get(0);
+        User minususer = userDao.select(new User.Builder().id(user.getId()).build()).get(0);
 
         session.setAttribute("user",minususer);
         List<Message> messages = (List<Message>)session.getAttribute("messageSet");
@@ -195,10 +195,10 @@ public class UserService {
         pagebean.setPageNumber(page);
         pagebean.setPageSize(nrow);
         pagebean.setStartIndex((page-1)*nrow);
-        pagebean.setUser(new User(userid,null,null,null,null,groupid));
+        pagebean.setUser(new User.Builder().id(userid).group_id(groupid).build());
 
         List<User> findpage = userDao.findpage(pagebean);
-        Integer total = userDao.select(new User(userid,null,null,null,null,groupid)).size();
+        Integer total = userDao.select(new User.Builder().id(userid).group_id(groupid).build()).size();
         pagebean.setTotal(total);
         pagebean.setRows(findpage);
         return pagebean;

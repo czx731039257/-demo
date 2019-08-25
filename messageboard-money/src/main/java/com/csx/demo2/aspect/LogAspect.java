@@ -36,9 +36,7 @@ public class LogAspect {
             "&&!execution(* com.csx.demo2.controller.UserAction.intoEditUserInfo(..))" +
             "&&!execution(* com.csx.demo2.controller.LogoutAction.logout(..))"+
             "&&!execution(* com.csx.demo2.controller.UserAction.uploadHead(..))"+
-            "&&!execution(* com.csx.demo2.controller.UserAction.changeHead(..))"+
-            "&&!execution(* com.csx.demo2.controller.UserAction.rechargeSuccess(..))"+
-            "&&!execution(* com.csx.demo2.controller.UserAction.rewardSuccess(..))")
+            "&&!execution(* com.csx.demo2.controller.UserAction.changeHead(..))")
     public Object Log_Message(ProceedingJoinPoint joinPoint) throws Throwable {
         Date date=new Date();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -54,7 +52,7 @@ public class LogAspect {
         User user=(User)session.getAttribute("user");
         String logmsg= (String) session.getAttribute("logmsg");
         System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作:"+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+"返回结果："+logmsg);
-        logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
+        logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1,null));
         return proceed;
     }
 
@@ -75,7 +73,7 @@ public class LogAspect {
 
         String date1=dateFormat.format(date);
         System.out.println("用户名："+user.getName()+" 用户id:"+user.getId()+" 操作："+methodDao.selectByUrl(method_url).getMethod_name()+" 耗时："+(post-pre)+" 返回结果："+logmsg);
-        logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1));
+        logDao.insert(new Log(user.getName(),user.getId(),methodDao.selectByUrl(method_url).getMethod_name(),(int)(post-pre),logmsg,date1,null));
         return proceed;
     }
 

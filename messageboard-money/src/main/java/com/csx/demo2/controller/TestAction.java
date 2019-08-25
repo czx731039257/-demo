@@ -87,7 +87,7 @@ public class TestAction {
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date_create =simpleDateFormat.format(date);
         String date_edit=date_create;
-        messageDao.insert(new Message(null,label,detail,date_create,date_edit,user.getId()));
+        messageDao.insert(new Message.Builder().label(label).detail(detail).date_edit(date_edit).date_create(date_create).user_id(user.getId()).build());
 
         return "success";
     }
@@ -106,7 +106,7 @@ public class TestAction {
         Date date =new Date();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date_edit =simpleDateFormat.format(date);
-        messageDao.update(new Message(Integer.valueOf(messageid),label,detail,null,date_edit,Integer.valueOf(user_id)));
+        messageDao.update(new Message.Builder().id(Integer.valueOf(messageid)).label(label).detail(detail).date_edit(date_edit).user_id(Integer.valueOf(user_id)).build());
         return "success";
     }
 
@@ -163,7 +163,7 @@ public class TestAction {
     @ResponseBody
     @RequestMapping("/easyui_editUser")
     public String easyui_editUser(@RequestParam String name,@RequestParam String email,@RequestParam String phone,@RequestParam String userid){
-        userDao.update(new User(Integer.valueOf(userid),name,null,email,phone,null));
+        userDao.update(new User.Builder().id(Integer.valueOf(userid)).name(name).email(email).phone(phone).build());
         return "success";
     }
 

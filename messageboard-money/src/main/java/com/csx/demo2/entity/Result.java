@@ -1,7 +1,14 @@
 package com.csx.demo2.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result {
     private User user;
     private PageBean pageBean;
@@ -10,62 +17,59 @@ public class Result {
     private String logmsg;
     private List<BillItem> bill;
 
-    public Result(User user, PageBean pageBean, List<Message> messages, List<Permission> permissions, String logmsg) {
-        this.user = user;
-        this.pageBean = pageBean;
-        this.messages = messages;
-        this.permissions = permissions;
-        this.logmsg = logmsg;
+    private Result(Builder builder) {
+        setUser(builder.user);
+        setPageBean(builder.pageBean);
+        setMessages(builder.messages);
+        setPermissions(builder.permissions);
+        setLogmsg(builder.logmsg);
+        setBill(builder.bill);
     }
 
-    public Result() {
-    }
 
-    public User getUser() {
-        return user;
-    }
+    public static final class Builder {
+        private User user;
+        private PageBean pageBean;
+        private List<Message> messages;
+        private List<Permission> permissions;
+        private String logmsg;
+        private List<BillItem> bill;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+        public Builder() {
+        }
 
-    public PageBean getPageBean() {
-        return pageBean;
-    }
+        public Builder user(User val) {
+            user = val;
+            return this;
+        }
 
-    public void setPageBean(PageBean pageBean) {
-        this.pageBean = pageBean;
-    }
+        public Builder pageBean(PageBean val) {
+            pageBean = val;
+            return this;
+        }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
+        public Builder messages(List<Message> val) {
+            messages = val;
+            return this;
+        }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
+        public Builder permissions(List<Permission> val) {
+            permissions = val;
+            return this;
+        }
 
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
+        public Builder logmsg(String val) {
+            logmsg = val;
+            return this;
+        }
 
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
-    }
+        public Builder bill(List<BillItem> val) {
+            bill = val;
+            return this;
+        }
 
-    public String getLogmsg() {
-        return logmsg;
-    }
-
-    public void setLogmsg(String logmsg) {
-        this.logmsg = logmsg;
-    }
-
-    public List<BillItem> getBill() {
-        return bill;
-    }
-
-    public void setBill(List<BillItem> bill) {
-        this.bill = bill;
+        public Result build() {
+            return new Result(this);
+        }
     }
 }

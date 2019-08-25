@@ -25,7 +25,7 @@ public class UserRoleService {
      * @return
      */
     public List<User> selectAllUserAndRole(){
-        List<User> users = userDao.select(new User(null, null, null, null, null, null));
+        List<User> users = userDao.select(new User.Builder().build());
         Iterator<User> it =users.iterator();
         while(it.hasNext()){
             User next = it.next();

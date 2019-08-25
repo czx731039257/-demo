@@ -19,7 +19,7 @@ public class RoleService {
      */
 
     public List<Role> selectAllRole( ){
-        List<Role> roles = roleDao.select(new Role(null, null));
+        List<Role> roles = roleDao.select(new Role());
         return roles;
     }
 
@@ -27,7 +27,7 @@ public class RoleService {
     * 根据角色id  查询该角色的信息
     * */
     public Role selectByRoleId(String roleid){
-        Role role = roleDao.select(new Role(Integer.valueOf(roleid), null)).get(0);
+        Role role = roleDao.select(new Role.Builder().id(Integer.valueOf(roleid)).build()).get(0);
         return role;
     }
 
