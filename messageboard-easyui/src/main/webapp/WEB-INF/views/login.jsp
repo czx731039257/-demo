@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>账单页面</title>
+    <link rel="stylesheet" type="text/css" href="css/background.css">
     <script type="text/javascript" src="easyui/jquery.min.js"></script>
     <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
@@ -19,9 +20,10 @@
         //根据后台返回的json数据进行判断
         function chuLi(jsonData) {
             $.procAjaxMsg(jsonData, function () {
-                window.location.href = jsonData.BackUrl;
+                alert(jsonData.backUrl);
+                window.location.href = jsonData.backUrl;
             }, function () {
-                $.alertMsg(jsonData.Msg, "登录提示！");
+                $.alertMsg(jsonData.errorMsg, "登录提示！");
             });
         }
 
@@ -33,19 +35,25 @@
                 height: 200,
                 modal: true,
                 closable: false,
-                collapsible : true,	// 是否折叠
-                minimizable :  true,	// 窗口最大化
-                maximizable : true,	// 窗口最小化
+                collapsible : false,	// 是否折叠
+                minimizable :  false,	// 窗口最大化
+                maximizable : false,	// 窗口最小化
                 resizable : false,	// 是否可调整窗口大小
                 buttons: [{
                     text: "登录",
                     iconCls: 'icon-ok',
                     handler: function () {
                         if ($('#loginForm').form('validate')) {//验证表单的正确性
-                            $.post("stud_doLogIn.action",
+                            $.post("loginVerify",
                                 { loginName: $('#loginForm input[name="LoginName"]').val(), loginPwd: $('#loginForm input[name="LoginPwd"]').val() },
                                 function (data) {
                                     //chuLi(data);//调用转向函数
+                                    if(data.backUrl){
+                                        window.location.href = data.backUrl;
+                                    }
+                                    if(data.errorMsg){
+                                        alert(data.errorMsg);
+                                    }
                                 });
                         }
                     }
@@ -76,7 +84,7 @@
 <body>
 <br>
 <div easyui-dialog id="login">
-    <form id="loginForm" action="stud_doLogIn.action" method="post">
+    <form id="loginForm" action="loginVerify" method="post">
         <div class="login_item"><span>用户名：</span>
             <input type="text" name="LoginName" class="easyui-validatebox" data-options="required:true,missingMessage:'请填写登录名'" /></div>
         <div class="login_item"><span>密    码：</span>

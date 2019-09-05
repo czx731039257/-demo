@@ -14,36 +14,36 @@ MySQL - 8.0.3-rc-log : Database - internship2
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`internship2` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `internship2`;
+USE `internship3`;
 
 /*Table structure for table `billitem` */
 
 DROP TABLE IF EXISTS `billitem`;
 
 CREATE TABLE `billitem` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) DEFAULT NULL,
-  `money` double(7,2) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(255) DEFAULT NULL,
+  `money` DOUBLE(7,2) DEFAULT NULL,
+  `user_id` INT(11) DEFAULT NULL,
+  `date` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `billitem_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;
 
 /*Data for the table `billitem` */
 
-insert  into `billitem`(`id`,`type`,`money`,`user_id`,`date`) values (182,'充值',1.00,10,'2019-08-23 09:49:06'),(183,'充值',1.01,10,'2019-08-23 09:49:22'),(184,'消费',1.01,10,'2019-08-23 09:49:41'),(185,'收到打赏',1.01,4,'2019-08-23 09:49:41'),(186,'充值',1.00,10,'2019-08-23 22:07:29'),(187,'消费',1.00,10,'2019-08-23 22:07:37'),(188,'收到打赏',1.00,1,'2019-08-23 22:07:37'),(189,'充值',1.00,10,'2019-08-23 23:11:45');
+INSERT  INTO `billitem`(`id`,`type`,`money`,`user_id`,`date`) VALUES (182,'充值',1.00,10,'2019-08-23 09:49:06'),(183,'充值',1.01,10,'2019-08-23 09:49:22'),(184,'消费',1.01,10,'2019-08-23 09:49:41'),(185,'收到打赏',1.01,4,'2019-08-23 09:49:41'),(186,'充值',1.00,10,'2019-08-23 22:07:29'),(187,'消费',1.00,10,'2019-08-23 22:07:37'),(188,'收到打赏',1.00,1,'2019-08-23 22:07:37'),(189,'充值',1.00,10,'2019-08-23 23:11:45');
 
 /*Table structure for table `group` */
 
 DROP TABLE IF EXISTS `group`;
 
 CREATE TABLE `group` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `id` INT(11) NOT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `group` */
 

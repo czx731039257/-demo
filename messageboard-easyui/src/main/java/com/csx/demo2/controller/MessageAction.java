@@ -3,6 +3,8 @@ package com.csx.demo2.controller;
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.entity.*;
 import com.csx.demo2.service.MessageService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@RequestMapping("/message")
 public class MessageAction {
 
     @Autowired
@@ -30,14 +33,13 @@ public class MessageAction {
      * @throws IOException
      */
     @ResponseBody
-    @RequestMapping("/queryMessages")
+    @RequestMapping("/queryAllMessages")
     public Page queryMessages(HttpServletRequest req) throws IOException {
         Integer pageNumber = Integer.valueOf(req.getParameter("page"));
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String messageid = req.getParameter("messageid");
         String username = req.getParameter("username");
         String groupid=req.getParameter("groupid");
-        System.out.println(messageid+username+groupid);
         Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
 
         User user=new User();
@@ -71,13 +73,11 @@ public class MessageAction {
     public Result createMessage(HttpServletRequest req){
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
-        HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
         Date date =new Date();
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date_create =simpleDateFormat.format(date);
         String date_edit=date_create;
-        boolean i=messageService.insert(new Message.Builder().label(label).detail(detail).date_edit(date_edit).date_create(date_create).user_id(user.getId()).build());
+        boolean i=messageService.insert(new Message.Builder().label(label).detail(detail).date_edit(date_edit).date_create(date_create).build());
         if(i) {
             return new Result.Builder().successMsg("新建留言成功").build();
         }else{
@@ -121,5 +121,66 @@ public class MessageAction {
         }else{
             return new Result.Builder().errorMsg("删除留言失败").build();
         }
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/asd")
+    public Page asd(){
+        System.out.println("sdasd");
+        return new Page.Builder().rows(null).total(0).build();
+    }
+
+    @ResponseBody
+    @RequestMapping("queryGroupMessages")
+    public Page queryGroupMessage(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        User nowuser = (User)session.getAttribute("user");
+        Integer pageNumber = Integer.valueOf(req.getParameter("page"));
+        Integer pageSize = Integer.valueOf(req.getParameter("rows"));
+        String messageid = req.getParameter("messageid");
+        String username = req.getParameter("username");
+        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+
+        User user=new User();
+        Message message=new Message();
+        if(StringUtils.isNoBlank(messageid)){
+            message.setId(Integer.valueOf(messageid));
+            page.setMessage(message);
+        }
+        if(StringUtils.isNoBlank(username)){
+            user.setName(username);
+            message.setUser(user);
+            page.setMessage(message);
+        }
+        user.setGroup_id(nowuser.getGroup_id());
+        message.setUser(user);
+        page.setMessage(message);
+        page = messageService.findpage(page);
+        return page;
+    }
+
+    @ResponseBody
+    @RequestMapping("queryPersonMessages")
+    public Page queryPersonMessages(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        User nowuser = (User)session.getAttribute("user");
+        Integer pageNumber = Integer.valueOf(req.getParameter("page"));
+        Integer pageSize = Integer.valueOf(req.getParameter("rows"));
+        String messageid = req.getParameter("messageid");
+
+        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+
+        User user=new User();
+        Message message=new Message();
+        if(StringUtils.isNoBlank(messageid)){
+            message.setId(Integer.valueOf(messageid));
+            page.setMessage(message);
+        }
+        user.setName(nowuser.getName());
+        message.setUser(user);
+        page.setMessage(message);
+        page = messageService.findpage(page);
+        return page;
     }
 }

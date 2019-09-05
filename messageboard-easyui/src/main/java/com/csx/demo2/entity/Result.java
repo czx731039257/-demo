@@ -12,16 +12,19 @@ import java.util.List;
 public class Result {
     private String successMsg;
     private String errorMsg;
+    private String backUrl;
 
     private Result(Builder builder) {
         setSuccessMsg(builder.successMsg);
         setErrorMsg(builder.errorMsg);
+        setBackUrl(builder.backUrl);
     }
 
 
     public static final class Builder {
         private String successMsg;
         private String errorMsg;
+        private String backUrl;
 
         public Builder() {
         }
@@ -33,6 +36,11 @@ public class Result {
 
         public Builder errorMsg(String val) {
             errorMsg = val;
+            return this;
+        }
+
+        public Builder backUrl(String val) {
+            backUrl = val;
             return this;
         }
 

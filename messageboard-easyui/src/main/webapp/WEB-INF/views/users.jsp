@@ -21,7 +21,7 @@
             if (row) {
                 $('#dlg').dialog('open').dialog('setTitle', '编辑用户信息');
                 $('#fm').form('load', row);
-                url = 'editUser?userid=' + row.id;
+                url = 'user/editUser?userid=' + row.id;
             }
         }
 
@@ -58,7 +58,7 @@
 </head>
 <body>
 <table id="dg" title="用戶信息" class="easyui-datagrid"
-       url="queryUsers"
+       url="user/queryUsers"
        toolbar="#toolbar"
        rownumbers="true" fitColumns="true" singleSelect="true" pagination="true">
     <thead>

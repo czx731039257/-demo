@@ -3,6 +3,8 @@ package com.csx.demo2.service;
 import com.csx.demo2.dao.MessageDao;
 import com.csx.demo2.dao.UserDao;
 import com.csx.demo2.entity.*;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,10 @@ public class MessageService {
      * @return
      */
     public boolean insert(Message message){
+        Subject subject = SecurityUtils.getSubject();
+        String username = (String)subject.getPrincipal();
+        User user = userDao.select(new User.Builder().name(username).build()).get(0);
+        message.setUser_id(user.getId());
         int i = messageDao.insert(message);
         if(i!=0){
             return true;

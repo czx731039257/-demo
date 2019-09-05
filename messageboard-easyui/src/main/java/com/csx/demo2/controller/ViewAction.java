@@ -39,4 +39,24 @@ public class ViewAction {
     public String login(HttpServletRequest req){
         return "login";
     }
+
+    @RequestMapping(value="/groupmessages")
+    public String groupmessages(HttpServletRequest req){
+        return "groupmessages";
+    }
+
+    @RequestMapping(value="/allmessages")
+    public String allmessages(HttpServletRequest req){
+        return "allmessages";
+    }
+
+    @RequestMapping(value="/personmessages")
+    public String personmessages(HttpServletRequest req){
+        return "personmessages";
+    }
+
+    @RequestMapping(value="/test")
+    public String test(HttpServletRequest req){
+        return "test";
+    }
 }

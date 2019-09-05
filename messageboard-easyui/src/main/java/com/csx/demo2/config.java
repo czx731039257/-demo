@@ -1,9 +1,11 @@
 package com.csx.demo2;
 
+import com.csx.demo2.filter.MyShiroLogoutFilter;
 import com.csx.demo2.realm.MyRealm;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
@@ -14,8 +16,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.logging.Filter;
 
 @Configuration
 public class config extends WebMvcConfigurerAdapter {
@@ -32,6 +36,14 @@ public class config extends WebMvcConfigurerAdapter {
             }
         };
     }
+
+
+//    @Bean
+//    public MyShiroLogoutFilter myShiroLogoutFilter(){
+//        MyShiroLogoutFilter myShiroLogoutFilter=new MyShiroLogoutFilter();
+//        myShiroLogoutFilter.setRedirectUrl("/login");
+//        return myShiroLogoutFilter;
+//    }
 
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -51,7 +63,7 @@ public class config extends WebMvcConfigurerAdapter {
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/login");
-        shiroFilterFactoryBean.setSuccessUrl("/message");
+        shiroFilterFactoryBean.setSuccessUrl("/test");
         shiroFilterFactoryBean.setUnauthorizedUrl("/login");
         // 拦截器.
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
@@ -60,16 +72,17 @@ public class config extends WebMvcConfigurerAdapter {
         filterChainDefinitionMap.put("/loginVerify", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/picture/**", "anon");
-
-        filterChainDefinitionMap.put("/**", "anon");
-        filterChainDefinitionMap.put("/testui", "anon");
         filterChainDefinitionMap.put("/easyui/**", "anon");
-        filterChainDefinitionMap.put("/testqueryAllMessage", "anon");
-        filterChainDefinitionMap.put("/testnewMessage", "anon");
-        filterChainDefinitionMap.put("/testeditMessage", "anon");
+
+//        filterChainDefinitionMap.put("/**", "anon");
+//        filterChainDefinitionMap.put("/testui", "anon");
+//        filterChainDefinitionMap.put("/easyui/**", "anon");
+//        filterChainDefinitionMap.put("/testqueryAllMessage", "anon");
+//        filterChainDefinitionMap.put("/testnewMessage", "anon");
+//        filterChainDefinitionMap.put("/testeditMessage", "anon");
 
         filterChainDefinitionMap.put("/logout", "logout");
-        //filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

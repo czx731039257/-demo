@@ -3,16 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.csx.demo2.dao.PermissionDao">
-    <select id="select" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Permission">
+    <select id="selectByUserName" parameterType="String" resultType="Permission">
         select b.* from (select b.permission_id from (select a.role_id from user_role a left join user b on a.user_id=b.id
-        <where>
-            <if test="id!=null">
-                and b.id=#{id}
-            </if>
-            <if test="name!=null">
-                and b.name=#{name}
-            </if>
-        </where>
+        where b.name=#{name}
         ) a left join role_permission b
         on a.role_id=b.role_id) a left join permission b on a.permission_id=b.id order by id asc;
     </select>

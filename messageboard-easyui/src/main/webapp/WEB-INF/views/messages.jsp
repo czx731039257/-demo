@@ -6,20 +6,24 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
 <html>
 <head>
     <title>easyui</title>
+    <link rel="stylesheet" type="text/css" href="css/background.css">
     <script type="text/javascript" src="easyui/jquery.min.js"></script>
     <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
     <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"/>
     <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"/>
+    
 
     <script>
         function newMessage() {
             $('#dlg').dialog('open').dialog('setTitle', '新建留言');
             $('#fm').form('clear');
-            url = 'createMessage';
+            url = 'message/createMessage';
         }
 
         function editMessage() {
@@ -27,7 +31,7 @@
             if (row) {
                 $('#dlg').dialog('open').dialog('setTitle', '编辑留言');
                 $('#fm').form('load', row);
-                url = 'editMessage?messageid=' + row.id + '&user_id=' + row.user_id;
+                url = 'message/editMessage?messageid=' + row.id + '&user_id=' + row.user_id;
             }
         }
 
@@ -60,7 +64,7 @@
             if (row) {
                 $.messager.confirm('Confirm', '确认删除这条留言吗', function (r) {
                     if (r) {
-                        $.post('removeMessage', {messageid: row.id},function (result) {
+                        $.post('message/removeMessage', {messageid: row.id},function (result) {
                             if (result.successMsg) {
                                 $('#dg').datagrid('reload');    // reload the user data
                             } else {
@@ -69,7 +73,7 @@
                                     msg: result.errorMsg
                                 });
                             }
-                        }, 'text');
+                        }, 'json');
                     }
                 });
             }
@@ -82,20 +86,58 @@
                 username: $('#username').val(),
                 groupid: $('#groupid').val()
             });
-            //$('#dg').attr('url', "testqueryAllMessage");
+
+            // var op = $("#dg").datagrid("options");//获取 option设置对象
+            // op.url = "message/asd";//设置url
+            // $("#dg").datagrid("load");//重新加载
+            // alert(op.url);
+
         }
 
         function addTab(title, url){
-            if ($('#tt').tabs('exists', title)){
-                $('#tt').tabs('select', title);
-            } else {
+
+            // if ($('#tt').tabs('exists', title)){
+            //     $('#tt').tabs('select', title);
+            // } else {
+            //     var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+            //     $('#tt').tabs('add',{
+            //         title:title,
+            //         content:content,
+            //         closable:true
+            //     });
+            // }
+
+            alert("aa");
+
+            if($('#tt').tabs('exists',title)){
+                var tab=$('#tt').tabs('getTab',title);
+                tab.panel('open').panel('refresh',url);
+            }else{
                 var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
-                $('#tt').tabs('add',{
-                    title:title,
-                    content:content,
-                    closable:true
-                });
+                    $('#tt').tabs('add',{
+                        title:title,
+                        content:content,
+                        closable:true
+                    });
             }
+
+            var tab=$('#tt').tabs('getSelected');
+            tab.panel('open').panel('refresh','personmessages');
+            // $('#tt').tabs('update',{
+            //     tab:tab,
+            //     options:{
+            //
+            //     }
+            // });
+            // tab.panel('refresh');
+        }
+
+        function logout() {
+           window.location.href='logout';
+        }
+
+        function test() {
+            alert("sxxxxx");
         }
 
     </script>
@@ -103,18 +145,24 @@
 <body>
 
 <div class="easyui-layout" fit="true">
-    <div region="north" border="false" class="p-search" style="height: 16%">
-        <a href="#" class="easyui-linkbutton" onclick="addTab('用戶信息','users')">用户信息</a>
-        <a href="#" class="easyui-linkbutton" onclick="addTab('日志记录','users')">日志记录</a>
+    <div region="north" border="false" class="p-search" >
+        <table style="width: 100%"  border="0"><tr>
+            <td><a href="#" class="easyui-linkbutton" onclick="addTab('用戶管理','users')">用户管理</a></td>
+            <td><a href="#" class="easyui-linkbutton" onclick="addTab('日志管理','')">日志管理</a></td>
+            <td><a href="#" class="easyui-linkbutton" onclick="addTab('同组的人的留言','groupmessages')">同组的人的留言</a></td>
+            <td style="width: 85%"></td>
+            <td><a href="#" class="easyui-linkbutton" onclick="logout()">注销</a></td>
+        </tr></table>
     </div>
+
     <div region="center" border="false" style="height: 100%">
         <div class="easyui-layout" fit="true">
             <div region="center" border="true" style="border:1px solid #ccc;width: 80%;height: 100%">
                 <div  id="tt" class="easyui-tabs" style="width: 100%;height: 100%">
-                    <div title="留言榜" style="height: 100%">
+                    <div title="留言管理" style="height: 100%" closable="true">
                         <!--留言榜-->
-                            <table id="dg" title="留言榜" class="easyui-datagrid" style="width:100%;height:100%"
-                                   url="queryMessages"
+                            <table id="dg" title="所有留言" class="easyui-datagrid" style="width:100%;height:100%"
+                                   url="message/queryAllMessages"
                                    toolbar="#toolbar"
                                    rownumbers="true" fitColumns="true" singleSelect="true" pagination="true">
                                 <thead>
@@ -147,7 +195,59 @@
                 </div>
             </div>
             <div region="west" border="true" class="p-left" style="width: 20%">
-                <h>assssssssaa</h>
+                <div id="sm" class="easyui-sidemenu" data-options="data:data" style="width: 100%;height: max-content"></div>
+                <script type="text/javascript">
+                    var data = [{
+                        text: '留言管理',
+                        iconCls: 'icon-more',
+                        state: 'open',
+                        children: [{
+                            text: '个人留言'
+                        },{
+                            text: '同组的留言'
+                        },{
+                            text: '<a href="#" style="text-decoration : none;color: black" class="easyui-linkbutton" plain="true" onclick="test()">全部留言</a>'
+                        }]
+                    },{
+                        text: '用户管理',
+                        iconCls: 'icon-more',
+                        children: [{
+                            text: '<a href="#" style="text-decoration : none;color: black" class="easyui-linkbutton" plain="true" onclick="test()">个人用户信息</a>'
+                        },{
+                            text: '<a href="#" style="text-decoration : none;color: black" class="easyui-linkbutton" plain="true" onclick="test()">其他人的用户信息</a>'
+                        },]
+                    },{
+                        text: '账单管理',
+                        iconCls: 'icon-more',
+                        children: [{
+                            text: '个人账单'
+                        }]
+                    },{
+                        text: '群组管理',
+                        iconCls: 'icon-more',
+                        children: [{
+                            text: '群组成员管理'
+                        }]
+                    },{
+                        text: '日志管理',
+                        iconCls: 'icon-more',
+                        children: [{
+                            text: '个人操作日志'
+                        },{
+                            text: '所有用户的操作日志'
+                        }]
+                    },{
+                        text: '权限管理',
+                        iconCls: 'icon-more',
+                        children: [{
+                            text: '用户角色管理'
+                        },{
+                            text: '角色权限管理'
+                        }]
+                    }];
+
+                </script>
+                
             </div>
         </div>
     </div>
