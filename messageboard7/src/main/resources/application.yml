@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/internship2?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/internship?serverTimezone=UTC
     username: root
-    password: root
+    password: czx6296456852
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     view:
