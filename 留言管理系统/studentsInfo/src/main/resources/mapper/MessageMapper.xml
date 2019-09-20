@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csx.demo2.dao.MessageDao">
+    <select id="findpage" parameterType="Page" resultType="Message">
+        SELECT a.* FROM message a left join user b on a.user_id=b.id
+        <where>
+            <if test="message != null">
+                <if test="message.id != null">
+                    and a.id=#{message.id}
+                </if>
+                <if test="message.user!=null and message.user.name!= null">
+                    and b.name=#{message.user.name}
+                </if>
+                <if test="message.user!=null and message.user.group_id != null">
+                    and b.group_id=#{message.user.group_id}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="select" parameterType="Message" resultType="Message">
+        select a.* from message a left join user b on a.user_id=b.id
+        <where>
+            <if test="id!=null">
+                and a.id=#{id}
+            </if>
+            <if test="label!=null">
+               and label=#{label}
+            </if>
+            <if test="detail!=null">
+                and detail=#{detail}
+            </if>
+            <if test="date_create!=null">
+                and date_create=#{date_create}
+            </if>
+            <if test="date_edit!=null">
+                and date_edit=#{date_edit}
+            </if>
+            <if test="user_id!=null">
+                and user_id=#{user_id}
+            </if>
+            <if test="user!=null and user.name!=null">
+                and b.name=#{user.name}
+            </if>
+            <if test="user!=null and user.group_id!=null">
+                and b.group_id=#{user.group_id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Message">
+         insert into message(label,detail,date_create,date_edit,user_id)
+        values(#{label},#{detail},#{date_create},#{date_edit},#{user_id})
+    </insert>
+
+    <update id="update" parameterType="Message">
+        update message
+        <set>
+            <if test="label!=null">
+                label=#{label},
+            </if>
+            <if test="detail!=null">
+                detail=#{detail},
+            </if>
+            <if test="date_create!=null">
+                date_create=#{date_create},
+            </if>
+            <if test="date_edit!=null">
+                date_edit=#{date_edit},
+            </if>
+            <if test="user_id!=null">
+                user_id=${user_id}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from message where id=#{messageid}
+    </delete>
+
+</mapper>

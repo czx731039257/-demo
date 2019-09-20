@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csx.demo2.dao.LogDao">
+    <select id="findpage" parameterType="Page" resultType="Log">
+        SELECT b.name,a.* FROM LOG a LEFT JOIN USER b ON a.user_id=b.id
+        <where>
+            <if test="log!=null and log.user!=null">
+                <if test="log.user.name!=null">
+                    and b.name=#{log.user.name}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+    <select id="select" parameterType="Log" resultType="Log">
+        select a.*,b.name as name from log a left join user b on a.user_id=b.id
+        <where>
+            <if test="user_id!=null">
+                and user_id=#{user_id}
+            </if>
+            <if test="operation!=null">
+                and operation=#{operation}
+            </if>
+            <if test="time!=null">
+                and time=#{time}
+            </if>
+            <if test="result!=null">
+                and result=#{result}
+            </if>
+            <if test="date!=null">
+                and date=#{date}
+            </if>
+            <if test="user!=null">
+                <if test="user.name!=null">
+                    and b.name=#{user.name}
+                </if>
+            </if>
+        </where>
+    </select>
+    <delete id="deleteAll">
+        delete from log
+    </delete>
+</mapper>
