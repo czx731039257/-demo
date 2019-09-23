@@ -1,42 +1,32 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main2 {
 
     public static void main(String[] args) {
-        int[] arr={6,7,2,4,1,3};
-        System.out.println(solution(arr));
-    }
-
-    static int solution(int[] arr) {
-        int len=arr.length;
-        int[] arr2 = Arrays.copyOf(arr, len);
-        int sum1=0;
-        for(int i=len-1;i>=0;i--){
-            for(int j=0;j<i;j++){
-                if(arr[j]>arr[j+1]){
-                    int temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-                    sum1++;
-                }
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        int[] out=new int[t];
+        for(int i=0;i<t;i++){
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int p=sc.nextInt();
+            int q=sc.nextInt();
+            int count=0;
+            while(b-a>p){
+                p=p*q;
+                count++;
+            }
+            count++;
+            out[i]=count;
+            if(a>=b){
+                out[i]=0;
             }
         }
 
-        int sum2=0;
-        for(int i=len-1;i>=0;i--){
-            for(int j=0;j<i;j++){
-                if(arr2[j]<arr2[j+1]){
-                    int temp=arr2[j];
-                    arr2[j]=arr2[j+1];
-                    arr2[j+1]=temp;
-                    sum2++;
-                }
-            }
+        for(int i=0;i<t;i++){
+            System.out.println(out[i]);
         }
-        if(sum1>sum2){
-            return sum2;
-        }else {
-            return sum1;
-        }
+
     }
 }

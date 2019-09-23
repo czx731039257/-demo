@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.sis.dao.StudentDao">
+    <select id="findpage" parameterType="Page" resultType="Student">
+        SELECT * FROM student
+        <where>
+            <if test="student != null">
+                <if test="student.id != null">
+                    and id=#{student.id}
+                </if>
+                <if test="student.name != null">
+                    and name=#{student.name}
+                </if>
+                <if test="student.major != null">
+                    and major=#{student.major}
+                </if>
+                <if test="student.class_id != null">
+                    and class_id=#{student.class_id}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="select" parameterType="Student" resultType="Student">
+        select * from student
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="sex!=null">
+                and sex=#{sex}
+            </if>
+            <if test="age!=null">
+                and age=#{age}
+            </if>
+            <if test="major!=null">
+                and major=#{major}
+            </if>
+            <if test="phone!=null">
+                and phone=#{phone}
+            </if>
+            <if test="class_id !=null">
+                and class_id=#{class_id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Student">
+         insert into student(name,sex,age,major,phone,class_id)
+        values(#{name},#{sex},#{age},#{major},#{phone},#{class_id})
+    </insert>
+
+
+    <update id="update" parameterType="Student">
+        update student
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="sex!=null">
+                sex=#{sex},
+            </if>
+            <if test="age!=null">
+                age=#{age},
+            </if>
+            <if test="major!=null">
+                major=#{major},
+            </if>
+            <if test="phone!=null">
+                phone=${phone}
+            </if>
+            <if test="class_id!=null">
+                class_id=${class_id}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from student where id=#{id}
+    </delete>
+
+</mapper>

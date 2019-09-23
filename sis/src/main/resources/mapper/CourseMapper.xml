@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.sis.dao.CourseDao">
+    <select id="findpage" parameterType="Page" resultType="Course">
+        SELECT * from course
+        <where>
+            <if test="course != null">
+                <if test="course.name != null">
+                    and name=#{course.name}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="select" parameterType="Course" resultType="Course">
+        select * from course
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="classroom!=null">
+                and classroom=#{classroom}
+            </if>
+            <if test="date!=null">
+                and date=#{date}
+            </if>
+            <if test="credit!=null">
+                and credit=#{credit}
+            </if>
+            <if test="teacher_id!=null">
+                and teacher_id=#{teacher_id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Course">
+         insert into course(name,classroom,date,credit,teacher_id)
+        values(#{name},#{classroom},#{date},#{credit},#{teacher_id})
+    </insert>
+
+    <update id="update" parameterType="Course">
+        update course
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="classroom!=null">
+                classroom=#{classroom},
+            </if>
+            <if test="date!=null">
+                date=#{date},
+            </if>
+            <if test="credit!=null">
+                credit=#{credit},
+            </if>
+            <if test="teacher_id!=null">
+                teacher_id=#{teacher_id}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from course where id=#{id}
+    </delete>
+
+</mapper>

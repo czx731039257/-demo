@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.csx.demo2.dao.MethodDao">
-        <select id="selectByUrl" parameterType="java.lang.String" resultType="com.csx.demo2.entity.Method">
-            select * from method where method_url=#{method_url}
-        </select>
-</mapper>

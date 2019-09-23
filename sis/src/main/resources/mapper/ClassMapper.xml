@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.sis.dao.ClassDao">
+    <select id="findpage" parameterType="Page" resultType="Class">
+        SELECT * FROM class
+        <where>
+            <if test="c != null">
+                <if test="c.id != null">
+                    and id=#{c.id}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="select" parameterType="Class" resultType="Class">
+        select * from class
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="monitor_id!=null">
+                and monitor_id=#{monitor_id}
+            </if>
+            <if test="number!=null">
+                and number=#{number}
+            </if>
+            <if test="instructor!=null">
+                and instructor=#{instructor}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Class">
+         insert into class(name,monitor_id,number,instructor)
+        values(#{name},#{monitor_id},#{number},#{instructor})
+    </insert>
+
+    <update id="update" parameterType="Class">
+        update class
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="monitor_id!=null">
+                monitor_id=#{monitor_id},
+            </if>
+            <if test="number!=null">
+                number=#{number},
+            </if>
+            <if test="instructor!=null">
+                instructor=#{instructor},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from class where id=#{id}
+    </delete>
+
+</mapper>

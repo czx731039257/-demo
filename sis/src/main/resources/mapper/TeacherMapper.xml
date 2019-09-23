@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.sis.dao.TeacherDao">
+    <select id="findpage" parameterType="Page" resultType="Teacher">
+        SELECT * FROM teacher
+        <where>
+            <if test="teacher != null">
+                <if test="teacher.id != null">
+                    and id=#{teacher.id}
+                </if>
+                <if test="teacher.name != null">
+                    and name=#{teacher.name}
+                </if>
+            </if>
+        </where>
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="select" parameterType="Teacher" resultType="Teacher">
+        select * from teacher
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="sex!=null">
+                and sex=#{sex}
+            </if>
+            <if test="age!=null">
+                and age=#{age}
+            </if>
+            <if test="phone!=null">
+                and phone=#{phone}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Teacher">
+         insert into teacher(name,sex,age,phone)
+        values(#{name},#{sex},#{age},#{phone})
+    </insert>
+
+    <update id="update" parameterType="Teacher">
+        update teacher
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="sex!=null">
+                sex=#{sex},
+            </if>
+            <if test="age!=null">
+                age=#{age},
+            </if>
+            <if test="phone!=null">
+                phone=#{phone},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from teacher where id=#{id}
+    </delete>
+
+</mapper>
