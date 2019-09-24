@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableAsync(proxyTargetClass = true)
 @ServletComponentScan
-@MapperScan("com.csx.demo2.dao")
+@MapperScan("com.demo.sis.dao")
 @SpringBootApplication
 public class Application {
 

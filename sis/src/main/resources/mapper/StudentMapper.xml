@@ -73,10 +73,10 @@
                 major=#{major},
             </if>
             <if test="phone!=null">
-                phone=${phone}
+                phone=#{phone},
             </if>
             <if test="class_id!=null">
-                class_id=${class_id}
+                class_id=#{class_id}
             </if>
         </set>
         where id=#{id}

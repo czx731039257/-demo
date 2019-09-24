@@ -13,4 +13,33 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ViewAction {
 
+    @RequestMapping("/students")
+    public String student(){
+        return "students";
+    }
+    @RequestMapping("/teachers")
+    public String teachers(){
+        return "teachers";
+    }
+
+    @RequestMapping("/courses")
+    public String courses(){
+        return "courses";
+    }
+
+    @RequestMapping("/classes")
+    public String classes(){
+        return "classes";
+    }
+
+    @RequestMapping("/homepage")
+    public String homepage(){
+        return "homepage";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
 }
