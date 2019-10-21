@@ -1,6 +1,6 @@
 /*
-SQLyog Enterprise v12.08 (32 bit)
-MySQL - 8.0.3-rc-log : Database - sis
+SQLyog Professional v12.08 (32 bit)
+MySQL - 5.7.26 : Database - sis
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 8.0.3-rc-log : Database - sis
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`sis` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`sis` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `sis`;
 
@@ -27,9 +27,8 @@ CREATE TABLE `class` (
   `number` int(11) DEFAULT NULL,
   `instructor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `monitor_id` (`monitor_id`),
-  CONSTRAINT `class_ibfk_1` FOREIGN KEY (`monitor_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+  KEY `monitor_id` (`monitor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `class` */
 
@@ -53,7 +52,7 @@ CREATE TABLE `course` (
 
 /*Data for the table `course` */
 
-insert  into `course`(`id`,`name`,`classroom`,`date`,`credit`,`teacher_id`) values (1,'算法与数据结构','东三100','周三 第2节',2,3),(2,'计算机组成原理','东二200','周二 第4节',3,3),(3,'计算机网络','东二201','周二 第2节',2,1),(4,'数据库','西二302','周二 第1节',2,1),(5,'无机化学','西一102','周四 第1节',2,2),(6,'分析化学','西二201','周四 第2节',3,2),(7,'有机化学','西二302','周四 第3节',2,4),(8,'动物学','东一301','周一 第2节',3,4),(9,'植物学','东一201','周一 第3节',2,5),(10,'细胞学','东一202','周一 第4节',2,5),(11,'生物信息学','东一102','周一 第1节',2,2);
+insert  into `course`(`id`,`name`,`classroom`,`date`,`credit`,`teacher_id`) values (1,'算法与数据结构','东三100','周三 第2节',2,3),(2,'计算机组成原理','东二200','周二 第4节',3,3),(3,'计算机网络','东二201','周二 第2节',2,1),(4,'数据库','西二302','周二 第1节',2,1),(5,'无机化学','西一102','周四 第1节',2,2),(6,'分析化学','西二201','周四 第2节',3,2),(7,'有机化学','西二302','周四 第3节',2,4),(8,'动物学','东一301','周一 第2节',3,4),(9,'植物学','东一201','周一 第3节',2,5),(10,'细胞学','东一202','周一 第4节',2,5),(11,'生物信息学','东一102','周一 第1节',3,2);
 
 /*Table structure for table `sc` */
 
@@ -88,11 +87,11 @@ CREATE TABLE `student` (
   PRIMARY KEY (`id`),
   KEY `class_id` (`class_id`),
   CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `student` */
 
-insert  into `student`(`id`,`name`,`sex`,`age`,`major`,`phone`,`class_id`) values (1,'张三','男',20,'计算机','123456',1),(2,'李四','男',21,'化学','123456',2),(3,'王五','男',21,'化学','123456',2),(4,'小明','男',21,'生物','123456',3),(5,'小红','女',22,'计算机','123456',1),(6,'老六','男',22,'生物','123456',3),(7,'陈二','男',22,'计算机','123456',1),(8,'刘三','男',23,'化学','123456',2),(9,'孙某','男',23,'生物','123456',3),(10,'李三','男',23,'计算机','123456',1),(11,'王四','男',23,'化学','123456',2);
+insert  into `student`(`id`,`name`,`sex`,`age`,`major`,`phone`,`class_id`) values (1,'张三','男',20,'计算机','1234561',1),(2,'李四','男',21,'化学','123456',2),(3,'王五','男',21,'化学','12345611',2),(4,'小明','男',21,'生物','123456',3),(5,'小红','女',22,'计算机','123456',1),(6,'老六','男',22,'生物','123456',3),(7,'陈二','男',22,'计算机','123456',1),(8,'刘三','男',23,'化学','123456',2),(9,'孙某','男',23,'生物','123456',3),(10,'李三','男',23,'计算机','123456',1),(11,'王四','男',23,'化学','123123',2),(12,'1','女',23,NULL,'123456',2);
 
 /*Table structure for table `teacher` */
 
@@ -105,11 +104,68 @@ CREATE TABLE `teacher` (
   `age` int(11) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `teacher` */
 
-insert  into `teacher`(`id`,`name`,`sex`,`age`,`phone`) values (3,'孙老师','男',31,'123456'),(1,'陈老师','男',30,'123456'),(2,'李老师','女',30,'123456'),(4,'王老师','女',32,'123456'),(5,'叶老师','男',35,'123456');
+insert  into `teacher`(`id`,`name`,`sex`,`age`,`phone`) values (3,'孙老师','男',31,'123456'),(1,'陈老师','男',30,'123456'),(2,'李老师','女',30,'123456'),(4,'王老师','女',32,'123456'),(5,'叶老师','男',35,'12345623');
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+insert  into `user`(`username`,`password`) values ('admin','admin');
+
+/*Table structure for table `aa` */
+
+DROP TABLE IF EXISTS `aa`;
+
+/*!50001 DROP VIEW IF EXISTS `aa` */;
+/*!50001 DROP TABLE IF EXISTS `aa` */;
+
+/*!50001 CREATE TABLE  `aa`(
+ `id` int(11) ,
+ `name` varchar(255) ,
+ `sex` varchar(255) ,
+ `age` int(11) ,
+ `major` varchar(255) ,
+ `phone` varchar(255) ,
+ `class_id` int(11) 
+)*/;
+
+/*Table structure for table `asd` */
+
+DROP TABLE IF EXISTS `asd`;
+
+/*!50001 DROP VIEW IF EXISTS `asd` */;
+/*!50001 DROP TABLE IF EXISTS `asd` */;
+
+/*!50001 CREATE TABLE  `asd`(
+ `major` varchar(255) ,
+ `number` bigint(21) 
+)*/;
+
+/*View structure for view aa */
+
+/*!50001 DROP TABLE IF EXISTS `aa` */;
+/*!50001 DROP VIEW IF EXISTS `aa` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aa` AS select `student`.`id` AS `id`,`student`.`name` AS `name`,`student`.`sex` AS `sex`,`student`.`age` AS `age`,`student`.`major` AS `major`,`student`.`phone` AS `phone`,`student`.`class_id` AS `class_id` from `student` where (`student`.`sex` = '男') */;
+
+/*View structure for view asd */
+
+/*!50001 DROP TABLE IF EXISTS `asd` */;
+/*!50001 DROP VIEW IF EXISTS `asd` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asd` AS select `student`.`major` AS `major`,count(0) AS `number` from `student` group by `student`.`major` having (`number` >= 3) order by `student`.`major` desc */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

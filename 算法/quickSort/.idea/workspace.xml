@@ -2,115 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1a9bab6-8b39-4a75-b553-133e4486b222" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Main/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Main/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Main/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Main/src/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/WEB-INF/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/mysql.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/Messageboard2Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/aspect/LogAspect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/BillAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/LogAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/LoginAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/LogoutAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/MessageAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/MoneyAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/PageAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/PermissionAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/RoleAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/TestAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/UserAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/controller/ViewAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/BillItemDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/HeadPortraitDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/LogDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/MessageDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/MethodDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/PermissionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/RoleDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/RolePermissionDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/dao/UserRoleDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/BillItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/HeadPortrait.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Log.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Method.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/PageBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Permission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Pojo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/RolePermission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/UserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/entity/VerifyResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/handler/ExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/realm/MyRealm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/BillService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/HeadPortraitService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/LogService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/LoginService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/MessageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/PermissionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/RolePermissionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/UserRoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/java/com/csx/demo2/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/BillItemMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/HeadPortraitMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/LogMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/MessageMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/MethodMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/RolePermissionMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/mapper/UserRoleMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/static/css/background.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/static/css/form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/static/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/static/picture/asd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/resources/templates/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/css/background.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/css/form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/picture/asd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/allocation.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/bill.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/editperson.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/edituser.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/headlist.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/log.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/message.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/permission.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/person.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/recharge.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/reward.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/roles.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/WEB-INF/views/users.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/userhead/18aece051dd6a1807abf05eab596fed5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/userhead/3034c136-bceb-4c12-9fdc-e036f0659ce975cfed6c7ef5ac81c0786e7fe44574f8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/userhead/7d55d0b4-42b3-4ea2-a011-98b5b13574bb971f96be37a9dbb52c24b0bb21f965f4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/userhead/a1479f69-59ea-4d8b-9cea-9ceec848c6ad75cfed6c7ef5ac81c0786e7fe44574f8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/main/webapp/userhead/d206359e-922c-4582-b74b-7d5bbcd60518b97b7ad1e78cbe0dd12780ea3fea3f3a.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/src/test/java/com/csx/demo2/Messageboard2ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../留言管理系统/messageboard/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../留言管理系统/messageboard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../留言管理系统/messageboard/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -162,8 +55,24 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="518" />
+    <option name="y" value="58" />
+    <option name="width" value="697" />
+    <option name="height" value="735" />
+  </component>
   <component name="ProjectId" id="1R8n3F1GthIkKE1UasHTJRX1wSt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -257,8 +166,13 @@
       <workItem from="1568948304220" duration="3422000" />
       <workItem from="1568962291283" duration="5088000" />
       <workItem from="1569057391520" duration="677000" />
+      <workItem from="1569372419353" duration="49000" />
+      <workItem from="1570844758234" duration="41000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="90000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -269,6 +183,39 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -277,7 +224,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
