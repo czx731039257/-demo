@@ -12,7 +12,7 @@ public class MyShiroLogoutFilter extends LogoutFilter {
 
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
-        HttpServletRequest req = (HttpServletRequest)request;
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
         session.invalidate();
         return super.preHandle(request, response);

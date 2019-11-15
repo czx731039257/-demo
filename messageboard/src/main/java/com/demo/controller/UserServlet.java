@@ -17,11 +17,11 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
-        SelectMessage selectMessage=new SelectMessage();
+        User user = (User) session.getAttribute("user");
+        SelectMessage selectMessage = new SelectMessage();
         List<Message> messages = selectMessage.selectByUserId(user.getId());
         user.setCount_message(messages.size());
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
         resp.sendRedirect("usermessage.jsp");
     }
 }

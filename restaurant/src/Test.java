@@ -20,13 +20,13 @@ public class Test {
                     break;
                 case "order":
                     System.out.println("请输入你要点的菜名");
-                    dishName=sc.next();
-                    while(!dishName.equals("pause")){
+                    dishName = sc.next();
+                    while (!dishName.equals("pause")) {
 
-                        dishName=sc.next();
+                        dishName = sc.next();
                     }
                     break;
-                    case ""
+                case ""
             }
         }
     }

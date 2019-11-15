@@ -7,7 +7,7 @@
 
     <!--6 容器自动扫描IOC组件  -->
     <context:component-scan base-package="com.csx.demo2"></context:component-scan>
-    <context:property-placeholder location="/WEB-INF/db.properties" />
+    <context:property-placeholder location="/WEB-INF/db.properties"/>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -53,10 +53,10 @@
 
     <!--shiro配置-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/login" />
-        <property name="successUrl" value="/message" />
-        <property name="unauthorizedUrl" value="/login" />
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/message"/>
+        <property name="unauthorizedUrl" value="/login"/>
         <property name="filterChainDefinitions">
 
             <!--anon表示可以匿名访问  logout表示用户注销 authoc表示需要登入认证-->
@@ -73,13 +73,13 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <!-- 单realm应用。如果有多个realm，使用‘realms’属性代替 -->
         <!--配置缓存管理器-->
-        <property name="cacheManager" ref="cacheManager" />
+        <property name="cacheManager" ref="cacheManager"/>
         <!--配置自定义认证器-->
         <property name="authenticator" ref="authenticator"></property>
     </bean>
 
     <!--缓存管理器-->
-    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" />
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
 
     <!--自定义认证器-->
     <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">

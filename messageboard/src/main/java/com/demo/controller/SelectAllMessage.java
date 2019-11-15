@@ -17,12 +17,12 @@ public class SelectAllMessage extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        SelectMessage selectMessage=new SelectMessage();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        SelectMessage selectMessage = new SelectMessage();
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         List<Message> messages = selectMessage.selectAll();
-        PageBean pageBean1=new PageBean(1,10,messages.size());
-        session.setAttribute("messageSet",messages);
-        session.setAttribute("pageBean",pageBean1);
+        PageBean pageBean1 = new PageBean(1, 10, messages.size());
+        session.setAttribute("messageSet", messages);
+        session.setAttribute("pageBean", pageBean1);
         resp.sendRedirect("message.jsp");
     }
 }

@@ -16,7 +16,8 @@
     </select>
 
     <select id="selectByUserName" parameterType="java.lang.String" resultType="com.csx.demo2.entity.Role">
-        SELECT b.* FROM (SELECT a.name,b.role_id FROM USER a LEFT JOIN user_role b ON a.id=b.user_id WHERE a.id=#{name})  a LEFT JOIN role b
+        SELECT b.* FROM (SELECT a.name,b.role_id FROM USER a LEFT JOIN user_role b ON a.id=b.user_id WHERE a.id=#{name})
+        a LEFT JOIN role b
         ON a.role_id=b.id
     </select>
 </mapper>

@@ -13,6 +13,7 @@ public class PageController {
 
     /**
      * 上一页
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -21,14 +22,15 @@ public class PageController {
     public String lastpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.minusPageNumber();//当前页数减一
-        session.setAttribute("pageBean",pageBean);
-        return "redirect:"+"message";
+        session.setAttribute("pageBean", pageBean);
+        return "redirect:" + "message";
     }
 
     /**
      * 下一页
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -37,9 +39,9 @@ public class PageController {
     public String nextpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.addPageNumber();//当前页数加一
-        session.setAttribute("pageBean",pageBean);
-        return "redirect:"+"message";
+        session.setAttribute("pageBean", pageBean);
+        return "redirect:" + "message";
     }
 }

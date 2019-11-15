@@ -13,9 +13,9 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.addStringPermission("select");
-        Set<String> set=new HashSet<>();
+        Set<String> set = new HashSet<>();
         set.add("role1");
         info.setRoles(set);
         return info;
@@ -26,7 +26,7 @@ public class MyRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
         char[] password = token.getPassword();
-        AuthenticationInfo info=new SimpleAuthenticationInfo(username,"czx6296456852",this.getName());
+        AuthenticationInfo info = new SimpleAuthenticationInfo(username, "czx6296456852", this.getName());
         return info;
     }
 

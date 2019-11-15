@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface UserRoleDao {
     List<Role> select(User user);
+
     void insert(UserRole userRole);
+
     void delete(UserRole userRole);
 }

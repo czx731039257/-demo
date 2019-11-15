@@ -10,8 +10,12 @@ import java.util.List;
 @Repository
 public interface MessageDao {
     List<Message> findpage(Page page);
+
     List<Message> select(Message message);
+
     int insert(Message message);
+
     int update(Message message);
+
     int deleteById(Integer messageid);
 }

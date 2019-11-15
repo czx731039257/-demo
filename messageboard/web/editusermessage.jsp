@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/background.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <style type="text/css">
-        input{
+        input {
             margin: 10px;
         }
     </style>
@@ -34,9 +34,11 @@
         <table border="0" align="center">
             <tr>
                 <td><input type="submit" value="保存"></td>
-                <td><form action="usermessage.jsp" method="post">
-                    <input type="submit" value="返回">
-                </form></td>
+                <td>
+                    <form action="usermessage.jsp" method="post">
+                        <input type="submit" value="返回">
+                    </form>
+                </td>
             </tr>
         </table>
     </form>

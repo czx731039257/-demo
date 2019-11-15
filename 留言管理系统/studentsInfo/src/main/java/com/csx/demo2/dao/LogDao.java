@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface LogDao {
     List<Log> findpage(Page page);
+
     List<Log> select(Log Log);
+
     int deleteAll();
 }

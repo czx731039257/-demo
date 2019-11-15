@@ -10,7 +10,8 @@ public class User {
     private String email;
     private String phone;
     private int count_message;
-    public  User(){
+
+    public User() {
 
     }
 
@@ -22,13 +23,13 @@ public class User {
         this.phone = phone;
     }
 
-    public User(int id, String name, String password, String email, String phone,int count_message) {
+    public User(int id, String name, String password, String email, String phone, int count_message) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
-        this.count_message=count_message;
+        this.count_message = count_message;
     }
 
     public int getId() {

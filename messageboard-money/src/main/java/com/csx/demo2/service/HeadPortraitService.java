@@ -19,11 +19,11 @@ public class HeadPortraitService {
     @Autowired
     private HeadPortraitDao headPortraitDao;
 
-    public List<HeadPortrait> selectByUserId(Integer user_id){
+    public List<HeadPortrait> selectByUserId(Integer user_id) {
         return headPortraitDao.selectByUserId(user_id);
     }
 
-    public Result insert(User user, HeadPortrait headPortrait){
+    public Result insert(User user, HeadPortrait headPortrait) {
         headPortraitDao.insert(headPortrait);
         List<HeadPortrait> select = headPortraitDao.select(headPortrait);
         HeadPortrait headPortrait1 = select.get(0);

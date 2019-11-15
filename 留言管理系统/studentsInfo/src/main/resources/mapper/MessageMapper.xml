@@ -28,7 +28,7 @@
                 and a.id=#{id}
             </if>
             <if test="label!=null">
-               and label=#{label}
+                and label=#{label}
             </if>
             <if test="detail!=null">
                 and detail=#{detail}
@@ -52,7 +52,7 @@
     </select>
 
     <insert id="insert" parameterType="Message">
-         insert into message(label,detail,date_create,date_edit,user_id)
+        insert into message(label,detail,date_create,date_edit,user_id)
         values(#{label},#{detail},#{date_create},#{date_edit},#{user_id})
     </insert>
 

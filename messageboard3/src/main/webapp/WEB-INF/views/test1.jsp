@@ -6,8 +6,8 @@
 
 </head>
 <body>
-    登入成功
-    <a href="logout">注销</a>
+登入成功
+<a href="logout">注销</a>
 
 <a href="permission1">权限1</a>
 </body>

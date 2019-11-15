@@ -26,24 +26,24 @@ public class StudentAction {
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String id = req.getParameter("id");
         String name = req.getParameter("name");
-        String major=req.getParameter("major");
-        String class_id=req.getParameter("class_id");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+        String major = req.getParameter("major");
+        String class_id = req.getParameter("class_id");
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
 
-        Student student=new Student();
-        if(StringUtils.isNoBlank(id)){
+        Student student = new Student();
+        if (StringUtils.isNoBlank(id)) {
             student.setId(Integer.valueOf(id));
             page.setStudent(student);
         }
-        if(StringUtils.isNoBlank(name)){
+        if (StringUtils.isNoBlank(name)) {
             student.setName(name);
             page.setStudent(student);
         }
-        if(StringUtils.isNoBlank(major)){
+        if (StringUtils.isNoBlank(major)) {
             student.setMajor(major);
             page.setStudent(student);
         }
-        if(StringUtils.isNoBlank(class_id)){
+        if (StringUtils.isNoBlank(class_id)) {
             student.setClass_id(Integer.valueOf(class_id));
             page.setStudent(student);
         }
@@ -54,24 +54,24 @@ public class StudentAction {
 
     @ResponseBody
     @RequestMapping("/insertStudent")
-    public Result insertStudent(HttpServletRequest req){
+    public Result insertStudent(HttpServletRequest req) {
         String name = req.getParameter("name");
         String sex = req.getParameter("sex");
         String age = req.getParameter("age");
         String major = req.getParameter("major");
         String phone = req.getParameter("phone");
         String class_id = req.getParameter("class_id");
-        boolean i=studentService.insert(new Student.Builder().name(name).sex(sex).age(Integer.valueOf(age)).major(major).phone(phone).class_id(Integer.valueOf(class_id)).build());
-        if(i) {
+        boolean i = studentService.insert(new Student.Builder().name(name).sex(sex).age(Integer.valueOf(age)).major(major).phone(phone).class_id(Integer.valueOf(class_id)).build());
+        if (i) {
             return new Result.Builder().successMsg("添加学生成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("添加学生失败").build();
         }
     }
 
     @ResponseBody
     @RequestMapping("/editStudent")
-    public Result editStudent(HttpServletRequest req){
+    public Result editStudent(HttpServletRequest req) {
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String sex = req.getParameter("sex");
@@ -80,9 +80,9 @@ public class StudentAction {
         String phone = req.getParameter("phone");
         String class_id = req.getParameter("class_id");
         boolean i = studentService.update(new Student.Builder().id(Integer.valueOf(id)).name(name).sex(sex).age(Integer.valueOf(age)).major(major).phone(phone).class_id(Integer.valueOf(class_id)).build());
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("编辑学生成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("编辑学生失败").build();
         }
     }
@@ -90,16 +90,15 @@ public class StudentAction {
 
     @ResponseBody
     @RequestMapping("/removeStudent")
-    public Result removeStudent(HttpServletRequest req){
+    public Result removeStudent(HttpServletRequest req) {
         String id = req.getParameter("id");
         boolean i = studentService.deleteById(Integer.valueOf(id));
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("删除学生成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("删除学生失败").build();
         }
     }
-
 
 
 }

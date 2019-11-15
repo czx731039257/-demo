@@ -31,6 +31,7 @@ public class MessageAction {
 
     /**
      * 根据用户名查看该用户的所有留言
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -43,70 +44,70 @@ public class MessageAction {
 
         Result result = messageService.selectMessageByUserName(name);//调用业务层
 
-        session.setAttribute("messageSet",result.getMessages());
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("messageSet", result.getMessages());
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
 
     /*
-    * 查看个人留言
-    * */
+     * 查看个人留言
+     * */
     @RequiresPermissions({"浏览自己的留言"})
     @RequestMapping("queryPersonMessage")//
     public String queryPersonMessage(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
         Result result = messageService.selectPersonMessage(user);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("messageSet",result.getMessages());//把个人的留言添加到session域中
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("messageSet", result.getMessages());//把个人的留言添加到session域中
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
 
 
     /*
-    * 查看所在组的留言
-    * */
+     * 查看所在组的留言
+     * */
     @RequiresPermissions({"浏览所在组的人的留言"})
     @RequestMapping("querySameGroupMessage")//
     public String querySameGroupMessage(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
         Result result = messageService.selectGroupMessage(user);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("messageSet",result.getMessages());
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("messageSet", result.getMessages());
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
 
     /*
-    * 查询其他组的留言
-    * */
+     * 查询其他组的留言
+     * */
     @RequiresPermissions({"浏览其他组的人的留言"})
     @RequestMapping("queryOtherGroupMessage")//
     public String queryOtherGroupMessage(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
         Result result = messageService.selectOtherGroupMessage(user);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("messageSet",result.getMessages());
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("messageSet", result.getMessages());
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
 
     /**
      * 查询所有人的留言
      */
-    @RequiresPermissions({"浏览自己的留言","浏览所在组的人的留言","浏览其他组的人的留言"})
+    @RequiresPermissions({"浏览自己的留言", "浏览所在组的人的留言", "浏览其他组的人的留言"})
     @RequestMapping("queryAllMessage")//
     public String queryAllMessage(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -114,14 +115,15 @@ public class MessageAction {
 
         Result result = messageService.selectAllMessage();//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("messageSet",result.getMessages());
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("messageSet", result.getMessages());
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
 
     /**
      * 新建留言
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -131,21 +133,22 @@ public class MessageAction {
     public String createMessage(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
 
         Result result = messageService.createMessage(pageBean, user, label, detail);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("pageBean",result.getPageBean());
-        session.setAttribute("messageSet",result.getMessages());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("pageBean", result.getPageBean());
+        session.setAttribute("messageSet", result.getMessages());
+        return "redirect:" + "message";
     }
 
     /**
      * 删除留言
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -155,38 +158,38 @@ public class MessageAction {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");//获取要删除的留言id
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
-        User user = (User)session.getAttribute("user");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
+        User user = (User) session.getAttribute("user");
         User userByMessage = messageService.selectUserByMessageId(Integer.valueOf(messageid));
         Subject subject = SecurityUtils.getSubject();
-        if(user.getId()==userByMessage.getId()){
-            if(!subject.isPermitted("删除自己的留言")){
+        if (user.getId() == userByMessage.getId()) {
+            if (!subject.isPermitted("删除自己的留言")) {
                 throw new AuthorizationException();
             }
-        }else{
-            if(user.getGroup_id()==userByMessage.getGroup_id()){
-                if(!subject.isPermitted("删除所在用户组的人的留言")){
+        } else {
+            if (user.getGroup_id() == userByMessage.getGroup_id()) {
+                if (!subject.isPermitted("删除所在用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
-            }else{
-                if(!subject.isPermitted("删除其他用户组的人的留言")){
+            } else {
+                if (!subject.isPermitted("删除其他用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
             }
         }
 
-        Result result = messageService.deleteMessage(user,pageBean,messageid);//调用业务层
+        Result result = messageService.deleteMessage(user, pageBean, messageid);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("messageSet",result.getMessages());
-        session.setAttribute("pageBean",result.getPageBean());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("messageSet", result.getMessages());
+        session.setAttribute("pageBean", result.getPageBean());
+        return "redirect:" + "message";
     }
-
 
 
     /**
      * 进入留言编辑页面
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -196,22 +199,22 @@ public class MessageAction {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
 
 
         User userByMessage = messageService.selectUserByMessageId(Integer.valueOf(messageid));
         Subject subject = SecurityUtils.getSubject();
-        if(user.getId()==userByMessage.getId()){
-            if(!subject.isPermitted("编辑自己的留言")){
+        if (user.getId() == userByMessage.getId()) {
+            if (!subject.isPermitted("编辑自己的留言")) {
                 throw new AuthorizationException();
             }
-        }else{
-            if(user.getGroup_id()==userByMessage.getGroup_id()){
-                if(!subject.isPermitted("编辑所在用户组的人的留言")){
+        } else {
+            if (user.getGroup_id() == userByMessage.getGroup_id()) {
+                if (!subject.isPermitted("编辑所在用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
-            }else{
-                if(!subject.isPermitted("编辑其他用户组的人的留言")){
+            } else {
+                if (!subject.isPermitted("编辑其他用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
             }
@@ -220,12 +223,13 @@ public class MessageAction {
 
         Result result = messageService.intoEditMessage(messageid);//调用业务层
         Message message = result.getMessages().get(0);
-        req.getSession().setAttribute("message",message);
-        return "redirect:"+"edit";
+        req.getSession().setAttribute("message", message);
+        return "redirect:" + "edit";
     }
 
     /**
      * 完成编辑留言的功能
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -235,37 +239,37 @@ public class MessageAction {
     public String editMessageSuccess(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         String messageid = req.getParameter("messageid");
         User userByMessage = messageService.selectUserByMessageId(Integer.valueOf(messageid));
         Subject subject = SecurityUtils.getSubject();
-        if(user.getId()==userByMessage.getId()){
-            if(!subject.isPermitted("编辑自己的留言")){
+        if (user.getId() == userByMessage.getId()) {
+            if (!subject.isPermitted("编辑自己的留言")) {
                 throw new AuthorizationException();
             }
-        }else{
-            if(user.getGroup_id()==userByMessage.getGroup_id()){
-                if(!subject.isPermitted("编辑所在用户组的人的留言")){
+        } else {
+            if (user.getGroup_id() == userByMessage.getGroup_id()) {
+                if (!subject.isPermitted("编辑所在用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
-            }else{
-                if(!subject.isPermitted("编辑其他用户组的人的留言")){
+            } else {
+                if (!subject.isPermitted("编辑其他用户组的人的留言")) {
                     throw new AuthorizationException();
                 }
             }
         }
 
 
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
 
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
 
-        Result result = messageService.commitEditMessage(messageid, label, detail,pageBean,user);//调用业务层
+        Result result = messageService.commitEditMessage(messageid, label, detail, pageBean, user);//调用业务层
 
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("pageBean",result.getPageBean());
-        session.setAttribute("messageSet",result.getMessages());
-        return "redirect:"+"message";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("pageBean", result.getPageBean());
+        session.setAttribute("messageSet", result.getMessages());
+        return "redirect:" + "message";
     }
 }

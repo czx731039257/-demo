@@ -15,34 +15,34 @@ public class LogService {
     @Autowired
     private LogDao logDao;
 
-    public List<Log> selectAll(){
+    public List<Log> selectAll() {
         List<Log> logs = logDao.selectAll();
         return logs;
     }
 
-    public List<Log> selectById(Integer user_id){
+    public List<Log> selectById(Integer user_id) {
         List<Log> logs = logDao.selectByUserId(user_id);
         return logs;
     }
 
-    public List<Log> selectByUserName(String username){
+    public List<Log> selectByUserName(String username) {
         List<Log> logs = logDao.selectByUserName(username);
         return logs;
     }
 
-    public void insert(Log log){
+    public void insert(Log log) {
         logDao.insert(log);
     }
 
-    public void deleteAllLog(){
+    public void deleteAllLog() {
         logDao.deleteAllLog();
     }
 
-    public Page findpage(Integer pageNumber, Integer nrow, String username){
-        Page page=new Page();
+    public Page findpage(Integer pageNumber, Integer nrow, String username) {
+        Page page = new Page();
         page.setPageNumber(pageNumber);
         page.setPageSize(nrow);
-        page.setStartIndex((pageNumber-1)*nrow);
+        page.setStartIndex((pageNumber - 1) * nrow);
         page.setLog(new Log());
         return page;
     }

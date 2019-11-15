@@ -19,6 +19,7 @@ public class LogAction {
 
     /**
      * 查询日志
+     *
      * @param req
      * @return
      * @throws IOException
@@ -29,13 +30,13 @@ public class LogAction {
         Integer pageNumber = Integer.valueOf(req.getParameter("page"));
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String username = req.getParameter("username");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
-        Page pagebean=null;
-        if(StringUtils.isNoBlank(username)){
-            User user=new User.Builder().name(username).build();
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
+        Page pagebean = null;
+        if (StringUtils.isNoBlank(username)) {
+            User user = new User.Builder().name(username).build();
             page.setLog(new Log.Builder().user(user).build());
             page = logService.findpage(page);
-        }else{
+        } else {
             page = logService.findpage(page);
         }
 
@@ -44,6 +45,7 @@ public class LogAction {
 
     /**
      * 清空日志记录
+     *
      * @param req
      * @return
      * @throws IOException
@@ -53,9 +55,9 @@ public class LogAction {
     @RequestMapping("/emptyLogs")
     public Result emptyLogs(HttpServletRequest req) throws IOException {
         boolean i = logService.emptyLogs();
-        if(i){//如果清空成功
+        if (i) {//如果清空成功
             return new Result.Builder().successMsg("清空日志成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("清空日志失败").build();
         }
     }

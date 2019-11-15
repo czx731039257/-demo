@@ -13,7 +13,7 @@ public class MessageService {
     @Autowired
     private MessageDao messageDao;
 
-    public List<Message> selectAllMessage(){
+    public List<Message> selectAllMessage() {
         List<Message> messages = messageDao.select(new Message(0, null, null, null, null, 0));
         return messages;
     }

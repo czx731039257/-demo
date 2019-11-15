@@ -28,6 +28,7 @@ public class UserAction {
 
     /**
      * 查询用户信息  包含条件查询和查询全部
+     *
      * @param req
      * @return
      * @throws IOException
@@ -39,13 +40,13 @@ public class UserAction {
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String username = req.getParameter("username");
         String userid = req.getParameter("userid");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
-        User user=new User();
-        if(StringUtils.isNoBlank(username)){
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
+        User user = new User();
+        if (StringUtils.isNoBlank(username)) {
             user.setName(username);
             page.setUser(user);
         }
-        if(StringUtils.isNoBlank(userid)){
+        if (StringUtils.isNoBlank(userid)) {
             user.setName(userid);
             page.setUser(user);
         }
@@ -55,19 +56,20 @@ public class UserAction {
 
     /**
      * 编辑用户信息
+     *
      * @return
      */
     @ResponseBody
     @RequestMapping("/editUser")
-    public Result easyui_editUser(HttpServletRequest req){
-        String name=req.getParameter("name");
-        String email=req.getParameter("email");
-        String phone=req.getParameter("phone");
-        Integer userid=Integer.valueOf(req.getParameter("userid"));
+    public Result easyui_editUser(HttpServletRequest req) {
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
+        String phone = req.getParameter("phone");
+        Integer userid = Integer.valueOf(req.getParameter("userid"));
         boolean i = userService.update(new User.Builder().id(userid).name(name).email(email).phone(phone).build());
-        if(i) {
+        if (i) {
             return new Result.Builder().successMsg("编辑成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("编辑失败").build();
         }
     }

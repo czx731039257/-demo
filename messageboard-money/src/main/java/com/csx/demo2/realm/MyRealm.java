@@ -28,23 +28,24 @@ public class MyRealm extends AuthorizingRealm {
 
     @Autowired
     private PermissionDao permissionDao;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
-        String primaryPrincipal = (String)principalCollection.getPrimaryPrincipal();
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        String primaryPrincipal = (String) principalCollection.getPrimaryPrincipal();
         //从数据库中查询并添加权限
         List<Permission> permissions = permissionDao.select(new User.Builder().name(primaryPrincipal).build());
 
-        Iterator<Permission> it1=permissions.iterator();
-        while(it1.hasNext()){
+        Iterator<Permission> it1 = permissions.iterator();
+        while (it1.hasNext()) {
             info.addStringPermission(it1.next().getName());
         }
 
         //从数据库中查询并添加角色
         List<Role> roles = roleDao.selectByUserName(primaryPrincipal);
-        Set<String> set=new HashSet<>();
-        Iterator<Role> it2=roles.iterator();
-        while(it2.hasNext()){
+        Set<String> set = new HashSet<>();
+        Iterator<Role> it2 = roles.iterator();
+        while (it2.hasNext()) {
             set.add(it2.next().getName());
         }
         info.setRoles(set);
@@ -59,13 +60,13 @@ public class MyRealm extends AuthorizingRealm {
         User build = new User.Builder().name(username).build();
         System.out.println(build.getName());
         List<User> users = userDao.select(new User.Builder().name(username).build());
-        SimpleAuthenticationInfo info=null;
-        if(users.size()==0){
+        SimpleAuthenticationInfo info = null;
+        if (users.size() == 0) {
             throw new AuthenticationException();
-        }else{
+        } else {
             User user = users.get(0);
             String password = user.getPassword();
-            info =new SimpleAuthenticationInfo(username,password,this.getName());
+            info = new SimpleAuthenticationInfo(username, password, this.getName());
         }
         return info;
     }

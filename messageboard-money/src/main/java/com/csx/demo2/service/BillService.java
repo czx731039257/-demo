@@ -16,17 +16,17 @@ public class BillService {
     @Autowired
     private BillItemDao billItemDao;
 
-    public Result selectBill(Integer userid){
-        List<BillItem> bill= billItemDao.selectBill(userid);
+    public Result selectBill(Integer userid) {
+        List<BillItem> bill = billItemDao.selectBill(userid);
         System.out.println(bill);
-        PageBean pageBean=new PageBean(1,bill.size());
-        Result result=new Result();
+        PageBean pageBean = new PageBean(1, bill.size());
+        Result result = new Result();
         result.setPageBean(pageBean);
         result.setBill(bill);
         return result;
     }
 
-    public void emptyBill(Integer userid){
+    public void emptyBill(Integer userid) {
         billItemDao.deleteAllBillItem(userid);
     }
 }

@@ -38,27 +38,28 @@ public class Messageboard2ApplicationTests {
 
     @Test
     public void testSelectUser() {
-        User user=new User();
+        User user = new User();
         List<User> select = userDao.select(user);
-        Iterator<User> it= select.iterator();
-        while(it.hasNext()){
+        Iterator<User> it = select.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
     }
+
     @Test
     public void testUpdateUser() {
-        User user=new User(1,"xx","xx","xx","xx",2);
+        User user = new User(1, "xx", "xx", "xx", "xx", 2);
         userDao.update(user);
     }
 
     @Test
     public void testSelectOtherGroupUser() {
-        User user=new User();
+        User user = new User();
         user.setGroup_id(1);
         List<User> select = userDao.selectOtherGroup(user);
-        Iterator<User> it= select.iterator();
-        while(it.hasNext()){
+        Iterator<User> it = select.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
@@ -66,9 +67,9 @@ public class Messageboard2ApplicationTests {
 
     @Test
     public void testSelectPermission() {
-        List<Message> select = messageDao.select(new Message(null,null,null,null,null));
-        Iterator<Message> it= select.iterator();
-        while(it.hasNext()){
+        List<Message> select = messageDao.select(new Message(null, null, null, null, null));
+        Iterator<Message> it = select.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
@@ -77,12 +78,13 @@ public class Messageboard2ApplicationTests {
     @Test
     public void testuserrole() {
         List<User> users = userRoleService.selectAllUserAndRole();
-        Iterator<User> it =users.iterator();
-        while(it.hasNext()){
+        Iterator<User> it = users.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
     }
+
     @Test
     public void xx() {
         List<Message> select = messageDao.select(new Message(Integer.valueOf(1), null, null, null, null, null));

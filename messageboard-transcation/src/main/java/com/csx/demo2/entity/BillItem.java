@@ -1,11 +1,17 @@
 package com.csx.demo2.entity;
 
-public class BillItem {
+import java.io.Serializable;
+
+public class BillItem implements Serializable {
+
     private Integer id;
     private String type;
     private Integer money;
     private Integer user_id;
     private String date;
+
+    public BillItem() {
+    }
 
     public BillItem(Integer id, String type, Integer money, Integer user_id, String date) {
         this.id = id;

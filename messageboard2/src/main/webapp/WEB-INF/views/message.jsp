@@ -83,36 +83,36 @@
     </tr>
 
     <c:if test="${sessionScope.pageBean.endIndex>=1}">
-    <c:forEach items="${sessionScope.messageSet}" begin="${sessionScope.pageBean.startIndex}"
-               end="${sessionScope.pageBean.endIndex}" step="1" var="m">
-        <tr>
-            <td style="width: 5%"><c:out value="${m.id}"/></td>
-            <td style="width: 10%"><c:out value="${m.label}"/></td>
-            <td style="width: 50%"><c:out value="${m.detail}"/></td>
-            <td style="width: 15%"><c:out value="${m.date_create}"/></td>
-            <td style="width: 15%"><c:out value="${m.date_edit}"/></td>
-            <td style="width: 5%"><c:out value="${m.user_id}"/></td>
+        <c:forEach items="${sessionScope.messageSet}" begin="${sessionScope.pageBean.startIndex}"
+                   end="${sessionScope.pageBean.endIndex}" step="1" var="m">
+            <tr>
+                <td style="width: 5%"><c:out value="${m.id}"/></td>
+                <td style="width: 10%"><c:out value="${m.label}"/></td>
+                <td style="width: 50%"><c:out value="${m.detail}"/></td>
+                <td style="width: 15%"><c:out value="${m.date_create}"/></td>
+                <td style="width: 15%"><c:out value="${m.date_edit}"/></td>
+                <td style="width: 5%"><c:out value="${m.user_id}"/></td>
 
-            <td>
-                <div align="center" style=" opacity:0.7;">
-                    <form action="DeleteMessageController" method="post">
-                        <input type="hidden" name="messageid" value="${m.id}">
-                        <input type="submit" value="删除">
-                    </form>
-                </div>
-            </td>
+                <td>
+                    <div align="center" style=" opacity:0.7;">
+                        <form action="DeleteMessageController" method="post">
+                            <input type="hidden" name="messageid" value="${m.id}">
+                            <input type="submit" value="删除">
+                        </form>
+                    </div>
+                </td>
 
-            <td>
-                <div align="center" style=" opacity:0.7;">
-                    <form action="IntoEditMessageController" method="post">
-                        <input type="hidden" name="messageid" value="${m.id}">
-                        <input type="submit" value="编辑">
-                    </form>
-                </div>
-            </td>
+                <td>
+                    <div align="center" style=" opacity:0.7;">
+                        <form action="IntoEditMessageController" method="post">
+                            <input type="hidden" name="messageid" value="${m.id}">
+                            <input type="submit" value="编辑">
+                        </form>
+                    </div>
+                </td>
 
-        </tr>
-    </c:forEach>
+            </tr>
+        </c:forEach>
     </c:if>
 </table>
 <p align="center">第${sessionScope.pageBean.pageNumber}页</p><br>

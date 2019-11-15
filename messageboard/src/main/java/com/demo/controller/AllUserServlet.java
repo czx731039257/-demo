@@ -18,17 +18,17 @@ public class AllUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        SelectUser selectUser=new SelectUser();
-        SelectMessage selectMessage=new SelectMessage();
+        SelectUser selectUser = new SelectUser();
+        SelectMessage selectMessage = new SelectMessage();
         List<User> users = selectUser.selectAll();
-        Iterator<User> it=users.iterator();
-        while(it.hasNext()){
+        Iterator<User> it = users.iterator();
+        while (it.hasNext()) {
             User next = it.next();
             System.out.println(next.getId());
             List<Message> messages = selectMessage.selectByUserId(next.getId());
             next.setCount_message(messages.size());
         }
-        session.setAttribute("users",users);
+        session.setAttribute("users", users);
         resp.sendRedirect("users.jsp");
     }
 }

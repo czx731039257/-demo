@@ -36,7 +36,7 @@
                 },
                 success: function (result) {
                     //var result = eval('(' + result + ')');//解析json对象
-                    if (result!="success") {
+                    if (result != "success") {
                         $.messager.show({
                             title: 'Error',
                             msg: result
@@ -48,6 +48,7 @@
                 }
             });
         }
+
         function doSearch() {
             $('#dg').datagrid('load', {
                 userid: $('#userid').val(),

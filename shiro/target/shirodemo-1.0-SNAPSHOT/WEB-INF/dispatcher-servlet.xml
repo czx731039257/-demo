@@ -8,7 +8,7 @@
 
     <!--需要扫描注解的包-->
     <context:component-scan base-package="com.csx.controller"/>
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
 
     <!--视图解析器的配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

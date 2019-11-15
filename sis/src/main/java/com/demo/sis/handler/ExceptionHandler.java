@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler({AuthorizationException.class})
-    public String exce(HttpServletRequest req){
+    public String exce(HttpServletRequest req) {
         System.out.println("你没有这个角色或权限");
-        return "redirect:"+"message";
+        return "redirect:" + "message";
     }
 }

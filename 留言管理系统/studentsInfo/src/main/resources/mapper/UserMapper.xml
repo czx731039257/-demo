@@ -54,7 +54,7 @@
                 name=#{name},
             </if>
             <if test="password!=null">
-               password=#{password},
+                password=#{password},
             </if>
             <if test="email!=null">
                 email=#{email},

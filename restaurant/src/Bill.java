@@ -14,82 +14,87 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Bill {
-	private String id;
-	private BillState state;
-	private List<Dish> orderDishList;
-	private Client client;
-	private double sum;
+    private String id;
+    private BillState state;
+    private List<Dish> orderDishList;
+    private Client client;
+    private double sum;
 
-	public Bill(List<Dish> orderDishList, Client client) {
-		this.orderDishList = orderDishList;
-		this.client = client;
-		setState(new NoPay());//初始化账单为 未支付
-		sum=0;//初始化账单总金额为0
-	}
+    public Bill(List<Dish> orderDishList, Client client) {
+        this.orderDishList = orderDishList;
+        this.client = client;
+        setState(new NoPay());//初始化账单为 未支付
+        sum = 0;//初始化账单总金额为0
+    }
 
-	/**
-	 * 账单中添加菜
-	 * @param dishs
-	 */
-	public void addDish(List<Dish> dishs) {
+    /**
+     * 账单中添加菜
+     *
+     * @param dishs
+     */
+    public void addDish(List<Dish> dishs) {
 
-		Iterator<Dish> it=dishs.iterator();
-		while(it.hasNext()){
-			Dish dish=it.next();
-			orderDishList.add(dish);
-			sum+=dish.getPrice();
-		}
+        Iterator<Dish> it = dishs.iterator();
+        while (it.hasNext()) {
+            Dish dish = it.next();
+            orderDishList.add(dish);
+            sum += dish.getPrice();
+        }
 
-	}
+    }
 
-	/**
-	 * 获取该账单的总金额
-	 * @return
-	 */
-	public double getSum() {
-		return sum;
-	}
+    /**
+     * 获取该账单的总金额
+     *
+     * @return
+     */
+    public double getSum() {
+        return sum;
+    }
 
-	/**
-	 * 设置账单的状态
-	 * @param state
-	 */
-	public void setState(BillState state) {
-		this.state=state;
-	}
+    /**
+     * 设置账单的状态
+     *
+     * @param state
+     */
+    public void setState(BillState state) {
+        this.state = state;
+    }
 
-	/**
-	 * 获取账单状态
-	 * @return
-	 */
-	public BillState getState() {
-		return state;
-	}
+    /**
+     * 获取账单状态
+     *
+     * @return
+     */
+    public BillState getState() {
+        return state;
+    }
 
-	/**
-	 * 修改账单的状态
-	 * @return
-	 */
-	public void changeState() {
-		state.changeState(this);
-	}
+    /**
+     * 修改账单的状态
+     *
+     * @return
+     */
+    public void changeState() {
+        state.changeState(this);
+    }
 
 
-	public List<Dish> getOrderDishList() {
-		return orderDishList;
-	}
+    public List<Dish> getOrderDishList() {
+        return orderDishList;
+    }
 
-	public void setOrderDishList(List<Dish> orderDishList) {
-		this.orderDishList = orderDishList;
-	}
+    public void setOrderDishList(List<Dish> orderDishList) {
+        this.orderDishList = orderDishList;
+    }
 
-	public Client getClient() {
-		return client;
-	}
+    public Client getClient() {
+        return client;
+    }
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
 
 }

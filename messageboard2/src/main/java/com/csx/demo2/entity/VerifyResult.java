@@ -5,7 +5,7 @@ public class VerifyResult {
     private boolean result;//true表示验证通过
     private PageBean pageBean;
 
-    public VerifyResult(boolean result,User user, PageBean pageBean) {
+    public VerifyResult(boolean result, User user, PageBean pageBean) {
         this.user = user;
         this.result = result;
         this.pageBean = pageBean;

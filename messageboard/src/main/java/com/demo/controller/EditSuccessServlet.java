@@ -19,12 +19,12 @@ public class EditSuccessServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        Date date=new Date();
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        SelectMessage selectMessage=new SelectMessage();
-        UpdateMessage updateMessage=new UpdateMessage();
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SelectMessage selectMessage = new SelectMessage();
+        UpdateMessage updateMessage = new UpdateMessage();
 
-        String date_edit=dateFormat.format(date);
+        String date_edit = dateFormat.format(date);
         String messageid = req.getParameter("messageid");
         Message message = selectMessage.selectById(Integer.valueOf(messageid));
         //System.out.println(message.getId()+"*"+message.getLabel());
@@ -37,7 +37,7 @@ public class EditSuccessServlet extends HttpServlet {
 
         List<Message> messages = selectMessage.selectAll();
         HttpSession session = req.getSession();
-        session.setAttribute("messageSet",messages);
+        session.setAttribute("messageSet", messages);
 
         resp.sendRedirect("message.jsp");
     }

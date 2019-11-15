@@ -19,12 +19,12 @@ public class BillAction {
     private BillService billService;
 
     @RequestMapping("/queryBill")
-    public String queryBill(HttpServletRequest req, HttpServletResponse resp){
+    public String queryBill(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         Result result = billService.selectBill(user.getId());
-        session.setAttribute("bill",result.getBill());
-        session.setAttribute("pageBeanForBill",result.getPageBean());
-        return "redirect:"+"bill";
+        session.setAttribute("bill", result.getBill());
+        session.setAttribute("pageBeanForBill", result.getPageBean());
+        return "redirect:" + "bill";
     }
 }

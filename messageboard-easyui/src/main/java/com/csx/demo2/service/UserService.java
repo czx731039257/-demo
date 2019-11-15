@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public Page findpage(Page page){
+    public Page findpage(Page page) {
         List<User> users = userDao.findpage(page);
         Integer total = userDao.select(page.getUser()).size();
         page.setTotal(total);
@@ -22,11 +22,11 @@ public class UserService {
         return page;
     }
 
-    public boolean update(User user){
+    public boolean update(User user) {
         int i = userDao.update(user);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

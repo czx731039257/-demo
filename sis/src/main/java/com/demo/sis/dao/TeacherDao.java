@@ -9,8 +9,12 @@ import java.util.List;
 @Repository
 public interface TeacherDao {
     public List<Teacher> findpage(Page page);
+
     public List<Teacher> select(Teacher teacher);
+
     public int insert(Teacher teacher);
+
     public int deleteById(Integer id);
+
     public int update(Teacher teacher);
 }

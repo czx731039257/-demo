@@ -23,14 +23,14 @@ public class LoginAction {
 
     @ResponseBody
     @RequestMapping("loginVerify")
-    public Result loginVerify(HttpServletRequest req){
+    public Result loginVerify(HttpServletRequest req) {
         HttpSession session = req.getSession();
         String name = req.getParameter("loginName");
         String pwd = req.getParameter("loginPwd");
 
-        UsernamePasswordToken token=new UsernamePasswordToken(name,pwd);
+        UsernamePasswordToken token = new UsernamePasswordToken(name, pwd);
         Subject subject = SecurityUtils.getSubject();
-        if(!subject.isAuthenticated()){//还没登入
+        if (!subject.isAuthenticated()) {//还没登入
             try {
                 subject.login(token);
             } catch (AuthenticationException e) {//捕获登入失败的异常
@@ -39,9 +39,9 @@ public class LoginAction {
                 return new Result.Builder().errorMsg("用户名或密码错误").backUrl("login").build();
             }
             User user = userDao.select(new User.Builder().name(name).build()).get(0);
-            session.setAttribute("user",user);
+            session.setAttribute("user", user);
             return new Result.Builder().successMsg("登入成功").backUrl("messages").build();
-        }else{//已经登入过了
+        } else {//已经登入过了
             return new Result.Builder().successMsg("已经登入过").backUrl("messages").build();
         }
 

@@ -1,7 +1,10 @@
 package com.csx.demo2.entity;
 
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
+    private static final long SerialVersionUID = 1L;
     private Integer id;
     private String label;
     private String detail;
@@ -12,7 +15,8 @@ public class Message {
 
     public Message() {
     }
-    public Message(String label, String detail, String date_create, String date_edit, Integer user_id,Integer group_id) {
+
+    public Message(String label, String detail, String date_create, String date_edit, Integer user_id, Integer group_id) {
         this.label = label;
         this.detail = detail;
         this.date_create = date_create;

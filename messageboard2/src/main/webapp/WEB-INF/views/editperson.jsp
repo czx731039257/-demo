@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/background.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <style type="text/css">
-        input{
+        input {
             margin: 10px;
         }
     </style>

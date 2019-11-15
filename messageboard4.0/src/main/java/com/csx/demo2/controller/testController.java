@@ -18,19 +18,19 @@ public class testController {
         String referer = req.getHeader("Referer");
         System.out.println("***************");
         System.out.println(referer);
-        int i = referer.lastIndexOf('/')+1;
-        referer=referer.substring(i);
+        int i = referer.lastIndexOf('/') + 1;
+        referer = referer.substring(i);
         System.out.println(referer);
         HttpSession session = req.getSession();
-        session.setAttribute("withoutPermission","true");
-        return "redirect:"+referer;
+        session.setAttribute("withoutPermission", "true");
+        return "redirect:" + referer;
     }
 
     @RequestMapping("/testcontroller2")
     public String testcontroller2(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String[] str={"a","b","c","d"};
-        req.getSession().setAttribute("str",str);
-        return "redirect:"+"test1";
+        String[] str = {"a", "b", "c", "d"};
+        req.getSession().setAttribute("str", str);
+        return "redirect:" + "test1";
     }
 }

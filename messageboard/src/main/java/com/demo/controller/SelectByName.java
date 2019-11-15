@@ -19,12 +19,12 @@ public class SelectByName extends HttpServlet {
         String name = req.getParameter("name");
 
         HttpSession session = req.getSession();
-        SelectMessage selectMessage=new SelectMessage();
+        SelectMessage selectMessage = new SelectMessage();
         List<Message> messages = selectMessage.selectByUserName(name);
-        PageBean pageBean=new PageBean(1,10,messages.size());
+        PageBean pageBean = new PageBean(1, 10, messages.size());
         //System.out.println(pageBean.getPageNumber()+"---"+pageBean.getStartIndex()+"---"+pageBean.getEndIndex());
-        session.setAttribute("messageSet",messages);
-        session.setAttribute("pageBean",pageBean);
+        session.setAttribute("messageSet", messages);
+        session.setAttribute("pageBean", pageBean);
         resp.sendRedirect("message.jsp");
     }
 }

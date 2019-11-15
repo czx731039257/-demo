@@ -10,10 +10,8 @@
 //
 
 
-
-
 public abstract class Role {
-	public void changeRole(Client client) {
-	
-	}
+    public void changeRole(Client client) {
+
+    }
 }

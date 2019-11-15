@@ -48,6 +48,6 @@ public class LoginService {
         List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
         HeadPortrait headPortrait = select.get(0);
         user.setCurrentHeadPortrait(headPortrait);
-        return new Result(user, pageBean, messages, permissions,"成功");
+        return new Result(user, pageBean, messages, permissions, "成功");
     }
 }

@@ -26,30 +26,31 @@ public class testController {
         String referer = req.getHeader("Referer");
         System.out.println("***************");
         System.out.println(referer);
-        int i = referer.lastIndexOf('/')+1;
-        referer=referer.substring(i);
+        int i = referer.lastIndexOf('/') + 1;
+        referer = referer.substring(i);
         System.out.println(referer);
         HttpSession session = req.getSession();
-        session.setAttribute("withoutPermission","true");
-        return "redirect:"+referer;
+        session.setAttribute("withoutPermission", "true");
+        return "redirect:" + referer;
     }
 
     @RequestMapping("/testcontroller2")
     public String testcontroller2(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String[] str={"a","b","c","d"};
-        req.getSession().setAttribute("str",str);
-        return "redirect:"+"test1";
+        String[] str = {"a", "b", "c", "d"};
+        req.getSession().setAttribute("str", str);
+        return "redirect:" + "test1";
     }
+
     @RequestMapping("/testlogin")
     public String testlogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         Subject subject = SecurityUtils.getSubject();
-        if(subject.isAuthenticated()){
-           return "test1";
-        }else{
+        if (subject.isAuthenticated()) {
+            return "test1";
+        } else {
             try {
                 subject.login(token);
                 return "test1";
@@ -65,14 +66,14 @@ public class testController {
     @RequestMapping("/permission1")
     public String permission1(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         System.out.println("你有该权限");
-        String[] str={"a","b","c","d"};
-        req.getSession().setAttribute("str",str);
-        return "redirect:"+"test1";
+        String[] str = {"a", "b", "c", "d"};
+        req.getSession().setAttribute("str", str);
+        return "redirect:" + "test1";
     }
 
     @ExceptionHandler({AuthorizationException.class})
-    public String exce(HttpServletRequest req){
+    public String exce(HttpServletRequest req) {
         System.out.println("你没有该权限");
-        return "redirect:"+"test1";
+        return "redirect:" + "test1";
     }
 }

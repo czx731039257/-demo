@@ -12,6 +12,7 @@ public class LogoutAction {
 
     /**
      * 注销时的操作
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -21,6 +22,6 @@ public class LogoutAction {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         session.invalidate();
-        return "redirect:"+"login";
+        return "redirect:" + "login";
     }
 }

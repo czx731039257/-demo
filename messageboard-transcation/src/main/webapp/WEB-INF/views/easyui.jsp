@@ -17,33 +17,33 @@
     <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"/>
 
     <script>
-        function newUser(){
-            $('#dlg').dialog('open').dialog('setTitle','新建留言');
+        function newUser() {
+            $('#dlg').dialog('open').dialog('setTitle', '新建留言');
             $('#fm').form('clear');
             url = 'saveUser';
         }
 
         function editUser() {
             var row = $('#dg').datagrid('getSelected');
-            if (row){
-                $('#dlg').dialog('open').dialog('setTitle','编辑留言');
-                $('#fm').form('load',row);
-                url = 'editMessage?'+row.id;
+            if (row) {
+                $('#dlg').dialog('open').dialog('setTitle', '编辑留言');
+                $('#fm').form('load', row);
+                url = 'editMessage?' + row.id;
             }
         }
 
 
-        function saveMessage(){
-            $('#fm').form('submit',{
+        function saveMessage() {
+            $('#fm').form('submit', {
                 url: url,
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
-                onSubmit: function(){
+                onSubmit: function () {
                     return $(this).form('validate');
                 },
-                success: function(result){
-                    var result = eval('('+result+')');//解析json对象
-                    if (result.errorMsg){
+                success: function (result) {
+                    var result = eval('(' + result + ')');//解析json对象
+                    if (result.errorMsg) {
                         $.messager.show({
                             title: 'Error',
                             msg: result.errorMsg
@@ -60,26 +60,26 @@
 <body>
 
 <div align="center" style="height: 80%">
-<table id="dg" title="留言榜" class="easyui-datagrid" style="width:90%;height:100%"
-       url="test1"
-       toolbar="#toolbar"
-       rownumbers="true" fitColumns="true" singleSelect="true">
-    <thead>
-    <tr>
-        <th field="id" width="10%">留言ID</th>
-        <th field="label" width="10%">标题</th>
-        <th field="detail" width="42%">内容</th>
-        <th field="date_create" width="14%">创建时间</th>
-        <th field="date_edit" width="14%">修改时间</th>
-        <th field="user_id" width="10%">留言者ID</th>
-    </tr>
-    </thead>
-</table>
-<div id="toolbar">
-    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">新建留言</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑留言</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">删除留言</a>
-</div>
+    <table id="dg" title="留言榜" class="easyui-datagrid" style="width:90%;height:100%"
+           url="test1"
+           toolbar="#toolbar"
+           rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+        <tr>
+            <th field="id" width="10%">留言ID</th>
+            <th field="label" width="10%">标题</th>
+            <th field="detail" width="42%">内容</th>
+            <th field="date_create" width="14%">创建时间</th>
+            <th field="date_edit" width="14%">修改时间</th>
+            <th field="user_id" width="10%">留言者ID</th>
+        </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">新建留言</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑留言</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">删除留言</a>
+    </div>
 
 
     <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
@@ -98,9 +98,9 @@
     </div>
     <div id="dlg-buttons">
         <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveMessage()">保存</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-cancel"
+           onclick="javascript:$('#dlg').dialog('close')">取消</a>
     </div>
-
 
 
 </div>

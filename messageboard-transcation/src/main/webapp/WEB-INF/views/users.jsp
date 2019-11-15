@@ -39,46 +39,46 @@
         <th>编辑</th>
     </tr>
 
-        <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
-            <tr style="height: 41px">
-                <td style="width: 10%"><c:out value="${m.id}"/></td>
-                <td style="width: 20%"><c:out value="${m.name}"/></td>
-                <td style="width: 20%"><c:out value="${m.email}"/></td>
-                <td style="width: 20%"><c:out value="${m.phone}"/></td>
-                <td style="width: 10%"><c:out value="${m.group_id}"/></td>
-                <td style="width: 10%"><c:out value="${m.count_message}"/></td>
-                <td>
-                    <div align="center" style=" opacity:0.7;">
-                        <form action="intoEditUserInfo" method="post">
-                            <input type="hidden" name="userid" value="${m.id}">
+    <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
+        <tr style="height: 41px">
+            <td style="width: 10%"><c:out value="${m.id}"/></td>
+            <td style="width: 20%"><c:out value="${m.name}"/></td>
+            <td style="width: 20%"><c:out value="${m.email}"/></td>
+            <td style="width: 20%"><c:out value="${m.phone}"/></td>
+            <td style="width: 10%"><c:out value="${m.group_id}"/></td>
+            <td style="width: 10%"><c:out value="${m.count_message}"/></td>
+            <td>
+                <div align="center" style=" opacity:0.7;">
+                    <form action="intoEditUserInfo" method="post">
+                        <input type="hidden" name="userid" value="${m.id}">
 
-                            <c:choose>
-                                <c:when test="${sessionScope.user.id == m.id}">
-                                    <shiro:hasPermission name="编辑自己的用户信息">
-                                        <input type="submit" value="编辑">
-                                    </shiro:hasPermission>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${sessionScope.user.group_id == m.group_id}">
-                                            <shiro:hasPermission name="编辑所在用户组的人的用户信息">
-                                                <input type="submit" value="编辑">
-                                            </shiro:hasPermission>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <shiro:hasPermission name="编辑其他用户组的人的用户信息">
-                                                <input type="submit" value="编辑">
-                                            </shiro:hasPermission>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:otherwise>
-                            </c:choose>
-                        </form>
-                    </div>
-                </td>
+                        <c:choose>
+                            <c:when test="${sessionScope.user.id == m.id}">
+                                <shiro:hasPermission name="编辑自己的用户信息">
+                                    <input type="submit" value="编辑">
+                                </shiro:hasPermission>
+                            </c:when>
+                            <c:otherwise>
+                                <c:choose>
+                                    <c:when test="${sessionScope.user.group_id == m.group_id}">
+                                        <shiro:hasPermission name="编辑所在用户组的人的用户信息">
+                                            <input type="submit" value="编辑">
+                                        </shiro:hasPermission>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <shiro:hasPermission name="编辑其他用户组的人的用户信息">
+                                            <input type="submit" value="编辑">
+                                        </shiro:hasPermission>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:otherwise>
+                        </c:choose>
+                    </form>
+                </div>
+            </td>
 
-            </tr>
-        </c:forEach>
+        </tr>
+    </c:forEach>
 </table>
 <div align="center">
     <form style="margin: 10px" action="message">

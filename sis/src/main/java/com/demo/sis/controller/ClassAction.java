@@ -28,19 +28,19 @@ public class ClassAction {
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String id = req.getParameter("id");
         String name = req.getParameter("name");
-        String instructor=req.getParameter("instructor");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+        String instructor = req.getParameter("instructor");
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
 
-        Class c=new Class();
-        if(StringUtils.isNoBlank(id)){
+        Class c = new Class();
+        if (StringUtils.isNoBlank(id)) {
             c.setId(Integer.valueOf(id));
             page.setC(c);
         }
-        if(StringUtils.isNoBlank(name)){
+        if (StringUtils.isNoBlank(name)) {
             c.setName(name);
             page.setC(c);
         }
-        if(StringUtils.isNoBlank(instructor)){
+        if (StringUtils.isNoBlank(instructor)) {
             c.setInstructor(instructor);
             page.setC(c);
         }
@@ -51,31 +51,31 @@ public class ClassAction {
 
     @ResponseBody
     @RequestMapping("/insertClass")
-    public Result insertClass(HttpServletRequest req){
+    public Result insertClass(HttpServletRequest req) {
         String name = req.getParameter("name");
         String monitor_id = req.getParameter("monitor_id");
         String number = req.getParameter("number");
         String instructor = req.getParameter("instructor");
-        boolean i=classService.insert(new Class.Builder().name(name).monitor_id(Integer.valueOf(monitor_id)).number(Integer.valueOf(number)).instructor(instructor).build());
-        if(i) {
+        boolean i = classService.insert(new Class.Builder().name(name).monitor_id(Integer.valueOf(monitor_id)).number(Integer.valueOf(number)).instructor(instructor).build());
+        if (i) {
             return new Result.Builder().successMsg("添加班级成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("添加班级失败").build();
         }
     }
 
     @ResponseBody
     @RequestMapping("/editClass")
-    public Result editClass(HttpServletRequest req){
+    public Result editClass(HttpServletRequest req) {
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String monitor_id = req.getParameter("monitor_id");
         String number = req.getParameter("number");
         String instructor = req.getParameter("instructor");
         boolean i = classService.update(new Class.Builder().id(Integer.valueOf(id)).name(name).monitor_id(Integer.valueOf(monitor_id)).number(Integer.valueOf(number)).instructor(instructor).build());
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("编辑班级成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("编辑班级失败").build();
         }
     }
@@ -83,16 +83,15 @@ public class ClassAction {
 
     @ResponseBody
     @RequestMapping("/removeClass")
-    public Result removeClass(HttpServletRequest req){
+    public Result removeClass(HttpServletRequest req) {
         String id = req.getParameter("id");
         boolean i = classService.deleteById(Integer.valueOf(id));
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("删除班级成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("删除班级失败").build();
         }
     }
-
 
 
 }

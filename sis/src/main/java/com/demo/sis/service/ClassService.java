@@ -16,7 +16,7 @@ public class ClassService {
     @Autowired
     private ClassDao classDao;
 
-    public Page findpage(Page page){
+    public Page findpage(Page page) {
         List<Class> classes = classDao.findpage(page);
         int total = classDao.select(page.getC()).size();
         page.setRows(classes);
@@ -24,29 +24,29 @@ public class ClassService {
         return page;
     }
 
-    public boolean insert(Class c){
+    public boolean insert(Class c) {
         int i = classDao.insert(c);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean update(Class c){
+    public boolean update(Class c) {
         int i = classDao.update(c);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean deleteById(Integer id){
+    public boolean deleteById(Integer id) {
         int i = classDao.deleteById(id);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

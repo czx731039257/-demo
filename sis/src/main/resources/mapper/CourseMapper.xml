@@ -40,7 +40,7 @@
     </select>
 
     <insert id="insert" parameterType="Course">
-         insert into course(name,classroom,date,credit,teacher_id)
+        insert into course(name,classroom,date,credit,teacher_id)
         values(#{name},#{classroom},#{date},#{credit},#{teacher_id})
     </insert>
 

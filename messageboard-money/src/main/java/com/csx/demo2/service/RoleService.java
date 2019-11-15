@@ -15,18 +15,19 @@ public class RoleService {
 
     /**
      * 查询所有的角色
+     *
      * @return
      */
 
-    public List<Role> selectAllRole( ){
+    public List<Role> selectAllRole() {
         List<Role> roles = roleDao.select(new Role());
         return roles;
     }
 
     /*
-    * 根据角色id  查询该角色的信息
-    * */
-    public Role selectByRoleId(String roleid){
+     * 根据角色id  查询该角色的信息
+     * */
+    public Role selectByRoleId(String roleid) {
         Role role = roleDao.select(new Role.Builder().id(Integer.valueOf(roleid)).build()).get(0);
         return role;
     }

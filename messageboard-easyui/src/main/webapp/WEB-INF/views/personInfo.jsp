@@ -61,7 +61,7 @@
             if (row) {
                 $.messager.confirm('Confirm', '确认删除这条留言吗', function (r) {
                     if (r) {
-                        $.post('message/removeMessage', {messageid: row.id},function (result) {
+                        $.post('message/removeMessage', {messageid: row.id}, function (result) {
                             if (result.successMsg) {
                                 $('#dg').datagrid('reload');    // reload the user data
                             } else {

@@ -17,27 +17,28 @@ public class PermissionService {
     private PermissionDao permissionDao;
 
     /*
-    * 查询该角色的所有权限
-    * */
-    public List<Permission> selectByRoleId(Integer roleid){
+     * 查询该角色的所有权限
+     * */
+    public List<Permission> selectByRoleId(Integer roleid) {
         List<Permission> permissions = permissionDao.selectByRoleId(roleid);
         return permissions;
     }
 
     /*
-    * 查询所有的权限
-    * */
-    public List<Permission> selectAll(){
+     * 查询所有的权限
+     * */
+    public List<Permission> selectAll() {
         List<Permission> permissions = permissionDao.selectAll();
         return permissions;
     }
 
     /**
      * 查询 某个用户的所有权限
+     *
      * @param user
      * @return
      */
-    public List<Permission> selectByUser(User user){
+    public List<Permission> selectByUser(User user) {
         List<Permission> permissions = permissionDao.select(user);
         return permissions;
     }

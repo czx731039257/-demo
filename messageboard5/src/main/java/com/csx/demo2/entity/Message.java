@@ -12,7 +12,8 @@ public class Message {
 
     public Message() {
     }
-    public Message(String label, String detail, String date_create, String date_edit, Integer user_id,Integer group_id) {
+
+    public Message(String label, String detail, String date_create, String date_edit, Integer user_id, Integer group_id) {
         this.label = label;
         this.detail = detail;
         this.date_create = date_create;

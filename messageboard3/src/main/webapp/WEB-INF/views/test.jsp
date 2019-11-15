@@ -11,10 +11,10 @@
     <title>登入页面</title>
 </head>
 <body>
-    <form action="testlogin">
-        用户名：<input type="text" name="username"><br>
-        密码：<input type="text" name="password"><br>
-        <input type="submit" value="登入">
-    </form>
+<form action="testlogin">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="text" name="password"><br>
+    <input type="submit" value="登入">
+</form>
 </body>
 </html>

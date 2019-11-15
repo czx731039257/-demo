@@ -14,7 +14,7 @@ public class StudentService {
     @Autowired
     private StudentDao studentDao;
 
-    public Page findpage(Page page){
+    public Page findpage(Page page) {
         List<Student> students = studentDao.findpage(page);
         int total = studentDao.select(page.getStudent()).size();
         page.setRows(students);
@@ -22,29 +22,29 @@ public class StudentService {
         return page;
     }
 
-    public boolean insert(Student student){
+    public boolean insert(Student student) {
         int i = studentDao.insert(student);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean update(Student student){
+    public boolean update(Student student) {
         int i = studentDao.update(student);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean deleteById(Integer id){
+    public boolean deleteById(Integer id) {
         int i = studentDao.deleteById(id);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

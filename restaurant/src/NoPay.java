@@ -16,12 +16,13 @@
 public class NoPay implements BillState {
 
 
-	/**
-	 * 改变账单状态为已经支付
-	 * @param bill
-	 */
-	@Override
-	public void changeState(Bill bill) {
-		bill.setState(new HasPay());
-	}
+    /**
+     * 改变账单状态为已经支付
+     *
+     * @param bill
+     */
+    @Override
+    public void changeState(Bill bill) {
+        bill.setState(new HasPay());
+    }
 }

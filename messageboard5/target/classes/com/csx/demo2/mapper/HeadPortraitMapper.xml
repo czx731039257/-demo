@@ -6,7 +6,8 @@
     <select id="selectByUserId" parameterType="java.lang.Integer" resultType="com.csx.demo2.entity.HeadPortrait">
         select * from headportrait where user_id=#{user_id}
     </select>
-    <select id="select" parameterType="com.csx.demo2.entity.HeadPortrait" resultType="com.csx.demo2.entity.HeadPortrait">
+    <select id="select" parameterType="com.csx.demo2.entity.HeadPortrait"
+            resultType="com.csx.demo2.entity.HeadPortrait">
         select * from headportrait
         <where>
             <if test="id !=null">

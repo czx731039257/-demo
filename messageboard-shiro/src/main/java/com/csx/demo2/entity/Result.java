@@ -17,11 +17,11 @@ public class Result {
         this.permissions = permissions;
     }
 
-    public Result(boolean result, User user, PageBean pageBean , List<Message> messages) {
+    public Result(boolean result, User user, PageBean pageBean, List<Message> messages) {
         this.user = user;
         this.result = result;
         this.pageBean = pageBean;
-        this.messages=messages;
+        this.messages = messages;
     }
 
     public Result() {

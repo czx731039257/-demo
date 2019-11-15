@@ -16,9 +16,9 @@ public class PageController {
     public String lastpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.minusPageNumber();//当前页数减一
-        session.setAttribute("pageBean",pageBean);
+        session.setAttribute("pageBean", pageBean);
         return "message";
     }
 
@@ -26,9 +26,9 @@ public class PageController {
     public String nextpagecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.addPageNumber();//当前页数加一
-        session.setAttribute("pageBean",pageBean);
+        session.setAttribute("pageBean", pageBean);
         return "message";
     }
 }

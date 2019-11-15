@@ -23,15 +23,15 @@
         <th>总留言数</th>
     </tr>
 
-        <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
-            <tr>
-                <td style="width: 20%"><c:out value="${m.id}"/></td>
-                <td style="width: 20%"><c:out value="${m.name}"/></td>
-                <td style="width: 20%"><c:out value="${m.email}"/></td>
-                <td style="width: 20%"><c:out value="${m.phone}"/></td>
-                <td style="width: 20%"><c:out value="${m.count_message}"/></td>
-            </tr>
-        </c:forEach>
+    <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
+        <tr>
+            <td style="width: 20%"><c:out value="${m.id}"/></td>
+            <td style="width: 20%"><c:out value="${m.name}"/></td>
+            <td style="width: 20%"><c:out value="${m.email}"/></td>
+            <td style="width: 20%"><c:out value="${m.phone}"/></td>
+            <td style="width: 20%"><c:out value="${m.count_message}"/></td>
+        </tr>
+    </c:forEach>
 </table>
 <div align="center">
     <form style="margin: 10px" action="message.jsp">

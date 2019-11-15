@@ -24,35 +24,33 @@
         $(document).ready(function () {
             $("#recharge").click(function () {
 
-                while(true) {
+                while (true) {
                     var str = prompt("请输入充值的金额（数值类型）:", "1");
-                    if(str==null){//用户没有点击了取消
+                    if (str == null) {//用户没有点击了取消
                         break;
-                    } else if(!isNaN(str)&&str!=0&&str!=""&&str>=0) {
-                    $.ajax({
-                        type: "POST",
-                        url: "recharge",
-                        contentType: "application/json;charset=utf-8",
-                        data:{"money":str},
-                        dataType: "json",
-                        success:function (message) {
-                            $("#money").text("余额:"+message["newmoney"])
-                            alert(message["rechargeresult"]);
+                    } else if (!isNaN(str) && str != 0 && str != "" && str >= 0) {
+                        $.ajax({
+                            type: "POST",
+                            url: "recharge",
+                            contentType: "application/json;charset=utf-8",
+                            data: {"money": str},
+                            dataType: "json",
+                            success: function (message) {
+                                $("#money").text("余额:" + message["newmoney"])
+                                alert(message["rechargeresult"]);
                             },
-                        error:function (message) {
-                            alert("提交失败"+JSON.stringify(message));
-                        }
-                    })
+                            error: function (message) {
+                                alert("提交失败" + JSON.stringify(message));
+                            }
+                        })
                         break;
-                    }else{
+                    } else {
                         alert("输入金额格式错误，请输入非零非空的数值！")
                     }
                 }
             })
         })
     </script>
-
-
 
 
 </head>
@@ -125,7 +123,7 @@
                         </td>
                         <td>
                             <%--<form action="recharge">--%>
-                                <%--<input type="submit" value="充值">--%>
+                            <%--<input type="submit" value="充值">--%>
                             <%--</form>--%>
                             <input id="recharge" type="button" value="充值">
                         </td>
@@ -141,9 +139,9 @@
     <table border="0">
         <tr>
             <td>
-                    <form action="queryBill" method="post">
-                        <input type="submit" style="margin: 10px" value="查看账单">
-                    </form>
+                <form action="queryBill" method="post">
+                    <input type="submit" style="margin: 10px" value="查看账单">
+                </form>
             </td>
 
             <td>

@@ -11,12 +11,12 @@
     <title>充值页面</title>
 </head>
 <body>
-    <div align="center">
-        当前账户余额：${sessionScope.user.money}
-        <form action="rechargeSuccess">
-            充值金额：<input type="text" name="money" placeholder="请输入充值金额">
-                     <input type="submit" value="充值">
-        </form>
-    </div>
+<div align="center">
+    当前账户余额：${sessionScope.user.money}
+    <form action="rechargeSuccess">
+        充值金额：<input type="text" name="money" placeholder="请输入充值金额">
+        <input type="submit" value="充值">
+    </form>
+</div>
 </body>
 </html>

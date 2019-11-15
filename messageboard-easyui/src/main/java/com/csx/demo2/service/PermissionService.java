@@ -16,9 +16,10 @@ public class PermissionService {
 
     /**
      * 根据用户名查看该用户的所有权限
+     *
      * @return
      */
-    public List<Permission> selectPermissionByUserName(String username){
+    public List<Permission> selectPermissionByUserName(String username) {
         List<Permission> permissions = permissionDao.selectByUserName(username);
         return permissions;
     }

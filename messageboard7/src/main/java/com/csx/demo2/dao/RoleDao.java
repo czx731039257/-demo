@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface RoleDao {
     public List<Role> select(Role role);
+
     List<Role> selectByUserName(String name);
 }

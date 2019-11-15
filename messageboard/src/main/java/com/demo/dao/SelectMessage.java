@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 public class SelectMessage {
-    public Set<Message> selectByUserId(int userId){
-        Set<Message> set=new HashSet<Message>();
+    public Set<Message> selectByUserId(int userId) {
+        Set<Message> set = new HashSet<Message>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/internship?serverTimezone=UTC";
@@ -24,7 +24,7 @@ public class SelectMessage {
                 String date_create = resultSet.getString("date_create");
                 String date_edit = resultSet.getString("date_edit");
                 int user_id = resultSet.getInt("user_id");
-                Message message=new Message(id,label,detail,date_create,date_edit,user_id);
+                Message message = new Message(id, label, detail, date_create, date_edit, user_id);
                 set.add(message);
             }
 
@@ -35,7 +35,8 @@ public class SelectMessage {
         }
         return set;
     }
-    public List<Message> selectAll(){
+
+    public List<Message> selectAll() {
 //        Set<Message> set=new HashSet<Message>();
 //        try {
 //            Class.forName("com.mysql.jdbc.Driver");
@@ -61,7 +62,7 @@ public class SelectMessage {
 //        }
 //        return set;
 
-        List<Message> list=new ArrayList<Message>();
+        List<Message> list = new ArrayList<Message>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/internship?serverTimezone=UTC";
@@ -75,7 +76,7 @@ public class SelectMessage {
                 String date_create = resultSet.getString("date_create");
                 String date_edit = resultSet.getString("date_edit");
                 int user_id = resultSet.getInt("user_id");
-                Message message=new Message(id,label,detail,date_create,date_edit,user_id);
+                Message message = new Message(id, label, detail, date_create, date_edit, user_id);
                 list.add(message);
             }
 

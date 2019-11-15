@@ -14,11 +14,11 @@ public class PageBean {
         this.pageNumber = pageNumber;
         this.pageSize = pageSize;
         this.totalRecord = totalRecord;
-        this.startIndex = (pageNumber-1)*pageSize;
-        if((totalRecord/pageSize)*pageSize==totalRecord){
-            this.totalPage=totalRecord/pageSize;
-        }else{
-            this.totalPage = (int)(totalRecord/pageSize)+1;
+        this.startIndex = (pageNumber - 1) * pageSize;
+        if ((totalRecord / pageSize) * pageSize == totalRecord) {
+            this.totalPage = totalRecord / pageSize;
+        } else {
+            this.totalPage = (int) (totalRecord / pageSize) + 1;
         }
     }
 
@@ -55,8 +55,8 @@ public class PageBean {
     }
 
     public int getStartIndex() {
-        startIndex=(pageNumber-1)*pageSize;
-        System.out.println("start:"+startIndex);
+        startIndex = (pageNumber - 1) * pageSize;
+        System.out.println("start:" + startIndex);
         return startIndex;
     }
 
@@ -64,28 +64,28 @@ public class PageBean {
         this.startIndex = startIndex;
     }
 
-    public int getEndIndex(){
-        if(pageNumber<totalPage){
-            return pageNumber*pageSize-1;
-        }else{
-            return totalRecord-1;
+    public int getEndIndex() {
+        if (pageNumber < totalPage) {
+            return pageNumber * pageSize - 1;
+        } else {
+            return totalRecord - 1;
         }
     }
 
-    public void addPageNumber(){
-        pageNumber+=1;
+    public void addPageNumber() {
+        pageNumber += 1;
     }
 
-    public void minusPageNumber(){
-        pageNumber-=1;
+    public void minusPageNumber() {
+        pageNumber -= 1;
     }
 
-    public void addTotalRecord(){
-        totalRecord+=1;
-        if((totalRecord/pageSize)*pageSize==totalRecord){
-            this.totalPage=totalRecord/pageSize;
-        }else{
-            this.totalPage = (int)(totalRecord/pageSize)+1;
+    public void addTotalRecord() {
+        totalRecord += 1;
+        if ((totalRecord / pageSize) * pageSize == totalRecord) {
+            this.totalPage = totalRecord / pageSize;
+        } else {
+            this.totalPage = (int) (totalRecord / pageSize) + 1;
         }
     }
 

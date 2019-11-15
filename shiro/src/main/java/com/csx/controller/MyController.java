@@ -7,19 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MyController {
     /**
      * 访问login.jsp页面
+     *
      * @return
      */
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     /**
      * 访问loginsuccess.jsp页面
+     *
      * @return
      */
     @RequestMapping("/loginsuccess")
-    public String loginsuccess(){
+    public String loginsuccess() {
         return "loginsuccess";
     }
 }

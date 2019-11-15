@@ -16,8 +16,8 @@
 </head>
 <body>
 <%
-    String finderror = (String)request.getSession().getAttribute("finderror");
-    if(finderror!=null&&finderror.equals("empty")){
+    String finderror = (String) request.getSession().getAttribute("finderror");
+    if (finderror != null && finderror.equals("empty")) {
 %>
 <script>
     alert("输入不能为空！")
@@ -32,7 +32,7 @@
     <tr>
         <td>
             <form action="selectlogByUserName">
-                <input type="text" name="username"  placeholder="请输入用户名">
+                <input type="text" name="username" placeholder="请输入用户名">
                 <input type="submit" value="搜索">
             </form>
         </td>

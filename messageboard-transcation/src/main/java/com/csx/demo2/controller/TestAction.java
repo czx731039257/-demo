@@ -39,14 +39,14 @@ public class TestAction {
 
     @ResponseBody
     @RequestMapping("/test1")
-    public List<Message> test1(){
+    public List<Message> test1() {
         Result result = messageService.selectAllMessage();
         return result.getMessages();
     }
 
     @ResponseBody
-    @RequestMapping(value="/saveUser",method = RequestMethod.POST)
-    public void saveMessage(@RequestBody String message,HttpServletResponse resp){
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    public void saveMessage(@RequestBody String message, HttpServletResponse resp) {
         resp.setContentType("application/json;charset=utf-8");
         System.out.println(message);
     }

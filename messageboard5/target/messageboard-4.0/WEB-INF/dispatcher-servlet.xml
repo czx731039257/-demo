@@ -7,35 +7,35 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
     <mvc:resources location="/picture/" mapping="/messageboard/picture/**"/>
     <mvc:resources location="/css/" mapping="/messageboard/css/**"/>
 
     <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/selectrole"/>-->
-            <!--<mvc:mapping path="/SelectPersonMessageController"/>-->
-            <!--<mvc:mapping path="/SelectGroupMessageController"/>-->
-            <!--<mvc:mapping path="/SelectOtherGroupMessageController"/>-->
-            <!--<mvc:mapping path="/SelectAllMessageController"/>-->
-            <!--<mvc:mapping path="/CreateMessageController"/>-->
-            <!--<mvc:mapping path="/PersonInfoController"/>-->
-            <!--<mvc:mapping path="/SelectGroupUserInfoController"/>-->
-            <!--<mvc:mapping path="/SelectOtherGroupUserInfoController"/>-->
-            <!--<mvc:mapping path="/SelectAllUserInfoController"/>-->
-            <!--<mvc:mapping path="/allocationcontroller"/>-->
-            <!--<mvc:mapping path="/EditPersonInfoSuccessController"/>-->
-            <!--<mvc:mapping path="/editrolesuccesscontroller"/>-->
-            <!--<mvc:mapping path="/editpermissioncontroller"/>-->
-            <!--<mvc:mapping path="/editpermissionsuccess"/>-->
-            <!--<mvc:mapping path="/create"/>-->
-            <!--<mvc:mapping path="/allocation"/>-->
-            <!--<mvc:mapping path="/permission"/>-->
-            <!--<mvc:mapping path="/roles"/>-->
-            <!--<mvc:mapping path="/editrole"/>-->
-            <!--<bean class="com.csx.demo2.handler.MyHandler"/>-->
-        <!--</mvc:interceptor>-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/selectrole"/>-->
+    <!--<mvc:mapping path="/SelectPersonMessageController"/>-->
+    <!--<mvc:mapping path="/SelectGroupMessageController"/>-->
+    <!--<mvc:mapping path="/SelectOtherGroupMessageController"/>-->
+    <!--<mvc:mapping path="/SelectAllMessageController"/>-->
+    <!--<mvc:mapping path="/CreateMessageController"/>-->
+    <!--<mvc:mapping path="/PersonInfoController"/>-->
+    <!--<mvc:mapping path="/SelectGroupUserInfoController"/>-->
+    <!--<mvc:mapping path="/SelectOtherGroupUserInfoController"/>-->
+    <!--<mvc:mapping path="/SelectAllUserInfoController"/>-->
+    <!--<mvc:mapping path="/allocationcontroller"/>-->
+    <!--<mvc:mapping path="/EditPersonInfoSuccessController"/>-->
+    <!--<mvc:mapping path="/editrolesuccesscontroller"/>-->
+    <!--<mvc:mapping path="/editpermissioncontroller"/>-->
+    <!--<mvc:mapping path="/editpermissionsuccess"/>-->
+    <!--<mvc:mapping path="/create"/>-->
+    <!--<mvc:mapping path="/allocation"/>-->
+    <!--<mvc:mapping path="/permission"/>-->
+    <!--<mvc:mapping path="/roles"/>-->
+    <!--<mvc:mapping path="/editrole"/>-->
+    <!--<bean class="com.csx.demo2.handler.MyHandler"/>-->
+    <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
 
@@ -52,17 +52,15 @@
     <!--<mvc:annotation-driven/>-->
 
 
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
-
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
-        <property name="proxyTargetClass" value="true" />
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
     </bean>
     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>
     </bean>
-
-
 
 
 </beans>

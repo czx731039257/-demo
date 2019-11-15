@@ -12,16 +12,16 @@
 </head>
 <body>
 <div align="center">
-<form action="create" method="post">
-    标题：<input type="text" name="label"><br/>
-    内容：<input type="text" name="detail"><br/>
-    <input type="submit" value="创建">
-    <div align="center">
-        <form action="message.jsp">
-            <input type="submit" value="返回">
-        </form>
-    </div>
-</form>
+    <form action="create" method="post">
+        标题：<input type="text" name="label"><br/>
+        内容：<input type="text" name="detail"><br/>
+        <input type="submit" value="创建">
+        <div align="center">
+            <form action="message.jsp">
+                <input type="submit" value="返回">
+            </form>
+        </div>
+    </form>
 </div>
 
 </body>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/background.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <style type="text/css">
-        input{
+        input {
             margin: 10px;
         }
     </style>
@@ -34,7 +34,7 @@
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>
 <div align="center">
-        修改用户：${sessionScope.edituser.name}
+    修改用户：${sessionScope.edituser.name}
     <form action="editUserInfoSuccess" method="post">
         用户ID:${sessionScope.edituser.id}<br>
         <input type="hidden" name="userid" value="${sessionScope.edituser.id}">

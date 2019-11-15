@@ -21,7 +21,7 @@
 
     <style type="text/css">
         .define-head {
-            font-family: Verdana,Geneva,sans-serif;
+            font-family: Verdana, Geneva, sans-serif;
             background-color: #EFEFEF;
             height: 55px;
             overflow: hidden;
@@ -72,13 +72,15 @@
 <div data-options="region:'center',border:false">
     <div style="width:100%;height:100%;position: relative;">
         <div id="LeftMenuDiv" style="width: 202px;height:100%;display: inline-block; background-color: green;">
-            <div class="easyui-panel" title="菜单列表" style="width:100%;height:100%;overflow-x:hidden;overflow-y:auto;" data-options="onOpen:onPanelOpen">
+            <div class="easyui-panel" title="菜单列表" style="width:100%;height:100%;overflow-x:hidden;overflow-y:auto;"
+                 data-options="onOpen:onPanelOpen">
                 <div id="LeftMenu" style="">
                 </div>
             </div>
         </div>
 
-        <div id="mainTab" class="easyui-tabs" data-options="fit:true,onSelect:onTabSelect" style="display: inline-block; position: absolute;">
+        <div id="mainTab" class="easyui-tabs" data-options="fit:true,onSelect:onTabSelect"
+             style="display: inline-block; position: absolute;">
             <div title="首页" data-options="closable:false" style="overflow:hidden;background-color:#fff;">
                 <iframe scrolling="auto" frameborder="0" src="" style="width:100%;height:100%"></iframe>
             </div>
@@ -119,6 +121,7 @@
             border: false
         });
     });
+
     function onPanelOpen() {
         var panel = $(this);
         var _1e = panel.panel("header").children("div.panel-tool");
@@ -128,7 +131,7 @@
         var t = _1e.children("a." + _20);
         if (!t.length) {
             t = $("<a href=\"javascript:;\"></a>").addClass(_20).appendTo(_1e);
-            t.bind("click", { dir: "left" }, function (e) {
+            t.bind("click", {dir: "left"}, function (e) {
                 if (e.target.className == "layout-button-right") {
                     e.target.className = "layout-button-left"
                     onWestExpand();
@@ -141,8 +144,7 @@
                     leftMenuDiv.each(function () {
                         this.style.width = '202px';
                     });
-                }
-                else {
+                } else {
                     e.target.className = "layout-button-right"
                     onWestCollapse();
                     var opt = panel.panel('options');

@@ -28,9 +28,9 @@ public class User {
         this.group_id = group_id;
     }
 
-    public User(String name,Integer group_id){
-        this.name=name;
-        this.group_id=group_id;
+    public User(String name, Integer group_id) {
+        this.name = name;
+        this.group_id = group_id;
     }
 
     public User(Integer id, String name, String password, String email, String phone, Integer group_id, List<Role> roles, List<Message> messages) {

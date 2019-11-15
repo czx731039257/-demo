@@ -33,47 +33,50 @@ public class MessageController {
         HttpSession session = req.getSession();
 
         List<Message> messages = messageDao.selectByUserName(name);
-        PageBean pageBean=new PageBean(1,10,messages.size());
+        PageBean pageBean = new PageBean(1, 10, messages.size());
         //System.out.println(pageBean.getPageNumber()+"---"+pageBean.getStartIndex()+"---"+pageBean.getEndIndex());
-        session.setAttribute("messageSet",messages);
-        session.setAttribute("pageBean",pageBean);
+        session.setAttribute("messageSet", messages);
+        session.setAttribute("pageBean", pageBean);
         return "message";
     }
+
     @RequestMapping("SelectAllMessageController")
     public String selectallcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
-        List<Message> messages = messageDao.select(new Message(0,null,null,null,null,0));
-        PageBean pageBean1=new PageBean(1,10,messages.size());
-        session.setAttribute("messageSet",messages);
-        session.setAttribute("pageBean",pageBean1);
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
+        List<Message> messages = messageDao.select(new Message(0, null, null, null, null, 0));
+        PageBean pageBean1 = new PageBean(1, 10, messages.size());
+        session.setAttribute("messageSet", messages);
+        session.setAttribute("pageBean", pageBean1);
         return "message";
     }
+
     @RequestMapping("CreateMessageController")
     public String createcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
-        Date date=new Date();
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        User user = (User) session.getAttribute("user");
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
         int user_id = user.getId();
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
-        String date_create=dateFormat.format(date);
-        String date_edit=dateFormat.format(date);
+        String date_create = dateFormat.format(date);
+        String date_edit = dateFormat.format(date);
 
-        Message message=new Message(label,detail,date_create,date_edit,user_id);
+        Message message = new Message(label, detail, date_create, date_edit, user_id);
         messageDao.insert(message);//创建新的留言
 
-        List<Message> messages = messageDao.select(new Message(0,null,null,null,null,0));//查询所有留言
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        List<Message> messages = messageDao.select(new Message(0, null, null, null, null, 0));//查询所有留言
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.addTotalRecord();
 
-        session.setAttribute("messageSet",messages);
+        session.setAttribute("messageSet", messages);
         return "message";
     }
+
     @RequestMapping("DeleteMessageController")
     public String deletecontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
@@ -81,13 +84,13 @@ public class MessageController {
         HttpSession session = req.getSession();
 
         messageDao.deleteById(Integer.valueOf(messageid));//执行删除操作
-        List<Message> messages = messageDao.select(new Message(0,null,null,null,null,0));//查找所有留言
-        session.setAttribute("messageSet",messages);
-        PageBean pageBean1 = (PageBean)session.getAttribute("pageBean");
-        int totalRecord=messages.size();
+        List<Message> messages = messageDao.select(new Message(0, null, null, null, null, 0));//查找所有留言
+        session.setAttribute("messageSet", messages);
+        PageBean pageBean1 = (PageBean) session.getAttribute("pageBean");
+        int totalRecord = messages.size();
         //System.out.println(totalRecord);
-        PageBean pageBean=new PageBean(pageBean1.getPageNumber(),10,totalRecord);
-        session.setAttribute("pageBean",pageBean);
+        PageBean pageBean = new PageBean(pageBean1.getPageNumber(), 10, totalRecord);
+        session.setAttribute("pageBean", pageBean);
         return "message";
     }
 
@@ -95,10 +98,10 @@ public class MessageController {
     public String editcontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
         String messageid = req.getParameter("messageid");
-        req.setAttribute("messageid",messageid);
+        req.setAttribute("messageid", messageid);
         List<Message> list = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, 0));
         Message message = list.get(0);
-        req.setAttribute("message",message);
+        req.setAttribute("message", message);
         //req.getRequestDispatcher("edit.jsp").forward(req,resp);
         //resp.sendRedirect("edit.jsp");
         return "edit";
@@ -107,10 +110,10 @@ public class MessageController {
     @RequestMapping("EditMessageSuccessController")
     public String editsuccesscontroller(HttpServletRequest req) throws UnsupportedEncodingException {
         req.setCharacterEncoding("UTF-8");
-        Date date=new Date();
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-        String date_edit=dateFormat.format(date);
+        String date_edit = dateFormat.format(date);
         String messageid = req.getParameter("messageid");
         List<Message> select = messageDao.select(new Message(Integer.valueOf(messageid), null, null, null, null, 0));
         Message message = select.get(0);
@@ -122,9 +125,9 @@ public class MessageController {
         message.setDate_edit(date_edit);
         messageDao.update(message);
 
-        List<Message> messages = messageDao.select(new Message(0,null,null,null,null,0));
+        List<Message> messages = messageDao.select(new Message(0, null, null, null, null, 0));
         HttpSession session = req.getSession();
-        session.setAttribute("messageSet",messages);
+        session.setAttribute("messageSet", messages);
         return "message";
     }
 }

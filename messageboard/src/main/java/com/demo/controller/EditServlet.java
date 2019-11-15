@@ -10,7 +10,7 @@ public class EditServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageid = req.getParameter("messageid");
-        req.setAttribute("messageid",messageid);
+        req.setAttribute("messageid", messageid);
         //req.getRequestDispatcher("edit.jsp").forward(req,resp);
         resp.sendRedirect("edit.jsp");
     }

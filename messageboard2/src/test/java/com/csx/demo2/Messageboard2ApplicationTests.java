@@ -28,57 +28,57 @@ public class Messageboard2ApplicationTests {
 
     @Test
     public void testSelectUser() {
-        User user=new User();
+        User user = new User();
         System.out.println(user);
-        List<User> list=userDao.select(user);
-        Iterator<User> it=list.iterator();
-        while(it.hasNext()){
-            User next=it.next();
+        List<User> list = userDao.select(user);
+        Iterator<User> it = list.iterator();
+        while (it.hasNext()) {
+            User next = it.next();
 
             System.out.println(next);
         }
     }
 
     @Test
-    public void testUpdateUser(){
-        User user =new User(4,"ss","123123","130130","123132");
+    public void testUpdateUser() {
+        User user = new User(4, "ss", "123123", "130130", "123132");
         userDao.update(user);
     }
 
     @Test
     public void testSelectMessage() {
-        Message message=new Message();
+        Message message = new Message();
         System.out.println(message);
         List<Message> list = messageDao.select(message);
-        Iterator<Message> it=list.iterator();
-        while(it.hasNext()){
-            Message next=it.next();
+        Iterator<Message> it = list.iterator();
+        while (it.hasNext()) {
+            Message next = it.next();
             System.out.println(next);
         }
     }
 
     @Test
-    public void testUpdateMessage(){
-        Message message=new Message(1,"zz","zz","2019-1-1 10:10:10","2019-1-1 10:10:10",1);
+    public void testUpdateMessage() {
+        Message message = new Message(1, "zz", "zz", "2019-1-1 10:10:10", "2019-1-1 10:10:10", 1);
         messageDao.update(message);
     }
 
     @Test
-    public void testInsertMessage(){
-        Message message=new Message("aa","zz","2019-1-1 10:10:10","2019-1-1 10:10:10",1);
+    public void testInsertMessage() {
+        Message message = new Message("aa", "zz", "2019-1-1 10:10:10", "2019-1-1 10:10:10", 1);
         messageDao.insert(message);
     }
 
     @Test
-    public void testDeleteMessage(){
+    public void testDeleteMessage() {
         messageDao.deleteById(87);
     }
 
     @Test
-    public void testselectByUserName(){
+    public void testselectByUserName() {
         List<Message> list = messageDao.selectByUserName("张三");
-        Iterator<Message> it=list.iterator();
-        while(it.hasNext()){
+        Iterator<Message> it = list.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
     }

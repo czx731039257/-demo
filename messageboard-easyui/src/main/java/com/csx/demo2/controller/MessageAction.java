@@ -26,8 +26,10 @@ public class MessageAction {
 
     @Autowired
     private MessageDao messageDao;
+
     /**
      * 查询留言  包含条件查询和查询所有
+     *
      * @param req
      * @return
      * @throws IOException
@@ -39,21 +41,21 @@ public class MessageAction {
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String messageid = req.getParameter("messageid");
         String username = req.getParameter("username");
-        String groupid=req.getParameter("groupid");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+        String groupid = req.getParameter("groupid");
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
 
-        User user=new User();
-        Message message=new Message();
-        if(StringUtils.isNoBlank(messageid)){
+        User user = new User();
+        Message message = new Message();
+        if (StringUtils.isNoBlank(messageid)) {
             message.setId(Integer.valueOf(messageid));
             page.setMessage(message);
         }
-        if(StringUtils.isNoBlank(username)){
+        if (StringUtils.isNoBlank(username)) {
             user.setName(username);
             message.setUser(user);
             page.setMessage(message);
         }
-        if(StringUtils.isNoBlank(groupid)){
+        if (StringUtils.isNoBlank(groupid)) {
             user.setGroup_id(Integer.valueOf(groupid));
             message.setUser(user);
             page.setMessage(message);
@@ -65,60 +67,63 @@ public class MessageAction {
 
     /**
      * 创建新的留言
+     *
      * @param req
      * @return
      */
     @ResponseBody
     @RequestMapping("/createMessage")
-    public Result createMessage(HttpServletRequest req){
+    public Result createMessage(HttpServletRequest req) {
         String label = req.getParameter("label");
         String detail = req.getParameter("detail");
-        Date date =new Date();
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date_create =simpleDateFormat.format(date);
-        String date_edit=date_create;
-        boolean i=messageService.insert(new Message.Builder().label(label).detail(detail).date_edit(date_edit).date_create(date_create).build());
-        if(i) {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date_create = simpleDateFormat.format(date);
+        String date_edit = date_create;
+        boolean i = messageService.insert(new Message.Builder().label(label).detail(detail).date_edit(date_edit).date_create(date_create).build());
+        if (i) {
             return new Result.Builder().successMsg("新建留言成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("新建留言失败").build();
         }
     }
 
     /**
      * 编辑留言
-     * @param label 修改后的标题
-     * @param detail 修改后的内容
+     *
+     * @param label     修改后的标题
+     * @param detail    修改后的内容
      * @param messageid 需要修改的留言id
      * @param user_id
      * @return
      */
     @ResponseBody
     @RequestMapping("/editMessage")
-    public Result editMessage(@RequestParam String label,@RequestParam String detail,@RequestParam String messageid,@RequestParam String user_id){
-        Date date =new Date();
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date_edit =simpleDateFormat.format(date);
+    public Result editMessage(@RequestParam String label, @RequestParam String detail, @RequestParam String messageid, @RequestParam String user_id) {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date_edit = simpleDateFormat.format(date);
         boolean i = messageService.update(new Message.Builder().id(Integer.valueOf(messageid)).label(label).detail(detail).date_edit(date_edit).user_id(Integer.valueOf(user_id)).build());
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("编辑留言成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("编辑留言失败").build();
         }
     }
 
     /**
      * 删除留言
+     *
      * @param messageid
      * @return
      */
     @ResponseBody
     @RequestMapping("/removeMessage")
-    public Result removeMessage(@RequestParam String messageid){
+    public Result removeMessage(@RequestParam String messageid) {
         boolean i = messageService.deleteById(Integer.valueOf(messageid));
-        if(i){
+        if (i) {
             return new Result.Builder().successMsg("删除留言成功").build();
-        }else{
+        } else {
             return new Result.Builder().errorMsg("删除留言失败").build();
         }
     }
@@ -126,29 +131,29 @@ public class MessageAction {
 
     @ResponseBody
     @RequestMapping("/asd")
-    public Page asd(){
+    public Page asd() {
         System.out.println("sdasd");
         return new Page.Builder().rows(null).total(0).build();
     }
 
     @ResponseBody
     @RequestMapping("queryGroupMessages")
-    public Page queryGroupMessage(HttpServletRequest req){
+    public Page queryGroupMessage(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        User nowuser = (User)session.getAttribute("user");
+        User nowuser = (User) session.getAttribute("user");
         Integer pageNumber = Integer.valueOf(req.getParameter("page"));
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String messageid = req.getParameter("messageid");
         String username = req.getParameter("username");
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
 
-        User user=new User();
-        Message message=new Message();
-        if(StringUtils.isNoBlank(messageid)){
+        User user = new User();
+        Message message = new Message();
+        if (StringUtils.isNoBlank(messageid)) {
             message.setId(Integer.valueOf(messageid));
             page.setMessage(message);
         }
-        if(StringUtils.isNoBlank(username)){
+        if (StringUtils.isNoBlank(username)) {
             user.setName(username);
             message.setUser(user);
             page.setMessage(message);
@@ -162,18 +167,18 @@ public class MessageAction {
 
     @ResponseBody
     @RequestMapping("queryPersonMessages")
-    public Page queryPersonMessages(HttpServletRequest req){
+    public Page queryPersonMessages(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        User nowuser = (User)session.getAttribute("user");
+        User nowuser = (User) session.getAttribute("user");
         Integer pageNumber = Integer.valueOf(req.getParameter("page"));
         Integer pageSize = Integer.valueOf(req.getParameter("rows"));
         String messageid = req.getParameter("messageid");
 
-        Page page=new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber-1)*pageSize).build();
+        Page page = new Page.Builder().pageNumber(pageNumber).pageSize(pageSize).startIndex((pageNumber - 1) * pageSize).build();
 
-        User user=new User();
-        Message message=new Message();
-        if(StringUtils.isNoBlank(messageid)){
+        User user = new User();
+        Message message = new Message();
+        if (StringUtils.isNoBlank(messageid)) {
             message.setId(Integer.valueOf(messageid));
             page.setMessage(message);
         }

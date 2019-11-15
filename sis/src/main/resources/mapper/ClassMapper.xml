@@ -37,7 +37,7 @@
     </select>
 
     <insert id="insert" parameterType="Class">
-         insert into class(name,monitor_id,number,instructor)
+        insert into class(name,monitor_id,number,instructor)
         values(#{name},#{monitor_id},#{number},#{instructor})
     </insert>
 

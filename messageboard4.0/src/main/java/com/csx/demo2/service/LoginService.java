@@ -46,23 +46,23 @@ public class LoginService {
 //            return new Result(false,null,null,null);
 //        }
 
-        List<User> check = userDao.select(new User(null,username,null,null,null,null));//根据用户名和密码查看该用户
+        List<User> check = userDao.select(new User(null, username, null, null, null, null));//根据用户名和密码查看该用户
 
-        if(check.size()==1){//有该用户
+        if (check.size() == 1) {//有该用户
             User user = check.get(0);//获取当前用户的基本信息
-            if(user.getPassword().equals(password)) {
+            if (user.getPassword().equals(password)) {
                 List<Message> messages = messageDao.selectByUserName(user);//查询当前用户的所有个人留言集合
                 int totalRecord = messages.size();//总留言数
                 PageBean pageBean = new PageBean(1, totalRecord);//根据留言集合封装 分页对象
                 pageBean.setMessagesType(1);//个人留言
                 List<Permission> permissions = permissionDao.select(user);//查看当前用户的权限集合
                 //return new Result(user, true, pageBean, messages, permissions);
-                return new VerifyResult(user,2,pageBean,messages,permissions,"成功");
-            }else{
-                return new VerifyResult(user,1,null,null,null,"失败");
+                return new VerifyResult(user, 2, pageBean, messages, permissions, "成功");
+            } else {
+                return new VerifyResult(user, 1, null, null, null, "失败");
             }
-        }else{//没有该用户
-            return new VerifyResult(null,0,null,null,null,"失败");
+        } else {//没有该用户
+            return new VerifyResult(null, 0, null, null, null, "失败");
         }
 
     }

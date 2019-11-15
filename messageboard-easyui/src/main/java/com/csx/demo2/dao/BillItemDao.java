@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 public interface BillItemDao {
     List<BillItem> selectBill(Integer userid);
+
     void insert(BillItem billItem);
+
     void deleteAllBillItem(Integer userid);
 }

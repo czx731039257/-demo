@@ -30,20 +30,20 @@
 </div>
 
 <div align="center">
-<form action="CreateMessageController" method="post">
-    标题：<input type="text" style="margin: 10px" name="label"><br/>
-    内容：<input type="text" style="margin: 10px" name="detail"><br/>
-    <table border="0">
-        <tr>
-            <td>
-                <input type="submit" style="margin: 10px" value="创建">
-            </td>
-            <td>
+    <form action="CreateMessageController" method="post">
+        标题：<input type="text" style="margin: 10px" name="label"><br/>
+        内容：<input type="text" style="margin: 10px" name="detail"><br/>
+        <table border="0">
+            <tr>
+                <td>
+                    <input type="submit" style="margin: 10px" value="创建">
+                </td>
+                <td>
 
-            </td>
-        </tr>
-    </table>
-</form>
+                </td>
+            </tr>
+        </table>
+    </form>
     <div align="center">
         <form action="message" method="post">
             <input type="submit" value="返回">

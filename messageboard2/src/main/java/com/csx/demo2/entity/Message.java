@@ -9,7 +9,8 @@ public class Message {
     public String date_create;
     public String date_edit;
     public int user_id;
-    public Message(){
+
+    public Message() {
 
     }
 
@@ -21,7 +22,8 @@ public class Message {
         this.date_edit = date_edit;
         this.user_id = user_id;
     }
-    public Message( String label, String detail, String date_create, String date_edit, int user_id) {
+
+    public Message(String label, String detail, String date_create, String date_edit, int user_id) {
         this.label = label;
         this.detail = detail;
         this.date_create = date_create;

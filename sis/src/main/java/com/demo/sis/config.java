@@ -21,9 +21,8 @@ import java.util.Map;
 public class config extends WebMvcConfigurerAdapter {
 
 
-
     @Bean
-    public WebMvcConfigurer webMvcConfigurer(){
+    public WebMvcConfigurer webMvcConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -80,6 +79,7 @@ public class config extends WebMvcConfigurerAdapter {
 
     /**
      * Shiro生命周期处理器
+     *
      * @return
      */
     @Bean
@@ -90,10 +90,11 @@ public class config extends WebMvcConfigurerAdapter {
     /**
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
      * 配置以下两个bean(DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能
+     *
      * @return
      */
     @Bean
-    @DependsOn({ "lifecycleBeanPostProcessor" })
+    @DependsOn({"lifecycleBeanPostProcessor"})
     public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
         advisorAutoProxyCreator.setProxyTargetClass(true);

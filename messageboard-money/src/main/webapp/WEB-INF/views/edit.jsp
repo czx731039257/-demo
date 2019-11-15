@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/background.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <style type="text/css">
-        input{
+        input {
             margin: 10px;
         }
     </style>
@@ -35,23 +35,23 @@
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>
 <div align="center">
-留言序号：${sessionScope.message.id}<br>
-<form action="editMessageSuccess" method="post">
-    <input type="hidden" name="messageid" value="${sessionScope.message.id}">
-    留言标签：<input type="text" name="label" value="${sessionScope.message.label}"><br>
-    留言内容：<input type="text" name="detail" value="${sessionScope.message.detail}"><br>
-    <table border="0">
-        <tr>
-            <td>
-                <input type="submit" value="完成">
-            </td>
-        </tr>
-    </table>
-</form>
-    <div align="center">
-    <form action="message" method="post">
-        <input type="submit" value="返回">
+    留言序号：${sessionScope.message.id}<br>
+    <form action="editMessageSuccess" method="post">
+        <input type="hidden" name="messageid" value="${sessionScope.message.id}">
+        留言标签：<input type="text" name="label" value="${sessionScope.message.label}"><br>
+        留言内容：<input type="text" name="detail" value="${sessionScope.message.detail}"><br>
+        <table border="0">
+            <tr>
+                <td>
+                    <input type="submit" value="完成">
+                </td>
+            </tr>
+        </table>
     </form>
+    <div align="center">
+        <form action="message" method="post">
+            <input type="submit" value="返回">
+        </form>
     </div>
 </div>
 </body>

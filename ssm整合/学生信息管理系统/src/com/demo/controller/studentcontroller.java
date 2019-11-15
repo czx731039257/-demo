@@ -24,77 +24,76 @@ import com.demo.entity.Student;
 import com.demo.service.StudentService;
 import com.demo.serviceimpl.StudentServiceImpl;
 
-@RequestMapping("student")  
+@RequestMapping("student")
 @Controller
 public class studentcontroller {
 
-	@Resource(name="studentService")
-	private StudentService studentservice;
-	
-	@RequestMapping("queryStudentBySno")
-	public String queryStudent(Student student,Model model){
-			List<Student> list = studentservice.queryStudent(student);
-			
-			model.addAttribute("student", list);
-		
-			/* ÏÂÃæÊÇÓÃÀ´ÔÚ¿ØÖÆÌ¨ÏÔÊ¾Êý¾ÝµÄ*/
-			Iterator<Student> it=list.iterator();
-			while(it.hasNext()){
-				Student str=it.next();
-			System.out.println("ÐÕÃû:"+str.getName()+" Ñ§ºÅ:"+str.getSno()+" ÐÔ±ð:"+str.getSex()+" ÄêÁä:"+str.getAge()+" ×¨Òµ:"+str.getMajor());
-			}
-			
-			return "success";
-	}
-	
-	
-	
-	@RequestMapping("deleteStudentBySno")
-	public String deleteStudentBySno(@RequestParam("sno") String sno,Model model){
-			studentservice.deleteStudentBySno(sno);
-			Student student=new Student();
-			student.setSno(sno);
-			List<Student> list = studentservice.queryStudent(student);
-			if(list.size()==0) {
-				model.addAttribute("deleteResult", "true");
-				return "success";
-			}else {
-			model.addAttribute("deleteResult", "true");
-			return "success";
-			}
-	}
-	
-	@RequestMapping("insertStudent")
-	public String insertStudent(Student student,Model model){
-			studentservice.insertStudent(student);
-			List<Student> list = studentservice.queryStudent(student);
-			Iterator<Student> it=list.iterator();
-			while(it.hasNext()) {
-				if(it.next().equals(student)) {
-					model.addAttribute("insertResult", "success");
-					list = studentservice.queryAllStudent();
-					model.addAttribute("student", list);
-					return "success";
-				}
-			}
-			model.addAttribute("insertResult", "false");
-			return "success";
-	}
-	
-	@RequestMapping("updatestudentBySno")
-	public String updatestudentBySno(Student student,Model model){
-			studentservice.updatestudentBySno(student);
-			List<Student> list = studentservice.queryStudent(student);
-			Iterator<Student> it=list.iterator();
-			while(it.hasNext()) {
-				if(it.next().equals(student)) {
-					model.addAttribute("updateResult", "success");
-					list = studentservice.queryAllStudent();
-					model.addAttribute("student", list);
-					return "success";
-				}
-			}
-			model.addAttribute("updateResult", "false");
-			return "success";
-	}
+    @Resource(name = "studentService")
+    private StudentService studentservice;
+
+    @RequestMapping("queryStudentBySno")
+    public String queryStudent(Student student, Model model) {
+        List<Student> list = studentservice.queryStudent(student);
+
+        model.addAttribute("student", list);
+
+        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ýµï¿½*/
+        Iterator<Student> it = list.iterator();
+        while (it.hasNext()) {
+            Student str = it.next();
+            System.out.println("ï¿½ï¿½ï¿½ï¿½:" + str.getName() + " Ñ§ï¿½ï¿½:" + str.getSno() + " ï¿½Ô±ï¿½:" + str.getSex() + " ï¿½ï¿½ï¿½ï¿½:" + str.getAge() + " ×¨Òµ:" + str.getMajor());
+        }
+
+        return "success";
+    }
+
+
+    @RequestMapping("deleteStudentBySno")
+    public String deleteStudentBySno(@RequestParam("sno") String sno, Model model) {
+        studentservice.deleteStudentBySno(sno);
+        Student student = new Student();
+        student.setSno(sno);
+        List<Student> list = studentservice.queryStudent(student);
+        if (list.size() == 0) {
+            model.addAttribute("deleteResult", "true");
+            return "success";
+        } else {
+            model.addAttribute("deleteResult", "true");
+            return "success";
+        }
+    }
+
+    @RequestMapping("insertStudent")
+    public String insertStudent(Student student, Model model) {
+        studentservice.insertStudent(student);
+        List<Student> list = studentservice.queryStudent(student);
+        Iterator<Student> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next().equals(student)) {
+                model.addAttribute("insertResult", "success");
+                list = studentservice.queryAllStudent();
+                model.addAttribute("student", list);
+                return "success";
+            }
+        }
+        model.addAttribute("insertResult", "false");
+        return "success";
+    }
+
+    @RequestMapping("updatestudentBySno")
+    public String updatestudentBySno(Student student, Model model) {
+        studentservice.updatestudentBySno(student);
+        List<Student> list = studentservice.queryStudent(student);
+        Iterator<Student> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next().equals(student)) {
+                model.addAttribute("updateResult", "success");
+                list = studentservice.queryAllStudent();
+                model.addAttribute("student", list);
+                return "success";
+            }
+        }
+        model.addAttribute("updateResult", "false");
+        return "success";
+    }
 }

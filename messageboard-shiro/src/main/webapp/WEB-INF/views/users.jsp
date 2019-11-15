@@ -25,27 +25,27 @@
         <th>编辑</th>
     </tr>
 
-        <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
-            <tr>
-                <td style="width: 10%"><c:out value="${m.id}"/></td>
-                <td style="width: 20%"><c:out value="${m.name}"/></td>
-                <td style="width: 20%"><c:out value="${m.email}"/></td>
-                <td style="width: 20%"><c:out value="${m.phone}"/></td>
-                <td style="width: 10%"><c:out value="${m.group_id}"/></td>
-                <td style="width: 10%"><c:out value="${m.count_message}"/></td>
-                <td>
-                    <div align="center" style=" opacity:0.7;">
-                        <form action="EditUserInfoController" method="post">
-                            <input type="hidden" name="userid" value="${m.id}">
-                            <c:if test="${(sessionScope.user.id == m.id and not empty sessionScope.canEditPersonInfo) or(sessionScope.user.id != m.id and sessionScope.user.group_id == m.group_id and not empty sessionScope.canEditGroupInfo) or (sessionScope.user.id != m.id and sessionScope.user.group_id != m.group_id and not empty sessionScope.canEditOtherGroupInfo)}">
+    <c:forEach items="${sessionScope.users}" begin="0" step="1" var="m">
+        <tr>
+            <td style="width: 10%"><c:out value="${m.id}"/></td>
+            <td style="width: 20%"><c:out value="${m.name}"/></td>
+            <td style="width: 20%"><c:out value="${m.email}"/></td>
+            <td style="width: 20%"><c:out value="${m.phone}"/></td>
+            <td style="width: 10%"><c:out value="${m.group_id}"/></td>
+            <td style="width: 10%"><c:out value="${m.count_message}"/></td>
+            <td>
+                <div align="center" style=" opacity:0.7;">
+                    <form action="EditUserInfoController" method="post">
+                        <input type="hidden" name="userid" value="${m.id}">
+                        <c:if test="${(sessionScope.user.id == m.id and not empty sessionScope.canEditPersonInfo) or(sessionScope.user.id != m.id and sessionScope.user.group_id == m.group_id and not empty sessionScope.canEditGroupInfo) or (sessionScope.user.id != m.id and sessionScope.user.group_id != m.group_id and not empty sessionScope.canEditOtherGroupInfo)}">
                             <input type="submit" value="编辑">
-                            </c:if>
-                        </form>
-                    </div>
-                </td>
+                        </c:if>
+                    </form>
+                </div>
+            </td>
 
-            </tr>
-        </c:forEach>
+        </tr>
+    </c:forEach>
 </table>
 <div align="center">
     <form style="margin: 10px" action="message">

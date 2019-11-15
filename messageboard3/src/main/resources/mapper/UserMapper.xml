@@ -27,7 +27,7 @@
         </where>
     </select>
     <select id="selectOtherGroup" resultType="com.csx.demo2.entity.User" parameterType="com.csx.demo2.entity.User">
-      select * from user where group_id != #{group_id}
+        select * from user where group_id != #{group_id}
     </select>
     <update id="update" parameterType="com.csx.demo2.entity.User">
         update user

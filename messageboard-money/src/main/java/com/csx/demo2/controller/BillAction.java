@@ -20,22 +20,22 @@ public class BillAction {
     private BillService billService;
 
     @RequestMapping("/queryBill")
-    public String queryBill(HttpServletRequest req, HttpServletResponse resp){
+    public String queryBill(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         Result result = billService.selectBill(user.getId());
-        session.setAttribute("bill",result.getBill());
-        session.setAttribute("pageBeanForBill",result.getPageBean());
-        return "redirect:"+"bill";
+        session.setAttribute("bill", result.getBill());
+        session.setAttribute("pageBeanForBill", result.getPageBean());
+        return "redirect:" + "bill";
     }
 
     @RequestMapping("/emptyBill")
-    public String emptyBill(HttpServletRequest req, HttpServletResponse resp){
+    public String emptyBill(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         billService.emptyBill(user.getId());
-        PageBean pageBean=new PageBean(1,0);
-        session.setAttribute("pageBeanForBill",pageBean);
-        return "redirect:"+"bill";
+        PageBean pageBean = new PageBean(1, 0);
+        session.setAttribute("pageBeanForBill", pageBean);
+        return "redirect:" + "bill";
     }
 }

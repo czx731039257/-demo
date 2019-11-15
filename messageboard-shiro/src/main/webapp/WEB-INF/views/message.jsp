@@ -164,7 +164,7 @@
                         <form action="DeleteMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
                             <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
-                            <input type="submit" value="删除">
+                                <input type="submit" value="删除">
                             </c:if>
                         </form>
                     </div>
@@ -175,7 +175,7 @@
                         <form action="IntoEditMessageController" method="post">
                             <input type="hidden" name="messageid" value="${m.id}">
                             <c:if test="${(sessionScope.user.id == m.user_id and not empty sessionScope.canEditPersonMessage) or(sessionScope.user.id != m.user_id and sessionScope.user.group_id == m.user.group_id and not empty sessionScope.canEditGroupMessage) or (sessionScope.user.id != m.user_id and sessionScope.user.group_id != m.user.group_id and not empty sessionScope.canEditOtherGroupMessage)}">
-                            <input type="submit" value="编辑">
+                                <input type="submit" value="编辑">
                             </c:if>
                         </form>
                     </div>

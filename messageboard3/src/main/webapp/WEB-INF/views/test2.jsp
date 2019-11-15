@@ -11,6 +11,6 @@
     <title>te</title>
 </head>
 <body>
-    登入失败
+登入失败
 </body>
 </html>

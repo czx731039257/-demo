@@ -41,7 +41,7 @@ public class User {
     }
 
 
-    public static  class Builder {
+    public static class Builder {
         private Integer id;
         private String name;
         private String password;

@@ -2,13 +2,13 @@
  * 做青菜的命令类
  */
 public class CookVegetable implements Command {
-	private Kitchen kitchen;
+    private Kitchen kitchen;
 
-	public CookVegetable() {
-		kitchen = new Kitchen();
-	}
+    public CookVegetable() {
+        kitchen = new Kitchen();
+    }
 
-	public Dish cooking() {
-		return kitchen.newVevetable();
-	}
+    public Dish cooking() {
+        return kitchen.newVevetable();
+    }
 }

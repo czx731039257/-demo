@@ -42,15 +42,16 @@ public class RoleAction {
         HttpSession session = req.getSession();
         List<Role> roles = roleService.selectAllRole();
         List<Permission> allpermissions = permissionService.selectAll();
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("allpermissions",allpermissions);
-        session.setAttribute("roles",roles);
-        return "redirect:"+"roles";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("allpermissions", allpermissions);
+        session.setAttribute("roles", roles);
+        return "redirect:" + "roles";
     }
 
 
     /**
      * 给用户分配角色
+     *
      * @param req
      * @return
      * @throws ServletException
@@ -61,14 +62,15 @@ public class RoleAction {
     public String intoEditUsersHasRoles(HttpServletRequest req) throws ServletException, IOException {
         HttpSession session = req.getSession();
         List<User> usersandrole = userRoleService.selectAllUserAndRole();//获取带有角色集合的用户对象 的集合
-        session.setAttribute("logmsg","成功");
-        session.setAttribute("usersandrole",usersandrole);
-        return "redirect:"+"allocation";
+        session.setAttribute("logmsg", "成功");
+        session.setAttribute("usersandrole", usersandrole);
+        return "redirect:" + "allocation";
     }
 
 
     /**
      * 保存给用户分配的角色
+     *
      * @param req
      * @return
      * @throws UnsupportedEncodingException
@@ -80,22 +82,22 @@ public class RoleAction {
         HttpSession session = req.getSession();
         String userid = req.getParameter("userid");
         String[] hasroles = req.getParameterValues("hasroles");
-        List<User> usersandrole = (List<User>)session.getAttribute("usersandrole");
-        Iterator<User> it=usersandrole.iterator();
-        List<Role> roles=null;
-        while(it.hasNext()){//定位需要更改的角色
-            User user=it.next();
-            if(user.getId()==Integer.valueOf(userid)){
+        List<User> usersandrole = (List<User>) session.getAttribute("usersandrole");
+        Iterator<User> it = usersandrole.iterator();
+        List<Role> roles = null;
+        while (it.hasNext()) {//定位需要更改的角色
+            User user = it.next();
+            if (user.getId() == Integer.valueOf(userid)) {
                 roles = user.getRoles();
             }
         }
-        userRoleService.changeUserRole(Integer.valueOf(userid),hasroles,roles);
+        userRoleService.changeUserRole(Integer.valueOf(userid), hasroles, roles);
 
         usersandrole = userRoleService.selectAllUserAndRole();//更新
         List<Permission> newuserpermissions = permissionService.selectByUser((User) session.getAttribute("user"));
-        session.setAttribute("usersandrole",usersandrole);
-        session.setAttribute("permissions",newuserpermissions);
-        session.setAttribute("logmsg","成功");
-        return "redirect:"+"allocation";
+        session.setAttribute("usersandrole", usersandrole);
+        session.setAttribute("permissions", newuserpermissions);
+        session.setAttribute("logmsg", "成功");
+        return "redirect:" + "allocation";
     }
 }

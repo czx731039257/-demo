@@ -21,13 +21,14 @@ public class MyRealm extends AuthorizingRealm {
 
     @Autowired
     private PermissionDao permissionDao;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
-       // String primaryPrincipal = (String)principalCollection.getPrimaryPrincipal();
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        // String primaryPrincipal = (String)principalCollection.getPrimaryPrincipal();
         //System.out.println("用户名："+primaryPrincipal);
         info.addStringPermission("select");
-        Set<String> set=new HashSet<>();
+        Set<String> set = new HashSet<>();
         set.add("role1");
         info.setRoles(set);
         return info;
@@ -37,14 +38,14 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
-        List<User> users = userDao.select(new User(null,username, null, null, null, null));
-        SimpleAuthenticationInfo info=null;
-        if(users.size()==0){
+        List<User> users = userDao.select(new User(null, username, null, null, null, null));
+        SimpleAuthenticationInfo info = null;
+        if (users.size() == 0) {
             throw new AuthenticationException();
-        }else{
+        } else {
             User user = users.get(0);
             String password = user.getPassword();
-            info =new SimpleAuthenticationInfo(username,password,this.getName());
+            info = new SimpleAuthenticationInfo(username, password, this.getName());
         }
         return info;
     }

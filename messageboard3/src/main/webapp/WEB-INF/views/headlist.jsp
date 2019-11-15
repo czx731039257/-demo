@@ -21,13 +21,13 @@
 </head>
 <body>
 <div align="center">
-<table class="table" border="1" cellpadding="0px" cellspacing="0px">
-    <tr>
-        <th>图片</th>
-        <th>操作</th>
-    </tr>
-    <form action="changeHead">
-        <c:forEach items="${sessionScope.user.headPortraits}" step="1" begin="0" var="m">
+    <table class="table" border="1" cellpadding="0px" cellspacing="0px">
+        <tr>
+            <th>图片</th>
+            <th>操作</th>
+        </tr>
+        <form action="changeHead">
+            <c:forEach items="${sessionScope.user.headPortraits}" step="1" begin="0" var="m">
 
             <tr>
                 <td><img id="images" alt="" src="${m.image_url}" width="100px" height="100px"></td>
@@ -41,8 +41,8 @@
                     </c:when>
                 </c:choose>
             </tr>
-        </c:forEach>
-</table>
+            </c:forEach>
+    </table>
     <input type="submit" value="确定">
     </form>
 

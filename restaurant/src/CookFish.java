@@ -3,14 +3,14 @@
  */
 public class CookFish implements Command {
 
-	private Kitchen kitchen;
+    private Kitchen kitchen;
 
-	public CookFish() {
-		kitchen = new Kitchen();
-	}
+    public CookFish() {
+        kitchen = new Kitchen();
+    }
 
-	public Dish cooking() {
-		return kitchen.newFish();
-	}
+    public Dish cooking() {
+        return kitchen.newFish();
+    }
 
 }

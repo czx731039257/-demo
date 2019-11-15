@@ -42,13 +42,13 @@ public class LoginService {
         //return new Result(user, true, pageBean, messages, permissions);
         List<HeadPortrait> headPortraits = headPortraitDao.selectByUserId(user.getId());//用户的头像仓库
         user.setHeadPortraits(headPortraits);
-        if(user.getHeadportrait_id()==0){
-            user.setCurrentHeadPortrait(new HeadPortrait(null,null,"userhead/18aece051dd6a1807abf05eab596fed5.jpg"));
-        }else{
+        if (user.getHeadportrait_id() == 0) {
+            user.setCurrentHeadPortrait(new HeadPortrait(null, null, "userhead/18aece051dd6a1807abf05eab596fed5.jpg"));
+        } else {
             List<HeadPortrait> select = headPortraitDao.select(new HeadPortrait(user.getHeadportrait_id(), null, null));
             HeadPortrait headPortrait = select.get(0);
             user.setCurrentHeadPortrait(headPortrait);
         }
-        return new Result(user, pageBean, messages, permissions,"成功",null);
+        return new Result(user, pageBean, messages, permissions, "成功", null);
     }
 }

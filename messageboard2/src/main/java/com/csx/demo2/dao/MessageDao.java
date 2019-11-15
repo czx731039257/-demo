@@ -8,8 +8,12 @@ import java.util.List;
 @Repository
 public interface MessageDao {
     List<Message> select(Message message);
+
     List<Message> selectByUserName(String name);
+
     void update(Message message);
+
     void insert(Message message);
+
     void deleteById(int id);
 }

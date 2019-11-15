@@ -39,7 +39,6 @@
 %>
 
 
-
 <div align="center" style="opacity: 0.7">
     <h1>欢迎:${sessionScope.user.name}</h1>
 </div>

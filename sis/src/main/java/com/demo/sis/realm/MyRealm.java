@@ -21,13 +21,13 @@ public class MyRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
         List<User> users = userDao.select(new User.Builder().username(username).build());
-        SimpleAuthenticationInfo info=null;
-        if(users.size()==0){
+        SimpleAuthenticationInfo info = null;
+        if (users.size() == 0) {
             throw new AuthenticationException();
-        }else{
+        } else {
             User user = users.get(0);
             String password = user.getPassword();
-            info =new SimpleAuthenticationInfo(username,password,this.getName());
+            info = new SimpleAuthenticationInfo(username, password, this.getName());
         }
         return info;
     }

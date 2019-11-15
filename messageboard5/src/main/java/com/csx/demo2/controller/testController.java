@@ -33,13 +33,13 @@ public class testController {
     @RequestMapping("/selectfilelist")
     public String selectfilelist(HttpServletRequest req) throws IOException {
         List<HeadPortrait> headPortraits = headPortraitService.selectByUserId(1);
-        Iterator<HeadPortrait> it=headPortraits.iterator();
-        while(it.hasNext()){
+        Iterator<HeadPortrait> it = headPortraits.iterator();
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
         HttpSession session = req.getSession();
-        session.setAttribute("headPortraits",headPortraits);
-        return "redirect:"+ "headlist";
+        session.setAttribute("headPortraits", headPortraits);
+        return "redirect:" + "headlist";
     }
 
 }

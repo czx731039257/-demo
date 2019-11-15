@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DeleteMessage {
-    public void delete(int messageid){
+    public void delete(int messageid) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/internship?serverTimezone=UTC";

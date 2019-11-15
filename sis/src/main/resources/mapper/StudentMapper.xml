@@ -52,7 +52,7 @@
     </select>
 
     <insert id="insert" parameterType="Student">
-         insert into student(name,sex,age,major,phone,class_id)
+        insert into student(name,sex,age,major,phone,class_id)
         values(#{name},#{sex},#{age},#{major},#{phone},#{class_id})
     </insert>
 

@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface UserDao {
-     List<User> select(User user);
-     List<User> findpage(Page page);
-     int update(User user);
+    List<User> select(User user);
+
+    List<User> findpage(Page page);
+
+    int update(User user);
 }

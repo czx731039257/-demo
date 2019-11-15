@@ -21,11 +21,11 @@ public class EditUser extends HttpServlet {
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
         int conut_message = ((User) session.getAttribute("user")).getCount_message();
-        User user=new User(Integer.valueOf(id),name,password,email,phone,conut_message);
-        UpdateUser updateUser=new UpdateUser();
+        User user = new User(Integer.valueOf(id), name, password, email, phone, conut_message);
+        UpdateUser updateUser = new UpdateUser();
         updateUser.update(user);
 
-        session.setAttribute("user",user);
+        session.setAttribute("user", user);
         resp.sendRedirect("usermessage.jsp");
     }
 }

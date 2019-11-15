@@ -15,37 +15,41 @@
             <result column="group_id" property="group_id"></result>
         </association>
     </resultMap>
-    <select id="select" parameterType="com.csx.demo2.entity.Message" resultType="com.csx.demo2.entity.Message" resultMap="messagemap">
+    <select id="select" parameterType="com.csx.demo2.entity.Message" resultType="com.csx.demo2.entity.Message"
+            resultMap="messagemap">
         select a.*,b.group_id from message a left join user b on a.user_id=b.id
         <where>
             <if test="id!=null">
-               and a.id=${id}
+                and a.id=${id}
             </if>
             <if test="label!=null">
-               and label=#{label}
+                and label=#{label}
             </if>
             <if test="detail!=null">
-               and detail=#{detail}
+                and detail=#{detail}
             </if>
             <if test="date_create!=null">
-               and date_create=#{date_create}
+                and date_create=#{date_create}
             </if>
             <if test="date_edit!=null">
-               and date_edit=#{date_edit}
+                and date_edit=#{date_edit}
             </if>
             <if test="user_id!=null">
-              and  user_id=#{user_id}
+                and user_id=#{user_id}
             </if>
         </where>
     </select>
-    <select id="selectGroup" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message" resultMap="messagemap">
+    <select id="selectGroup" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message"
+            resultMap="messagemap">
         select a.*,b.group_id from message a left join user b on a.user_id=b.id where b.group_id =#{group_id}
     </select>
-    <select id="selectOtherGroup" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message" resultMap="messagemap">
+    <select id="selectOtherGroup" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message"
+            resultMap="messagemap">
         select a.*,b.group_id from message a left join user b on a.user_id=b.id where b.group_id !=#{group_id}
     </select>
 
-    <select id="selectByUserName" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message" resultMap="messagemap">
+    <select id="selectByUserName" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message"
+            resultMap="messagemap">
         select a.*,b.group_id from message a left join user b on a.user_id=b.id
         where name=#{name}
     </select>
@@ -82,6 +86,6 @@
     <select id="test" parameterType="com.csx.demo2.entity.User" resultType="com.csx.demo2.entity.Message">
         select a.*,b.group_id from message a left join user b on a.user_id=b.id where b.group_id =#{group_id}
     </select>
-    
+
 
 </mapper>

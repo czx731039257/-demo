@@ -20,6 +20,7 @@
                 username: $('#username').val(),
             });
         }
+
         function emptyLogs() {
             var row = $('#dg').datagrid('getSelected');
             if (row) {

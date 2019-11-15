@@ -120,21 +120,21 @@
     <div region="north" border="false" class="p-search" style="height: 15%">
         <div class="easyui-layout" fit="true">
             <div region="north" border="false" class="p-search" style="height: 60% ">
-                <h1 style="font-size: 20px; font-weight: bolder; letter-spacing: 5px" align="center" >学生信息管理系统</h1>
+                <h1 style="font-size: 20px; font-weight: bolder; letter-spacing: 5px" align="center">学生信息管理系统</h1>
             </div>
             <div region="south" border="false" class="p-search" style="height: 40%">
                 <table style="width: 100%; height: min-content;" border="0">
                     <tr>
                         <td style="width: 6%"><a href="#" class="easyui-linkbutton"
-                                                  onclick="addTab('学生管理','students')">学生管理</a>
+                                                 onclick="addTab('学生管理','students')">学生管理</a>
                         </td>
                         <td style="width: 6%"><a href="#" class="easyui-linkbutton"
-                                                  onclick="addTab('课程管理','courses')">课程管理</a></td>
+                                                 onclick="addTab('课程管理','courses')">课程管理</a></td>
                         <td style="width: 6%"><a href="#" class="easyui-linkbutton"
-                                                  onclick="addTab('教师管理','teachers')">教师管理</a>
+                                                 onclick="addTab('教师管理','teachers')">教师管理</a>
                         </td>
                         <td style="width: 6%"><a href="#" class="easyui-linkbutton"
-                                                  onclick="addTab('班级管理','classes')">班级管理</a></td>
+                                                 onclick="addTab('班级管理','classes')">班级管理</a></td>
                         <td style="width: 72%"></td>
                         <td style="width: 4%"><a href="#" class="easyui-linkbutton" onclick="logout()">注销</a></td>
                     </tr>

@@ -1,9 +1,25 @@
 spring:
+  ## mysql
   datasource:
     url: jdbc:mysql://localhost:3306/internship2?serverTimezone=UTC
     username: root
-    password: czx6296456852
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+  ## redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:
+    timeout: 1200
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -15,6 +31,7 @@ spring:
       charset: UTF-8
       enabled: true
 
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 server:
@@ -22,3 +39,5 @@ server:
     context-path: /messageboard
   tomcat:
     uri-encoding: UTF-8
+  port: 8080
+

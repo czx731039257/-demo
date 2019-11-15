@@ -14,7 +14,7 @@ public class Messageboard2ApplicationTests {
 
 
     @Test
-    public void test(){
+    public void test() {
 //        int insert = messageDao.insert(new Message.Builder().label("ttttt").detail("iiiii").date_edit("2017-1-1 01:01:01").date_create("2017-1-1 01:01:01").user_id(1).build());
 //        System.out.println(insert);
     }

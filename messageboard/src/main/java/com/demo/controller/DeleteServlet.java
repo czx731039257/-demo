@@ -19,17 +19,17 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageid = req.getParameter("messageid");//获取要删除的留言id
         HttpSession session = req.getSession();
-        DeleteMessage deleteMessage=new DeleteMessage();
-        SelectMessage selectMessage=new SelectMessage();
+        DeleteMessage deleteMessage = new DeleteMessage();
+        SelectMessage selectMessage = new SelectMessage();
 
         deleteMessage.delete(Integer.valueOf(messageid).intValue());//执行删除操作
         List<Message> messages = selectMessage.selectAll();//查找所有留言
-        session.setAttribute("messageSet",messages);
-        PageBean pageBean1 = (PageBean)session.getAttribute("pageBean");
-        int totalRecord=messages.size();
+        session.setAttribute("messageSet", messages);
+        PageBean pageBean1 = (PageBean) session.getAttribute("pageBean");
+        int totalRecord = messages.size();
         System.out.println(totalRecord);
-        PageBean pageBean=new PageBean(pageBean1.getPageNumber(),4,totalRecord);
-        session.setAttribute("pageBean",pageBean);
+        PageBean pageBean = new PageBean(pageBean1.getPageNumber(), 4, totalRecord);
+        session.setAttribute("pageBean", pageBean);
 
         //req.getRequestDispatcher("message.jsp").forward(req,resp);
         resp.sendRedirect("message.jsp");

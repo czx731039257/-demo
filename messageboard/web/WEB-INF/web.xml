@@ -20,9 +20,6 @@
     </filter-mapping>
 
 
-
-
-
     <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>com.demo.controller.LoginServlet</servlet-class>

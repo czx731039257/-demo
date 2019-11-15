@@ -14,46 +14,46 @@ import com.demo.entity.Student;
 import com.demo.service.StudentService;
 
 @Service("studentService")
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
 
-	@Resource(name="studentDao")
-	private StudentDao studentdao; 
-	
-	@Override
-	public List<Student> queryStudent(Student student) {
-		// TODO Auto-generated method stub
-		List<Student> list = studentdao.queryStudent(student);
-		
-		return list;
-	}
+    @Resource(name = "studentDao")
+    private StudentDao studentdao;
+
+    @Override
+    public List<Student> queryStudent(Student student) {
+        // TODO Auto-generated method stub
+        List<Student> list = studentdao.queryStudent(student);
+
+        return list;
+    }
 
 
-	@Override
-	public void deleteStudentBySno(String sno) {
-		// TODO Auto-generated method stub
-		studentdao.deleteStudentBySno(sno);
-	}
+    @Override
+    public void deleteStudentBySno(String sno) {
+        // TODO Auto-generated method stub
+        studentdao.deleteStudentBySno(sno);
+    }
 
-	@Override
-	public void insertStudent(Student student) {
-		// TODO Auto-generated method stub
-		studentdao.insertStudent(student);
-	}
+    @Override
+    public void insertStudent(Student student) {
+        // TODO Auto-generated method stub
+        studentdao.insertStudent(student);
+    }
 
-	@Override
-	public void updatestudentBySno(Student student) {
-		// TODO Auto-generated method stub
-		studentdao.updatestudentBySno(student);
-	}
+    @Override
+    public void updatestudentBySno(Student student) {
+        // TODO Auto-generated method stub
+        studentdao.updatestudentBySno(student);
+    }
 
 
-	@Override
-	public List<Student> queryAllStudent() {
-		// TODO Auto-generated method stub
-		List<Student> list = studentdao.queryAllStudent();
-		return list;
-	}
-	
-	
+    @Override
+    public List<Student> queryAllStudent() {
+        // TODO Auto-generated method stub
+        List<Student> list = studentdao.queryAllStudent();
+        return list;
+    }
+
+
 }

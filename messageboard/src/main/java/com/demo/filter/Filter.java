@@ -12,12 +12,12 @@ public class Filter implements javax.servlet.Filter {
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("拦截请求。。。。。。。。。");
-        HttpServletRequest request=(HttpServletRequest)servletRequest;
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpSession session = request.getSession();//获取session域
-        if(session.getAttribute("user")==null){//还未登入
-            request.getRequestDispatcher("login.jsp").forward(servletRequest,servletResponse);//跳转回登入页
-        }else {//已经登入过了
-            filterChain.doFilter(servletRequest,servletResponse);
+        if (session.getAttribute("user") == null) {//还未登入
+            request.getRequestDispatcher("login.jsp").forward(servletRequest, servletResponse);//跳转回登入页
+        } else {//已经登入过了
+            filterChain.doFilter(servletRequest, servletResponse);
         }
     }
 

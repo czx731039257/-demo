@@ -16,7 +16,7 @@ public class CourseService {
     @Autowired
     private CourseDao courseDao;
 
-    public Page findpage(Page page){
+    public Page findpage(Page page) {
         List<Course> courses = courseDao.findpage(page);
         int total = courseDao.select(page.getCourse()).size();
         page.setRows(courses);
@@ -24,29 +24,29 @@ public class CourseService {
         return page;
     }
 
-    public boolean insert(Course course){
+    public boolean insert(Course course) {
         int i = courseDao.insert(course);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean update(Course course){
+    public boolean update(Course course) {
         int i = courseDao.update(course);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean deleteById(Integer id){
+    public boolean deleteById(Integer id) {
         int i = courseDao.deleteById(id);
-        if(i!=0){
+        if (i != 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

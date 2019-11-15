@@ -17,10 +17,11 @@ public class LogService {
 
     /**
      * 分页查询日志
+     *
      * @param page
      * @return
      */
-    public Page findpage(Page page){
+    public Page findpage(Page page) {
         List<Log> logs = logDao.findpage(page);
         int total = logDao.select(page.getLog()).size();
         page.setRows(logs);
@@ -30,14 +31,15 @@ public class LogService {
 
     /**
      * 清空日志
+     *
      * @return 返回true表示清空成功；返回false表示清空失败
      */
-    public boolean emptyLogs(){
+    public boolean emptyLogs() {
         int i = logDao.deleteAll();
         List<Log> logs = logDao.select(new Log.Builder().build());
-        if(logs.size()==0){
+        if (logs.size() == 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

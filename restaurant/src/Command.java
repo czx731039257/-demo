@@ -1,5 +1,5 @@
 
 public interface Command {
 
-	public Dish cooking();
+    public Dish cooking();
 }

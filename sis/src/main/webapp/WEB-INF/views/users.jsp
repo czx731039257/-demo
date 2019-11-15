@@ -47,6 +47,7 @@
                 }
             });
         }
+
         function doSearch() {
             $('#dg').datagrid('load', {
                 username: $('#username').val(),

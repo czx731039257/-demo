@@ -13,9 +13,9 @@ public class LastPage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        PageBean pageBean = (PageBean)session.getAttribute("pageBean");
+        PageBean pageBean = (PageBean) session.getAttribute("pageBean");
         pageBean.minusPageNumber();
-        session.setAttribute("pageBean",pageBean);
+        session.setAttribute("pageBean", pageBean);
         //req.getRequestDispatcher("message.jsp").forward(req,resp);
         resp.sendRedirect("message.jsp");
     }

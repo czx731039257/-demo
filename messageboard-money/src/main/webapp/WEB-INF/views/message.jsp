@@ -19,13 +19,13 @@
         $(document).ready(function () {
             $(".reward").click(function () {
 
-                while(true) {
+                while (true) {
                     var str = prompt("请输入打赏的金额（数值类型）:", "1");
 
-                    if(str==null){//用户没有点击了取消
+                    if (str == null) {//用户没有点击了取消
                         break;
-                    } else if(!isNaN(str)&&str!=0&&str!=""&&str>=0) {
-                        if(parseInt(str)<=parseInt($("#balance").attr("value"))) {
+                    } else if (!isNaN(str) && str != 0 && str != "" && str >= 0) {
+                        if (parseInt(str) <= parseInt($("#balance").attr("value"))) {
                             $.ajax({
                                 type: "GET",
                                 url: "reward",
@@ -34,18 +34,18 @@
                                 dataType: "json",
                                 success: function (message) {
                                     alert(message["rewardresult"]);
-                                    $("#balance").attr("value",message["balance"]);
+                                    $("#balance").attr("value", message["balance"]);
                                 },
                                 error: function (message) {
-                                    alert("提交失败"+JSON.stringify(message));
+                                    alert("提交失败" + JSON.stringify(message));
                                 }
                             })
                             break;
-                        }else{
+                        } else {
                             alert("充值失败！\n" +
-                                "余额不足，当前用户的余额为："+parseInt($("#balance").attr("value")));
+                                "余额不足，当前用户的余额为：" + parseInt($("#balance").attr("value")));
                         }
-                    }else{
+                    } else {
                         alert("充值失败！\n" +
                             "输入金额格式错误，请输入非零非空的数值！");
                     }
@@ -241,8 +241,8 @@
                 <td>
                     <c:if test="${sessionScope.user.id !=m.user_id}">
                         <%--<form action="reward">--%>
-                            <%--<input type="hidden" name="messagehostid" value="${m.user_id}">--%>
-                            <%--<input type="submit" value="打赏">--%>
+                        <%--<input type="hidden" name="messagehostid" value="${m.user_id}">--%>
+                        <%--<input type="submit" value="打赏">--%>
                         <%--</form>--%>
                         <input class="reward" type="button" value="打赏">
                     </c:if>
